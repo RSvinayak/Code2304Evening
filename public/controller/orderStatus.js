@@ -5,7 +5,15 @@ function($scope,$http,$window,$rootScope,ControllerService){
 	 $scope.results=[];
 
 $scope.usernamedetails = window.sessionStorage.getItem("username")
+<<<<<<< HEAD
 	 $http.get("/orderName").success(function(response){
+=======
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          }; 
+   $http.get("/orderName").success(function(response){
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   console.log(response);
   $scope.ordertype=response;
   console.log($scope.ordertype)

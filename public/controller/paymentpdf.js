@@ -1,6 +1,14 @@
 var myApp=angular.module('myApp',[]);
 myApp.controller('billpdfCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
+<<<<<<< HEAD
+=======
+    $scope.usernamedetails = window.sessionStorage.getItem("username")
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
     $scope.pname=window.sessionStorage.getItem("pname");
  $scope.billtype=window.sessionStorage.getItem("Billtype");
  // $scope.voucherId=window.sessionStorage.getItem("voucher");
@@ -10,7 +18,10 @@ myApp.controller('billpdfCntrl',['$scope','$http','$window',
  // alert("data111111111111111"+$scope.datarp);
  // $scope.dates=window.sessionStorage.getItem("date");
  $scope.dates=new Date();
+<<<<<<< HEAD
  $scope.usernamedetails = window.sessionStorage.getItem("username")
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
  
  // alert("date"+$scope.dates);
  $scope.billnum=window.sessionStorage.getItem("billnumber");

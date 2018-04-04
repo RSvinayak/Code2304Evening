@@ -2,10 +2,20 @@
 var myApp=angular.module('myApp',[]); 
 myApp.controller('orderCntrl',['$scope','$http','$window','$rootScope',"ControllerService",'$location',
 function($scope,$http,$window,$rootScope,ControllerService,$location){
+<<<<<<< HEAD
 
 $scope.date=new Date()
 $scope.ordersReceipt=0;
 $scope.ordersReceipt1=0;
+=======
+$scope.usernamedetails = window.sessionStorage.getItem("username")
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+$scope.date=new Date()
+
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
 $http.get('/Orderprefixs').success(function(response){
   console.log(response);
@@ -134,7 +144,10 @@ $scope.radiowithinstate = "withinstate";
    $scope.radio = {
         state:'with in state'  
       };
+<<<<<<< HEAD
   $scope.usernamedetails = window.sessionStorage.getItem("username")
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
    $scope.userit.push({ 
 
          
@@ -381,17 +394,28 @@ return;
        console.log($scope.use[tag])
        console.log($scope.party)
       if (ff=="Received"){
+<<<<<<< HEAD
+=======
+         alert($scope.use[tag].allocate)
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 //console.log($scope.use)
     var r = confirm("Land To Receipt Voucher?")
             if (r==true) {
 console.log($scope.use)
            $scope.transaction="Receipt Voucher"     
   $window.location="Transaction.html"
+<<<<<<< HEAD
   $scope.ordersReceipt1=1;
   window.sessionStorage.setItem("oreceipt2",$scope.ordersReceipt1);
   window.sessionStorage.setItem("goToReceipt",$scope.transaction)
   console.log($scope.party)
     window.sessionStorage.setItem("getPatyName",$scope.use[tag].partyNames)
+=======
+  window.sessionStorage.setItem("goToReceipt",$scope.transaction)
+  console.log($scope.party)
+
+    window.sessionStorage.setItem("getPatyName",$scope.use[tag].allocate)
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 window.sessionStorage.setItem("orderPatyName",$scope.use[tag].orderNO)
      var receiptPartyId =$scope.use[tag]._id+","+$scope.use[tag].allocate;
   
@@ -1837,11 +1861,15 @@ return;
             var f = confirm("Material Advance")
             if (f==true) {
 
+<<<<<<< HEAD
                    $scope.transaction="Receipt Voucher"  
               //added by vinayak-4/4
                    $scope.ordersReceipt=1;
             window.sessionStorage.setItem("oreceipt",$scope.ordersReceipt);
 
+=======
+                   $scope.transaction="Receipt Voucher"       
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                 $scope.mylink = "Transaction.html";
 
                 window.sessionStorage.setItem("orderGetReceipt",$scope.transaction)

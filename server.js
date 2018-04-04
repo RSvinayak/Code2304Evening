@@ -23,6 +23,18 @@ var Decimal128 = require('mongodb').Decimal128;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
+=======
+
+
+// if (signUpSuccessful(request, response)) {
+//     response.statusCode = 302; 
+//     response.setHeader("Location", "/login");
+//     response.end();
+// }
+
+//app.setHeader("Location", "/loginPage.html");
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 app.get('/valpct',function(req,res){
      
    // db.user.find(function(err,doc){
@@ -31,6 +43,7 @@ app.get('/valpct',function(req,res){
     })
 })
 
+<<<<<<< HEAD
 //for getting staff names
 app.get('/getstaffnames',function(req,res){
   console.log("hey u r trying to getting the staff names");
@@ -41,6 +54,8 @@ app.get('/getstaffnames',function(req,res){
 });
 //end of staff
 
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 app.get('/stonecalc',function(req,res){
   console.log("sssssssssssssssssssssssssssssssssssss");
   db.labcal.find({},function(err,doc){
@@ -209,6 +224,7 @@ app.get('/jjpurityget:pname',function(req,res)
 })
  })
 
+<<<<<<< HEAD
 //for inserting Receipt voucher data to saleinvoice
 app.post("/receiptVoucherSale:datareceipt",function(req,res){
   var datastr=req.params.datareceipt;
@@ -233,6 +249,8 @@ app.post("/receiptVoucherSale:datareceipt",function(req,res){
 
 
 
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 app.get('/ddpctOrder',function(req,res){
      
    // db.user.find(function(err,doc){
@@ -1861,6 +1879,7 @@ app.get('/appouts:data',function(req,res){
     console.log(doc+"Approval Outs");
   });
 });
+<<<<<<< HEAD
 
 //added on 31/3 vinayak for getting out's based on staff
 app.get('/staffouts:data',function(req,res){
@@ -1879,6 +1898,8 @@ app.get('/staffouts:data',function(req,res){
 
 
 
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 //previous
 // app.post('/userdata/:updat',function(req,res){
 //     //console.log("igot order requestttttttttttttttttttttt");
@@ -1954,7 +1975,11 @@ app.post('/savedata1/:update',function(req,res){
                                
                  
  var str=req.params.update;
+<<<<<<< HEAD
     console.log(str+"vvv33333333333333333");
+=======
+    console.log(str);
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
    // console.log(req.body.date3)
     //var str=req.params.updat;
    // console.log(str);
@@ -2049,9 +2074,13 @@ app.post('/savedata1/:update',function(req,res){
 
                 var orderNO = str_array[47]
                 var refOrder= str_array[48]
+<<<<<<< HEAD
                    var remainingNtWt= str_array[49]
                   var staff=str_array[50]
                   console.log(staff+"staff staff staff StaffNamestaff")
+=======
+                  var remainingNtWt= str_array[49]
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
           //  mrp = parseFloat(mrp)
         
  // if(  orderNO == "undefined"){
@@ -2129,7 +2158,11 @@ app.post('/savedata1/:update',function(req,res){
                 "stonecal":stonecal,"RefId":refid,'salesPerson':salesPerson,'AccNo':AccNo,'labourTaxValue':labourTaxValue,'labamt':labamt,"urdAdjustment":urdAdjustment,'stchg':stchg,'comboItem':comboItem,'mrp':mrp,"billType":billType,"taxSelection":taxSelection,"stockPoint":stockPoint,
 // =======
                 // "billType":billType,"taxSelection":taxSelection,,"orderNo":orderNo"stockPoint":stockPoint,"stonecal":stonecal,"RefId":refid,'salesPerson':salesPerson,'AccNo':AccNo,'labourTaxValue':labourTaxValue,'labamt':labamt,"urdAdjustment":urdAdjustment,'stchg':stchg,'comboItem':comboItem,'mrp':mrp,},function(err,doc){
+<<<<<<< HEAD
                 "InvGroupName":InvGroupName,"orderNo":orderNO,"remainingNtWt":remainingNtWt,"refOrder":refOrder,"SaleCategory":SaleCategory,"StaffName":staff},function(err,doc){
+=======
+                "InvGroupName":InvGroupName,"orderNo":orderNO,"remainingNtWt":remainingNtWt,"refOrder":refOrder,"SaleCategory":SaleCategory},function(err,doc){
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 // >>>>>>> fee1f0c78ec863e1379d888ee1ecfcda651c8fe5
                 res.json(doc);
                  console.log("else insert when id is null look here")
@@ -2580,6 +2613,120 @@ app.get('/getSalesPerson',function(req,res)
         res.json(doc);
 })
 })
+<<<<<<< HEAD
+=======
+app.get('/editStaffDetails',function(req,res){  
+
+  db.staff.find({"_id":mongojs.ObjectId(req.query._id)},function(err,doc){
+      res.json(doc);
+  })
+})
+app.get('/adminStaffDetails',function(req,res){  
+
+db.staff.count({"desgination" : "Admin"},function(err,doc){
+    console.log(doc);
+    res.json(doc);
+  });
+ 
+})
+
+app.post('/insertStaffDetails',function(req,res){
+
+
+   db.staff.insert(req.body,function(err,doc){
+       res.json(doc);
+   })
+})
+app.post('/updateStaffDetails',function(req,res){
+
+   db.staff.update({_id:mongojs.ObjectId(req.body._id)},{$set:{name:req.body.name,password:req.body.password,desgination:req.body.desgination}},function(err,doc){
+       res.json(doc);
+   })
+})
+
+app.delete('/deleteStaffDetails',function(req,res){
+   console.log(req.query._id)
+    db.staff.remove({_id: mongojs.ObjectId(req.query._id)}, function(err, docs) {
+        res.json(docs);
+    })
+})
+
+//start saleCategory cntrl
+app.get('/getSaleCategoryCount',function(req,res){  
+
+    db.salesCategoryMaster.find({},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    });
+ 
+})
+
+app.get('/editSaleDetails',function(req,res){  
+
+  db.salesCategoryMaster.find({"_id":mongojs.ObjectId(req.query._id)},function(err,doc){
+      res.json(doc);
+  })
+})
+app.post('/insertSaleDetails',function(req,res){
+
+
+   db.salesCategoryMaster.insert(req.body,function(err,doc){
+       res.json(doc);
+   })
+})
+app.post('/updateSaleDetails',function(req,res){
+
+   db.salesCategoryMaster.update({_id:mongojs.ObjectId(req.body._id)},{$set:{SaleCategoryNo:req.body.SaleCategoryNo,SaleCategoryType:req.body.SaleCategoryType,SortedOrderNo:req.body.SortedOrderNo,PrnFileName:req.body.PrnFileName}},function(err,doc){
+       res.json(doc);
+   })
+})
+
+app.delete('/deleteSaleDetails',function(req,res){
+   console.log(req.query._id)
+    db.salesCategoryMaster.remove({_id: mongojs.ObjectId(req.query._id)}, function(err, docs) {
+        res.json(docs);
+    })
+})
+//end saleCategory cntrl
+//start InventoryGroup cntrl
+app.get('/getInventoryGroupCount',function(req,res){  
+
+    db.inventoryGroupMaster.find({},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    });
+ 
+})
+
+app.get('/editinventoryGroupDetails',function(req,res){  
+
+  db.inventoryGroupMaster.find({"_id":mongojs.ObjectId(req.query._id)},function(err,doc){
+      res.json(doc);
+  })
+})
+app.post('/insertinventoryGroupDetails',function(req,res){
+
+
+   db.inventoryGroupMaster.insert(req.body,function(err,doc){
+       res.json(doc);
+   })
+})
+app.post('/updateinventoryGroupDetails',function(req,res){
+
+   db.inventoryGroupMaster.update({_id:mongojs.ObjectId(req.body._id)},{$set:{InventoryGroupNo:req.body.InventoryGroupNo,InventoryGroupType:req.body.InventoryGroupType,SortedOrderNo:req.body.SortedOrderNo,PrnFileName:req.body.PrnFileName}},function(err,doc){
+       res.json(doc);
+   })
+})
+
+app.delete('/deleteinventoryGroupDetails',function(req,res){
+   console.log(req.query._id)
+    db.inventoryGroupMaster.remove({_id: mongojs.ObjectId(req.query._id)}, function(err, docs) {
+        res.json(docs);
+    })
+})
+//end InventoryGroup cntrl
+
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 // Transaction urd
 app.post('/Transaction',function(req,res)
 { 
@@ -4786,8 +4933,12 @@ var dis = str_array[9];
 
       console.log(" discount "+discount+" cardCharges "+cardCharges+" charges "+charges)
       var netValue = parseFloat(netamt).toFixed(rupeesDecimalPoints);
+<<<<<<< HEAD
       var Staffname= str_array[18];
       console.log(Staffname+" staffname");
+=======
+
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       //console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
       if(transaction == "Regular Sale"){
           db.saleInvoice.update({_id:mongojs.ObjectId(id)},{$set:{"partyname":partyname,"taxableval":taxableval,"tax":tax,"subtol":subtol,"adj":adj,
@@ -4802,7 +4953,11 @@ var dis = str_array[9];
 
             "labourtax":labourtax,"Transaction":transaction,"labourValue":labourValue,"dis":dis,"char":char,"netamt":netamt,"roundOffValue":decimals,"invoiceValue":invoiceValue,
 
+<<<<<<< HEAD
             "netAmount":Decimal128.fromString(netValue),"discount":discount,"cardCharges" :cardCharges,"charges":charges,"StaffName":Staffname}},function(err,doc){
+=======
+            "netAmount":Decimal128.fromString(netValue),"discount":discount,"cardCharges" :cardCharges,"charges":charges}},function(err,doc){
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
               res.json(doc);
 
               console.log(doc);
@@ -6497,6 +6652,7 @@ app.put('/updateedit', function (req, res) {
     });
   });
   
+<<<<<<< HEAD
   app.get('/purchasess',  function (req, res) {
    
     
@@ -6507,6 +6663,28 @@ console.log("jjjjjjj")
 })
 
   });
+=======
+app.get('/purchasess',  function (req, res) {
+   
+    
+  console.log("jjjjjjj")
+    db.ledgeraccounts.find({accountName: { $exists: true },"grpId" : "MG2"},function(err,doc){
+   
+        res.json(doc);
+     })
+
+});
+app.get('/sales',  function (req, res) {
+   
+    
+  console.log("jjjjjjj")
+    db.ledgeraccounts.find({accountName: { $exists: true },"grpId" : "MG6"},function(err,doc){
+   
+        res.json(doc);
+     })
+
+});
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
   //  app.get('/sales',  function (req, res) {
    
@@ -6967,6 +7145,7 @@ app.get('/stockVerifyPreview',function(req,res){
   var inwardBalance = null;
   var  report2 = [];
   var setData = new Set(); 
+<<<<<<< HEAD
    var newArray =[];
 
 
@@ -7067,12 +7246,190 @@ app.get('/stockVerifyPreview',function(req,res){
        // res.json(doc1);
     })//doc
   })//doc1
+=======
+   var set2 = new Set();
+   var newArray =[];
+console.log(samedateStart +"   "+samedateEnd)
+
+  function openingBalanceCall() {
+      console.log("openingBalanceCall(1)");
+     return new Promise(function (resolve,reject) { 
+      db.transactionDetail.aggregate([
+            {$match:
+              {date: { $gt:(fromdate), $lt: (reportdate)},stockInward:{  $ne: null },$and: [ { barcode: { $ne: "undefined" } }, { barcode: { $exists: true } } ] }
+            },    
+            {  $group:
+           
+             {_id: { SaleCategory:"$SaleCategory", stockInward:"$stockInward"},incount: { $sum: 1 },ingwt:{$sum:"$gwt"},ingpcs:{$sum:"$gpcs"}  }
+            },
+            
+             {
+              $project:{  SaleCategory: 1,stockInward: 1, incount: 1, ingwt:1,  ingpcs:1, cmpToYes: {  $cmp: [ "yes","$_id.stockInward" ] },    }
+                
+           },
+           {$match:
+                {cmpToYes:0}
+           },
+            ],function(err,doc1){         
+      
+           console.log(doc1);   
+         db.transactionDetail.aggregate([
+            {$match:
+                //db.inventory.find( { $and: [ { barcode: { $ne: undefined } }, { barcode: { $exists: true } } ] } )
+                {date: { $gt:(fromdate), $lt: (reportdate) },stockInward:{  $ne: null },$and: [ { barcode: { $ne: "undefined" } }, { barcode: { $exists: true } } ] }
+            },    
+                {  $group:
+               
+                 {_id: { SaleCategory:"$SaleCategory", stockInward:"$stockInward"},incount: { $sum: 1 },ingwt:{$sum:"$gwt"},ingpcs:{$sum:"$gpcs"}  }
+                },
+                 {
+                  $project:{SaleCategory: 1,stockInward: 1, incount: 1,  ingwt:1, ingpcs:1, cmpToNo: { $cmp: [ "no","$_id.stockInward" ] },}
+                 },
+                {$match:{cmpToNo:0}
+                 },
+               //     {
+               //      $project:{  SaleCategory: 1,stockInward: 1, incount: 1, ingwt:1,  ingpcs:1, cmpToYes: {  $cmp: [ "yes","$_id.stockInward" ] },    }
+                    
+               // },
+               // {$match:
+               //            {cmpToYes:0}
+               // },
+       
+    ],function(err,doc){
+         // console.log("doc");
+         // console.log(doc);
+          
+           function compareStockInwardYes(m) {
+             console.log(" compareStockInwardYes(m) "+doc1.length+"  compareStockInwardNoLength "+doc.length)
+             compareStockInwardYesLength =  doc1.length;
+             compareStockInwardNoLength =  doc.length;
+             if(m == 0 && compareStockInwardYesLength == 0 && compareStockInwardNoLength ==0 ){
+               console.log(m+" m "+"  compareStockInwardYesLength "+compareStockInwardYesLength+" compareStockInwardNoLength "+compareStockInwardNoLength)
+           
+              //res.json()
+              resolve(newArray)
+            }
+
+
+            if (m< compareStockInwardYesLength) {
+                // console.log(doc1[m]._id.SaleCategory +" m "+m);
+              //console.log("  compareStockInwardYesLength "+m)
+              function compareStockInwardNo(n) {
+                console.log(" compareStockInwardNo(n) ")
+                if (n< compareStockInwardNoLength) {
+                         console.log(doc1[m]._id.SaleCategory +" n "+n);
+                         if (doc[n]._id.SaleCategory == doc1[m]._id.SaleCategory) {
+                           //console.log(doc[n]._id.SaleCategory +" n "+n+" m "+m+ " doc1[m]._id.SaleCategory "+doc1[m]._id.SaleCategory);
+                             set2.add(doc1[m]._id.SaleCategory);
+                         
+                            
+                             var obj = {"_id":{SaleCategory:doc1[m]._id.SaleCategory},opcount:doc1[m].incount - doc[n].incount ,
+                             opgwt:doc1[m].ingwt - doc[n].ingwt ,opgpcs:doc1[m]. ingpcs - doc[n]. ingpcs , };
+                         
+                              newArray.push(obj);
+                              console.log(doc[n]._id.SaleCategory +" doc[n]._id.SaleCategory == doc1[m]._id.SaleCategory "+n);
+                              console.log(newArray)
+                              console.log(" m 123 "+m+" n "+n); 
+
+                         }//else{//if (doc[n]._id.SaleCategory == doc1[m]._id.SaleCategory) {
+                              //  set2.add(doc1[m]._id.SaleCategory);
+                              //}
+
+                         compareStockInwardNo(n+1)
+                }else{//n< compareStockInwardNoLength
+                
+                     // console.log(" m "+m+" n "+n);
+                
+                     
+                     
+                    if (m == compareStockInwardYesLength-1 ) {
+                         console.log(" m   vijay    "+m);
+                           // if(newArray.length == 0){
+                           //               res.json(newArray)
+                           // }
+                           // resolve(newArray)
+                           // openingBalance = newArray;
+                           //  console.log(" m "+m+ " openingBalance "+ openingBalance.length);
+
+                          compareStockInwardYesNoMatches(0);
+
+                         //end 30/3
+                     
+                    }//m == compareStockInwardYesLength-1
+                    compareStockInwardYes(m+1);   
+                  }//else
+              }//compareStockInwardNo
+              compareStockInwardNo(0);
+            }//  if (m< compareStockInwardYesLength) {
+              
+           }//compareStockInwardYes()
+         compareStockInwardYes(0)
+         // res.json(doc1);
+     
+
+//write here 30/3
+                         function compareStockInwardYesNoMatches(d) {
+
+                                console.log(" m vikk == compareStockInwardYesLength-1 d "+d+" compareStockInwardYesLength "+compareStockInwardYesLength);
+                               if (d< compareStockInwardYesLength) {
+                                  console.log(set2)
+                                    if (set2.has(doc1[d]._id.SaleCategory) == false) {
+                                             console.log(" set2.has(doc1[d]._id.SaleCategory) == false m == compareStockInwardYesLength-1 m == compareStockInwardYesLength-1");
+                                        //console.log(set2.has(doc1[n]._id.SaleCategory) )
+                                        //console.log("in side loop a "+a);
+                                         var obj = {"_id":{SaleCategory:doc1[d]._id.SaleCategory},opcount:doc1[d].incount  ,
+                                             opgwt:doc1[d].ingwt,opgpcs:doc1[d]. ingpcs, };
+                                         
+                                              newArray.push(obj);
+                                              compareStockInwardYesNoMatches(d+1); 
+                                              if (d == (compareStockInwardYesLength - 1)) {
+                                                   if(newArray.length == 0){
+                                                     res.json(newArray)
+                                                   }
+                                                   resolve(newArray)
+                                              };   
+
+                                    }else{// if (set2.has(doc1[n]._id.SaleCategory) == false) {
+                                              console.log(" doc1[d]._id.SaleCategory "+doc1[d]._id.SaleCategory);
+                                               compareStockInwardYesNoMatches(d+1); 
+                                          }
+
+                               }else{// if compareStockInwardYesNoMatches
+                                       if(newArray.length == 0){
+                                         res.json(newArray)
+                                       }
+                                       resolve(newArray)
+                                       openingBalance = newArray;
+                                       console.log(newArray)
+                                       // console.log(" m "+m+ " openingBalance "+ openingBalance.length);
+
+                                    }//// else compareStockInwardYesNoMatches
+                              
+                         }//compareStockInwardYesNoMatches(m)
+                         //compareStockInwardYesNoMatches(0);
+
+    //fgnntrgi
+         })//doc
+
+      })//doc1
+
+    //trrte
+    
+
+
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
     })//promise close
   }//openingBalanceCall
 
   function inwardBalanceCall() {
+<<<<<<< HEAD
      return new Promise(function (resolve,reject) {
      // console.log("inwardBalanceCall");
+=======
+     console.log("inwardBalanceCall(2)");
+     return new Promise(function (resolve,reject) {
+     
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       db.transactionDetail.aggregate([
 {$match:
       {date:{ $gt:(samedateStart), $lt: (samedateEnd) },stockInward:"yes",$and: [ { barcode: { $ne: "undefined" } }, { barcode: { $exists: true } } ]},
@@ -7097,7 +7454,11 @@ app.get('/stockVerifyPreview',function(req,res){
     })
   }//inward
   function outwardBalanceCall() {
+<<<<<<< HEAD
       //console.log("outwardBalanceCall");
+=======
+      console.log("outwardBalanceCall(3)");
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
        return new Promise(function (resolve,reject) {
       db.transactionDetail.aggregate([
 {$match:
@@ -7123,6 +7484,7 @@ app.get('/stockVerifyPreview',function(req,res){
     })
   }//outward
   function closingBalanceCall() {
+<<<<<<< HEAD
     console.log(" inwardBalance closingBalanceCall "+ inwardBalance.length);
     
       //console.log(inwardBalance);
@@ -7196,6 +7558,132 @@ app.get('/stockVerifyPreview',function(req,res){
       }//i
 
       function   loopFinishCall(check,condition){
+=======
+    console.log(" inwardBalance closingBalanceCall(4) "+ inwardBalance.length);
+    
+      console.log(inwardBalance.length+" inv ");
+      // console.log(inwardBalance.l);
+    
+     
+      var  report1 = [];
+      var balance = [];
+      //changed 30/3 vijay for first date
+      if (openingBalance != null) {
+        var m = openingBalance.length;
+     
+       console.log(openingBalance.length+" openingBalance ");
+
+                  var z = 0;
+                  var z1 = (openingBalance.length )*(inwardBalance.length)
+                
+                  // for (var i = openingBalance.length - 1; i >= 0; i--) {
+                     var set = new Set();
+                  for (var i = openingBalance.length - 1; i >= 0; i--) {
+                     
+                        m--;
+                       console.log(" i openingBalance.length "+i+" m "+m+" j "+j);
+                        // console.log(openingBalance[i]);
+                    for (var j = inwardBalance.length-1 ; j >= 0; j--) {
+                          
+                        z++;
+                             console.log(" z "+z+" z1 "+z1);
+                                                     
+                           set.add(openingBalance[i]._id.SaleCategory );
+                                // console.log(" inwardBalance[j]._id.SaleCategory "+inwardBalance[j]._id.SaleCategory)
+                            if (openingBalance[i]._id.SaleCategory == inwardBalance[j]._id.SaleCategory ) {
+                            
+                                    //  console.log(" if loop yes openingBalance[i].SaleCategory "+openingBalance[i]._id.SaleCategory+" inwardBalance[j].SaleCategory "+inwardBalance[j]._id.SaleCategory)
+                                    console.log("inside closing "+openingBalance[i]._id.SaleCategory);
+                                   //console.log(inwardBalance[j]._id.SaleCategory);
+                                    // 
+                                    //console.log(" i "+i+" j "+j);
+                                   if( balance.indexOf(openingBalance[i]._id.SaleCategory) == -1) {
+                                                       //        // m--;
+                                           var obj={}
+                                           obj["SaleCategory"] = openingBalance[i]._id.SaleCategory;
+                                               
+                                           obj["opcount"] =  openingBalance[i].opcount;
+                                            obj["opgwt"] = openingBalance[i].opgwt;
+                                             obj["opgpcs"] = openingBalance[i].opgpcs;
+                                              obj["incount"] =  inwardBalance[j].incount;
+                                              obj["ingwt"] = inwardBalance[j].ingwt;
+                                              obj["ingpcs"] = inwardBalance[j].ingpcs;
+                                             
+                                              report1.push(obj);
+                                              balance.push(openingBalance[i]._id.SaleCategory);
+                                   
+                                             // if (m == 0 ) {
+                                              loopFinishCall(z,z1);
+                                               // if (z == z1) {
+                                               //       console.log("outwardCal m == 0 "+" z "+z+" z1 "+z1);
+                                               //         notMatchinginwardBalance();
+                                               //        // outwardCal()
+                                               //  }//m ==0
+                                 
+                                      }//close of -1
+                                      loopFinishCall(z,z1);
+                                       // if (z == z1) {
+                                       //               console.log("outwardCal m == 0 "+" z "+z+" z1 "+z1);
+                                       //                 notMatchinginwardBalance();
+                                       //                // outwardCal()
+                                       //          }//m ==0
+                            }//if   if (openingBalance[i]._id.SaleCategory == inwardBalance[j]._id.SaleCategory ) {
+                            
+                            else{
+                              loopFinishCall(z,z1);
+                            }
+                             
+                     
+                    }//j
+                  }//i
+
+
+       }else{
+                
+
+                //for (var j = inwardBalance.length-1 ; j >= 0; j--) {
+                     function inwardBalanceInwardNo(j) {
+                          if (j>=0) {
+                              var obj={}
+                              console.log(" else call "+j)
+                              console.log(inwardBalance)
+                              obj["SaleCategory"] = inwardBalance[j]._id.SaleCategory;
+
+                              obj["opcount"] =  0;
+                              obj["opgwt"] = 0;
+                              obj["opgpcs"] = 0;
+                              obj["incount"] =  inwardBalance[j].incount;
+                              obj["ingwt"] = inwardBalance[j].ingwt;
+                              obj["ingpcs"] = inwardBalance[j].ingpcs;
+
+                              report1.push(obj);
+                              console.log(report1)
+
+                                            
+                                if (j == 0) {
+                                   
+                                    outwardCal()
+                               //ffgh               
+                                };
+                                
+                               inwardBalanceInwardNo(j-1);
+                          };
+
+                      
+                     }// inwardBalanceInwardNo(j)
+                     inwardBalanceInwardNo(inwardBalance.length-1)    
+                              //notMatchinginwardBalance()
+                                              //balance.push(openingBalance[i]._id.SaleCategory);
+                                   
+                           //  jkkjk                // if (m == 0 ) {
+                                              //loopFinishCall(z,z1);
+                                           
+                //}//j
+            }//else
+
+      function   loopFinishCall(check,condition){
+          console.log(" loofinishCall()")
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
           if (check == condition) {
             console.log(" loopFinishCall")
            for (var i = openingBalance.length - 1; i >= 0; i--) {
@@ -7231,19 +7719,31 @@ app.get('/stockVerifyPreview',function(req,res){
       }//loopFinishCall
 
     function   notMatchinginwardBalance(){
+<<<<<<< HEAD
       console.log("  notMatchinginwardBalance  notMatchinginwardBalance   notMatchinginwardBalance")
+=======
+      console.log("  notMatchinginwardBalance  notMatchinginwardBalance   notMatchinginwardBalance(5)")
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
      // console.log( report1);
       //console.log(set)
       //console.log(set.size);
       //inwardBalance[j]._id.SaleCategory
       var m3 = inwardBalance.length ;
       for (var a = inwardBalance.length - 1; a >= 0; a--) {
+<<<<<<< HEAD
        // console.log(inwardBalance[a]._id.SaleCategory )
+=======
+        console.log(inwardBalance[a]._id.SaleCategory )
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         m3--;
         // console.log(set.has(inwardBalance[a]._id.SaleCategory))
          //console.log(set[a]);
           if (set.has(inwardBalance[a]._id.SaleCategory) == false) {
+<<<<<<< HEAD
              // console.log(set.has(inwardBalance[a]._id.SaleCategory))
+=======
+              console.log(set.has(inwardBalance[a]._id.SaleCategory))
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
               //console.log("in side loop a "+a);
               if (inwardBalance[a]._id.SaleCategory!= "ands") {
                       var obj={}
@@ -7271,7 +7771,11 @@ app.get('/stockVerifyPreview',function(req,res){
 
 
    function  outwardCal() {
+<<<<<<< HEAD
        console.log("call here "+outwardBalance.length);
+=======
+       console.log("call here outwardCal(6)"+outwardBalance.length);
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
        // console.log( outwardBalance[0]._id.SaleCategory);
           
         
@@ -7418,7 +7922,11 @@ app.get('/stockVerifyPreview',function(req,res){
 
    }//out
     function noMatchOutwardCal(){
+<<<<<<< HEAD
         console.log("match call ")
+=======
+        console.log("match call noMatchOutwardCal(7) ")
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
          // setOutward.add(outwardBalance[k]._id.SaleCategory );
          //  
          //   
@@ -7454,7 +7962,11 @@ app.get('/stockVerifyPreview',function(req,res){
 } //closing
   function updateReport() {
      //openingBalanceCall();
+<<<<<<< HEAD
      console.log("updateReport()")
+=======
+     console.log("updateReport(8)")
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
     //fetch()
     openingBalanceCall()
     .then(function (openingBalanceData) {
@@ -7477,7 +7989,11 @@ app.get('/stockVerifyPreview',function(req,res){
 
     })
     .then(function (inwardBalance) {
+<<<<<<< HEAD
       console.log("inward "+inwardBalance.length);
+=======
+      console.log("inward length "+inwardBalance.length);
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
        if (inwardBalance.length == 0) {
              // console.log(" in promsis outwardBalance.length == 0 ");
              var obj = { _id:{"SaleCategory": "ands"}, "incount": "Valid" };        
@@ -9146,10 +9662,16 @@ require('./apiCalls/materialAdvancePdf')(app);
 
 
 //app.set('port', process.env.PORT || 8000); 
+<<<<<<< HEAD
 app.listen(8095)
 console.log("server running on port 8095");
 
 
 
+=======
+const PORT=8000;
+app.listen(PORT)
+console.log("server running on port "+PORT);
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
 exports = module.exports = app;

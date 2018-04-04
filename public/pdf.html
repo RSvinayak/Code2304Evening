@@ -395,12 +395,18 @@ display: block;
 </div>
 <div class="row">
 
+<<<<<<< HEAD
 <div class="col-sm-10" ng-hide="trans=='Opening Stock' || trans=='Approval Sale'">
 <p ng-show="partyType==null||partyType=='null'||partyType== 0" ng-cloak>Party Name:{{partyname}} <br>
+=======
+<div class="col-sm-10" ng-hide="trans=='Opening Stock'">
+<p ng-cloak>Party Name:{{partyname}} <br>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 Party License:{{partyLicense}}<br>
 Party PAN:{{partyPAN}}<br>
 Party Address:{{city}}<br>
 City:{{city}}</p>
+<<<<<<< HEAD
 <p ng-show="partyType == 'true'" ng-cloak>
   StaffName:{{staffParty}}
 </p>
@@ -418,6 +424,8 @@ City:{{city}}
   StaffName:{{staffParty}}
 </p> -->
 
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 </div>
 <div ng-cloak ng-if="trans !='Valuation'&&trans!='Opening Stock'">Invoice No:{{invoice}}<br>
   <!-- <p>Invoice No:B1393<br> -->
@@ -594,17 +602,29 @@ City:{{city}}
       <td  id="right2">{{taxableval}}</td>
     </tr>  
     <tr>
+<<<<<<< HEAD
       <th ng-if="gst == 'cgst'">Cgst Total:</th>
+=======
+      <th ng-if="gst == 'cgst'">CGST Total:</th>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2">{{cgsttax}}</td>
 
     </tr> 
     <tr>
+<<<<<<< HEAD
       <th ng-if="gst == 'cgst'">Sgst Total:</th>
+=======
+      <th ng-if="gst == 'cgst'">SGST Total:</th>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2">{{sgsttax}}</td>
 
     </tr> 
     <tr>
+<<<<<<< HEAD
       <th ng-if="gst == 'igst'">Igst Total:</th>
+=======
+      <th ng-if="gst == 'igst'">IGST Total:</th>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2" ng-if="gst == 'igst'">{{igsttax}}</td>
 
     </tr>

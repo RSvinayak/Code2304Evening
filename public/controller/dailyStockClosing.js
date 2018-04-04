@@ -2,7 +2,15 @@ var myApp=angular.module('myApp',[]);
 
 myApp.controller('stockCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
+<<<<<<< HEAD
  $scope.usernamedetails = window.sessionStorage.getItem("username")
+=======
+ $scope.usernamedetails = window.sessionStorage.getItem("username");
+ if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 $scope.bit1 = {
     date2: new Date()
   };
@@ -41,6 +49,13 @@ $scope.bit1 = {
         alert(" No matches are found");
         $scope.displayReport = "";
 
+<<<<<<< HEAD
+=======
+      }else if (response.length == 1 && response[0].SaleCategory == "ands"&&response[0].cbgpcs == null &&response[0].opgpcs == 0) {
+       // 0: SaleCategory: "ands"cbcount: nullcbgpcs: nullcbgwt: nullincount: "Valid"opcount: 0opgpcs: 0opgwt: 0__proto__: Objectlength: 1__proto__: Array(0)
+           alert(" No matches are found");
+           $scope.displayReport = "";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       }else{
 
              $scope.displayReport = response;

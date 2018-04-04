@@ -2,7 +2,15 @@ var myApp=angular.module('myApp',[]);
 
 myApp.controller('reportCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
+<<<<<<< HEAD
  $scope.usernamedetails = window.sessionStorage.getItem("username")
+=======
+$scope.usernamedetails = window.sessionStorage.getItem("username")
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 console.log("well come to report controller")
 
 $http.get('/Treasure').success(function(response){

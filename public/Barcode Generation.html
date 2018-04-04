@@ -568,10 +568,17 @@ width: 8%;
 <div class="row" ng-cloak>
 
 <div class="col-sm-2">
+<<<<<<< HEAD
 <label> From <input type="date" ng-model="bit1.date2" ></label>
 </div>
 <div class="col-sm-2">
 <label> To <input type="date" ng-model="bit2.date1" ></label>
+=======
+<label> From <input type="date" ng-model="bit1.date2" ng-change="batchChangeCall()" ></label>
+</div>
+<div class="col-sm-2">
+<label> To <input type="date" ng-model="bit2.date1"  ng-change="batchChangeCall()"></label>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 </div>
 <div class="col-sm-2">
   <button ng-click="dateSearch()" id="search" >Search</button>
@@ -588,7 +595,11 @@ width: 8%;
 
 </div>
 <div class="row" ng-cloak><br>
+<<<<<<< HEAD
   <label>  Barcode <input type="number" ng-model="barCodeSearch" ng-change=nu()></label><br>
+=======
+  <label>  Barcode <input type="number" ng-model="barCodeSearch" ng-change="batchChangeSearchCall()"></label><br>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 <div class="col-sm-6" >
   <!-- <div style="overflow-x:auto;"> -->
   <!-- <div class="panel panel-default" id="panel"> -->
@@ -671,7 +682,11 @@ width: 8%;
 
        <button type="button" ng-if = " updateButton == true" id="buttonwidth" class="btn btn-success" ng-click="saveBatchGeneration()" ng-cloak>Update</button>
 
+<<<<<<< HEAD
        <button type="button" id="buttonwidth" class="btn btn-warning" ng-click=cancelbarcodegeneration() ng-cloak>Cancel</button>
+=======
+       <button type="button" id="buttonwidth" class="btn btn-warning" ng-click="cancelbarcodegeneration()" ng-cloak>Cancel</button>
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
        <!-- </div>
        </div> -->
         <div style="overflow-x:auto;"> 

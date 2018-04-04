@@ -211,10 +211,23 @@ $http.get('/batchrecords/'+list3).success(function(response)
            });
 
     })
+<<<<<<< HEAD
  $scope.nu=function(){
 $scope.batch=""
  }
 
+=======
+ $scope.batchChangeSearchCall=function(){
+  //barCodeSearch
+  //alert("nu")
+    $scope.batch="";
+ }
+// change date function vijay 31/march 
+$scope.batchChangeCall = function() {
+  $scope.barCodeSearch = null;
+  $scope.batch="";
+}
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   $scope.dateSearch=function(){
     $scope.tags=null;
 
@@ -1146,6 +1159,7 @@ $scope.print = function(){
         console.log(response);
         if(response.length != 0){
           $scope.userit = response;
+<<<<<<< HEAD
           console.log($scope.userit);
           $scope.bitem.irate = response[0].purity;
           console.log($scope.bitem.irate);
@@ -1153,10 +1167,21 @@ $scope.print = function(){
           console.log($scope.userit[0]);
           $http.post('/prn',$scope.userit[0]);
 
+=======
+          $scope.itemSelect($scope.userit[0].itemName,0);
+              
+          console.log($scope.userit);
+          console.log($scope.userit[0]);
+          //$scope.updateButton = true;
+          $http.post('/prn',$scope.userit[0]);
+          //vijay 31/3 not to display in userit array
+          $scope.cancelbarcodegeneration();
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         }
         else{
           alert("barcode is soldout");
         }
+<<<<<<< HEAD
         
       })
  setTimeout(function(){$scope.userit=''
@@ -1178,6 +1203,9 @@ console.log(count3)
 
 refresh();
 },800);
+=======
+      })
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   }
   else{
     alert(" Select the barcode ");
@@ -1244,10 +1272,18 @@ $scope.cancelbarcodegeneration = function(){
     }
      console.log("cancel call");
      $scope.userit= $scope.userit.slice(0, 0);
+<<<<<<< HEAD
     $scope.batch[colorindex].color = colorpush
    //$scope.list() 
     $scope.updateButton = false;
      edit1 = null;
+=======
+  
+   $scope.list(); 
+    $scope.updateButton = false;
+     edit1 = null;
+      $scope.batch[colorindex].color = colorpush;
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   //$scope.userit[0] = null;
   
   // editrow3 = null;
@@ -2108,8 +2144,26 @@ $scope.newstwt=function($index)
  //$scope.userit[$index].wastage = 0;
 $scope.newwas=function($index,pctcal)
 {
+<<<<<<< HEAD
    $scope.userit[$index].wastage = parseFloat ($scope.userit[$index].wastage) ; 
   // alert(" newwas pct "+pctcal+" chargable "+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))
+=======
+   //$scope.userit[$index].wastage = parseFloat ($scope.userit[$index].wastage) ; 
+  // alert(" newwas pct "+pctcal+" chargable "+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))
+          var num = ($scope.userit[$index].wastage).toString(); // Convert to string
+                console.log( (num.split('.')[1] || []).length)
+                if ((num.split('.')[1] || []).length >=2) {
+                    //$scope.userit[$index].wastage = 
+                      $scope.userit[$index].wastage = parseFloat ( $scope.userit[$index].wastage)
+                     console.log(  $scope.userit[$index].wastage)
+                     $scope.userit[$index].wastage = parseFloat ($scope.userit[$index].wastage).toFixed(fixdec);
+                     console.log(  $scope.userit[$index].wastage)
+                      $scope.userit[$index].wastage = parseFloat ( $scope.userit[$index].wastage)
+                     
+                }
+
+
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   $scope.totmat=0;
   if(pctcal == undefined && tagdetails.composite != 'yes'){
     // alert("Please select pct");
@@ -2126,7 +2180,11 @@ $scope.newwas=function($index,pctcal)
 
     if($scope.userit[$index].wastage==null || $scope.userit[$index].wastage==""|| $scope.userit[$index].wastage==NaN)
     {
+<<<<<<< HEAD
       // alert("hello"+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))  
+=======
+      //alert("hello"+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))  
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
        // $scope.userit[$index].wastage = parseFloat ($scope.userit[$index].wastage) ; 
   /*$scope.userit[$index].taxval1=lab;
          $scope.userit[$index].taxval=$scope.userit[$index].taxval1.toFixed(fixdec);
@@ -2137,7 +2195,11 @@ $scope.newwas=function($index,pctcal)
      else if($scope.userit[$index].wastage==undefined)
      {
 
+<<<<<<< HEAD
         // alert("null value"+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))
+=======
+         //alert("null value"+$scope.userit[$index].wastage+" "+typeof($scope.userit[$index].wastage))
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         // $scope.userit[$index].wastage = parseFloat ($scope.userit[$index].wastage) ;
         //alert($scope.userit[$index].chgunt)
          $scope.userit[$index].chgunt=($scope.userit[$index].ntwt).toFixed(fixdec);
@@ -2151,6 +2213,7 @@ $scope.newwas=function($index,pctcal)
         //$scope.barcodeWastage = "percentage";
         if ($scope.barcodeWastage == "percentage") {
             $scope.userit[$index].wastagePrint = (parseFloat(wastage)/parseFloat($scope.userit[$index].ntwt))*100;
+<<<<<<< HEAD
              $scope.userit[$index].wastagePrint = parseFloat($scope.userit[$index].wastagePrint ).toFixed(2)
             // alert($scope.userit[$index].wastagePrint+"  p1")
         }else{
@@ -2159,6 +2222,16 @@ $scope.newwas=function($index,pctcal)
                // alert($scope.userit[$index].wastagePrint+"  w2")
         }
 
+=======
+             $scope.userit[$index].wastagePrint = (parseFloat($scope.userit[$index].wastagePrint ).toFixed(2))+"%";
+            // alert($scope.userit[$index].wastagePrint+"  p1")
+        }else{
+               $scope.userit[$index].wastagePrint =(parseFloat($scope.userit[$index].wastage)*parseFloat($scope.userit[$index].ntwt))/100;
+               $scope.userit[$index].wastagePrint = (parseFloat($scope.userit[$index].wastagePrint ).toFixed(3))+"gms";
+               // alert($scope.userit[$index].wastagePrint+"  w2")
+        }
+        $scope.userit[$index].wastage =parseFloat( $scope.userit[$index].wastage).toFixed(fixdec);
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         $scope.userit[$index].chgunt=(parseFloat($scope.userit[$index].ntwt)+parseFloat(wastage)-$scope.totmat).toFixed(fixdec);
         //alert($scope.userit[$index].chgunt);
          
@@ -2176,12 +2249,22 @@ $scope.newwas=function($index,pctcal)
         // taxValCall($scope.userit[$index].chgunt,$index)
 //$scope.barcodeWastage ="percentage";
         if ($scope.barcodeWastage == "percentage") {
+<<<<<<< HEAD
             $scope.userit[$index].wastagePrint = (parseFloat(wastage)/parseFloat($scope.userit[$index].ntwt))*100;
              $scope.userit[$index].wastagePrint = parseFloat($scope.userit[$index].wastagePrint ).toFixed(2)
             // alert($scope.userit[$index].wastagePrint+" AU1")
         }else{
             $scope.userit[$index].wastagePrint = $scope.userit[$index].wastage;
             $scope.userit[$index].wastagePrint = parseFloat($scope.userit[$index].wastagePrint ).toFixed(3)
+=======
+             $scope.userit[$index].wastagePrint = (parseFloat(wastage)/parseFloat($scope.userit[$index].ntwt))*100;
+             $scope.userit[$index].wastagePrint = (parseFloat($scope.userit[$index].wastagePrint ).toFixed(2))+"%";
+            // alert($scope.userit[$index].wastagePrint+" AU1")
+        }else{
+            $scope.userit[$index].wastagePrint = $scope.userit[$index].wastage;
+            $scope.userit[$index].wastagePrint = (parseFloat($scope.userit[$index].wastagePrint ).toFixed(3))+"gms";
+         
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             // alert($scope.userit[$index].wastagePrint+" AU2")  
         }
           $scope.userit[$index].taxval=(parseFloat($scope.userit[$index].chgunt)*parseFloat($scope.userit[$index].rate)).toFixed($scope.rupeesDecimalPoints);
@@ -2214,6 +2297,21 @@ $scope.newwas=function($index,pctcal)
 $scope.mrpCal = function(index,mrp){
       $scope.disableMrp =true;
       $scope.indexValueDisable = index;
+<<<<<<< HEAD
+=======
+      var num = ($scope.userit[index].mrp).toString(); // Convert to string
+                console.log( (num.split('.')[1] || []).length)
+                if ((num.split('.')[1] || []).length >=2) {
+                    //$scope.userit[index].rate = 
+                     $scope.userit[index].mrp = parseFloat ( $scope.userit[index].mrp)
+
+                     $scope.userit[index].mrp = parseFloat ($scope.userit[index].mrp).toFixed($scope.rupeesDecimalPoints);
+                     console.log( $scope.userit[index].mrp)
+                     $scope.userit[index].mrp = parseFloat ( $scope.userit[index].mrp)
+
+                    // alert(typeof($scope.userit[index].mrp))
+                }
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
      
       if (mrp == undefined || mrp == ''|| mrp == null) {
          //alert(mrp);
@@ -2462,6 +2560,7 @@ $scope.uomConversion=function($index,uom){
  }
  $scope.newlab=function($index,labval2)
  {
+<<<<<<< HEAD
      // alert("lab amount "+$scope.userit[$index].labamt+" "+typeof($scope.userit[$index].labamt));
       // $scope.userit[$index].labamt =( $scope.userit[$index].labamt).toFixed(fixdec);
      $scope.userit[$index].labamt = parseFloat ($scope.userit[$index].labamt) ;
@@ -2483,6 +2582,43 @@ $scope.uomConversion=function($index,uom){
         $scope.userit[$index].labval = 0;
   
     }
+=======
+        // $scope.userit[$index].labamt =( $scope.userit[$index].labamt).toFixed(fixdec);
+    // $scope.userit[$index].labamt = parseFloat ($scope.userit[$index].labamt) ;
+      var num = ($scope.userit[$index].labamt).toString(); // Convert to string
+                console.log( (num.split('.')[1] || []).length)
+                if ((num.split('.')[1] || []).length >=2) {
+                    //$scope.userit[$index].labamt = 
+                      $scope.userit[$index].labamt = parseFloat ( $scope.userit[$index].labamt)
+                     console.log(  $scope.userit[$index].labamt)
+                     $scope.userit[$index].labamt = parseFloat ($scope.userit[$index].labamt).toFixed(fixdec);
+                     console.log(  $scope.userit[$index].labamt)
+                      $scope.userit[$index].labamt = parseFloat ( $scope.userit[$index].labamt)
+                     
+                }
+
+    
+     if($scope.userit[$index].stval == undefined){
+            $scope.userit[$index].stval = 0;
+        }
+    if($scope.userit[$index].labamt==null || $scope.userit[$index].labamt==NaN){
+         //alert("lab amount "+$scope.userit[$index].labamt+" "+typeof($scope.userit[$index].labamt));
+           $scope.userit[$index].labval = 0;
+    }
+   //  if($scope.userit[$index].labamt=="")
+   //  {
+
+   // $scope.userit[$index].labval = 0;
+
+   //  }
+   //   else if($scope.userit[$index].labamt==undefined)
+   //   {
+
+   //      $scope.userit[$index].labamt = parseFloat ($scope.userit[$index].labamt) ;
+   //      $scope.userit[$index].labval = 0;
+  
+   //  }
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
    if(labval2=="Percent")
     {
@@ -2498,12 +2634,20 @@ $scope.uomConversion=function($index,uom){
           if ($scope.barcodelab == "percentage") {
             
              $scope.userit[$index].wastagePrint12 =($scope.userit[$index].labamt)
+<<<<<<< HEAD
+=======
+              $scope.userit[$index].wastagePrint12 =($scope.userit[$index].labamt)+"%";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
             // alert($scope.userit[$index].wastagePrint12+"11")
         }else{
           // alert("hello  $scope.userit[$index].labval "+$scope.userit[$index].labval+" $scope.userit[$index].labvalamt "+$scope.userit[$index].labamt);
             $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].chgunt)*parseFloat($scope.userit[$index].labamt))/100;
+<<<<<<< HEAD
             $scope.userit[$index].wastagePrint12 = parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3)
+=======
+            $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3))+"gms";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             
 
            // $scope.userit[$index].wastagePrint12 = $scope.userit[$index].addlab;
@@ -2527,7 +2671,11 @@ $scope.uomConversion=function($index,uom){
           if ($scope.barcodelab == "percentage") {
             //alert(parseFloat($scope.userit[$index].labval)+","+parseFloat($scope.userit[$index].chgunt));
             $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].labval)/parseFloat($scope.userit[$index].chgunt))*100;
+<<<<<<< HEAD
               $scope.userit[$index].wastagePrint12 = parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(2)
+=======
+              $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(2))+"%";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             
               //alert("per uny "+$scope.userit[$index].wastagePrint12)
             // alert($scope.userit[$index].wastagePrint12+"pu1")
@@ -2535,7 +2683,11 @@ $scope.uomConversion=function($index,uom){
            //alert("hello");
            //alert("hello  $scope.userit[$index].labval "+$scope.userit[$index].labval+" $scope.userit[$index].labvalamt "+$scope.userit[$index].labamt);
             $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].labval));
+<<<<<<< HEAD
             $scope.userit[$index].wastagePrint12 = parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3)
+=======
+            $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3))+"gms";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
   
 
         }
@@ -2557,13 +2709,21 @@ $scope.uomConversion=function($index,uom){
             //alert(parseFloat($scope.userit[$index].labval)+","+parseFloat($scope.userit[$index].chgunt));
            // $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].labval)/parseFloat($scope.userit[$index].chgunt))*100;
             $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].labval)/(parseFloat($scope.userit[$index].chgunt)*parseFloat($scope.userit[$index].rate)))*100;
+<<<<<<< HEAD
             $scope.userit[$index].wastagePrint12 = parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(2)
+=======
+            $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(2))+"%";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         
         }else{
            //alert("hello");
            var required = (parseFloat($scope.userit[$index].labval)/(parseFloat($scope.userit[$index].chgunt)*parseFloat($scope.userit[$index].rate)))*100;
              $scope.userit[$index].wastagePrint12 =( required* (parseFloat($scope.userit[$index].chgunt)))/100;
+<<<<<<< HEAD
             $scope.userit[$index].wastagePrint12 = parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3)
+=======
+            $scope.userit[$index].wastagePrint12 = (parseFloat($scope.userit[$index].wastagePrint12 ).toFixed(3))+"gms";
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
            // alert($scope.userit[$index].wastagePrint12+"A22")
         }
 
@@ -2574,6 +2734,19 @@ $scope.uomConversion=function($index,uom){
  
 $scope.rateChange=function($index){
   //alert(" iam rate change "+ $scope.userit[$index].rate)
+<<<<<<< HEAD
+=======
+  var num = $scope.userit[$index].rate; // Convert to string
+                console.log( (num.split('.')[1] || []).length)
+                if ((num.split('.')[1] || []).length >=2) {
+                    //$scope.userit[$index].rate = 
+                      $scope.userit[$index].rate = parseFloat ( $scope.userit[$index].rate)
+                     console.log(  $scope.userit[$index].rate)
+                     $scope.userit[$index].rate = parseFloat ($scope.userit[$index].rate).toFixed($scope.rupeesDecimalPoints);
+                     console.log(  $scope.userit[$index].rate)
+                }
+                  
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                        if( $scope.userit[0].pctcal!= undefined){
                              // alert($scope.userit[0].pctcal)
                               $scope.newwas(0,$scope.userit[0].pctcal)

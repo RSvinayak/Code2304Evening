@@ -2,6 +2,14 @@
 var myApp=angular.module('myApp',[]);
 myApp.controller('paymentsCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
+<<<<<<< HEAD
+=======
+  $scope.usernamedetails = window.sessionStorage.getItem("username")
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 // alert("hello how are you")
 // $scope.name="vinayak";
  // $scope.name="shivu";
@@ -12,7 +20,10 @@ function($scope,$http,$window){
  // $scope.billNo="RP1";
  $scope.trans="Payments";
  // $scope.totals=50000;
+<<<<<<< HEAD
  $scope.usernamedetails = window.sessionStorage.getItem("username")
+=======
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
  $scope.customer=JSON.parse(window.sessionStorage.getItem("partyname"));
  $scope.billtype=window.sessionStorage.getItem("Billtype");
  $scope.printreceipt = window.sessionStorage.getItem("rprint");

@@ -3,7 +3,14 @@
 myApp.controller('stockDetailsCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
  $scope.usernamedetails = window.sessionStorage.getItem("username")
+<<<<<<< HEAD
 //for default values
+=======
+  if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };//for default values
+>>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 //for sorted data barcoded found
 //var sortedBarCode = [];
 //var sortedBarCodeMinus = []; //for substract the finded one
