@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>InventoryGroup</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style type="text/css">
+#table-wrapper {
+  position:relative;
+}
+#tscroll {
+  height:90%;
+  overflow:auto;  
+  margin-top:5%;
+}
+
+
+/*thead, tbody, tr, td, th { display: block; }
+
+        tr:after {
+            content: ' ';
+            display: block;
+            visibility: hidden;
+            clear: both;
+
+        }*/
+        /*tr {
+          width: 100%;
+        }*/
+
+        /*thead th {
+            height: 60px;
+              width: 33%;
+
+            float: left;
+
+            
+        }*/
+
+     /*   tbody {
+            height: 270px;
+            overflow-y: auto;
+        }
+
+        tbody td {
+
+            width: 33%;
+
+            float: left;
+        }*/
+
+/*.table {
+    /
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 100%;
+}*/
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}
+li#name1 {
+    right: -100px;
+    font-size: 27px;
+    font-style: italic;
+} 
+#his{
+ margin-left:1150px;
+  margin-top:-90px;
+  color:blue;
+  position:fixed;
+}
+.panel.panel-default
+{
+  height: 600px;
+  width: 90%;
+  border-style: solid;
+  border-color: black;
+}
+form  { display: table;      }
+  p     { display: table-row;  }
+  label { display: table-cell; text-align: right}
+  input { display: table-cell; }
+  select { display: table-cell; }
+ #selectrow1:focus {
+    background-color: blue;
+}
+
+.selected {
+  background-color: blue;
+}
+
+#table-wrapper {
+  position:relative;
+}
+/*#tscroll {
+  height:90%;
+  overflow:auto;
+  margin-top:5%;
+}*/
+#table-wrapper table {
+  width:100%;
+}
+
+#table-wrapper table thead th .text {
+  position:absolute;
+  top:-5%;
+
+  height:5%;
+
+ }
+ #star{
+
+     color:red;
+}
+form  { display: table;      }
+  p     { display: table-row;  }
+  label { display: table-cell; text-align: right}
+  input { display: table-cell; }
+  select { display: table-cell; }
+/*.col-sm-6 {
+    width: 50%;
+    padding-left: 25px;
+}*/
+</style>
+
+<body style="background-color:#ffe4b5;" ng-controller="inventoryGroupCntrl">
+	 <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+   <!--  <object width="1000" height="100" data="Item.html">
+    </object> -->
+        
+       <ul class='dark_menu' >          
+           <li  >
+            <a>
+              Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+            </a>
+            <ul>
+              <li>
+                <a href="Transaction.html">
+                  New
+                </a>
+              </li>
+
+                <li>
+                <a href="orders.html">
+                  Order Management
+                </a>
+              </li>
+  
+               <li>
+                <a href="List.html">
+
+                  List
+                </a>
+              </li>
+                <li>
+                <a href="Phistory.html">
+                  Party History
+                </a>
+              </li>
+            </ul>
+          
+          </li>
+
+       <li >
+
+            <a href='#'>
+              Inventory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+                 <li id='sub'>
+                    <a href='#'>
+                    Barcoding
+                    </a>
+                     <ul>
+                         
+                            <li>
+                            <a href='Barcode Summary.html'> Barcode Summary</a>
+                            </li>
+                          <li>
+            <a href='Barcode Generation.html'>
+              Barcode Generation
+                             </a></li>
+                             <li>
+            <a href='stockverification.html'>
+              Stock Verification
+                             </a></li>
+                     </ul>
+                         
+                </li>
+
+               <li>
+
+                <a href="Item.html">
+
+                  Item
+                </a>
+              </li>
+              <li>
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li>
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li>
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li>
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
+                </a>
+              </li>
+
+             
+             
+            </ul>
+          </li>
+          
+          
+          <li >
+            <a href='#'>
+              Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="ClosingStockBookByGroupItem.html">
+                
+                  Closing Stock Book By Group Item
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="DailyClosingStock.html">
+                  
+                  Daily Closing Stock
+                </a>
+              </li>
+              <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li>
+             
+              
+            </ul>
+          </li>
+          <li >
+
+            <a href="Tax Configuration.html">
+
+              Tax Configuration
+            </a>
+               
+            
+          </li>
+            
+        
+          </li>
+
+          <li >
+              <a href="dailyRates.html">
+              Daily Rates 
+            </a>
+            </li>
+           <li >
+            <a href='#'>
+              Accounts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="receipts.html">
+                
+                  Receipt
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="payments.html">
+                  
+                  Payment
+                </a>
+              </li>
+              
+             
+              
+            </ul>
+          </li>
+          <li  id="name1" >
+            <a >
+
+             {{usernamedetails}}
+               
+            </a>
+          
+          </li>
+          <li id="name1">
+            <a href="loginPage.html" >
+              Sign Out
+               
+            </a>
+          
+          </li>
+          
+        </ul>
+
+
+        
+      </div>
+
+       <div  class="center" >
+        <h2 >InventoryGroup</h2>
+  
+       </div> 
+       <div class="row" >
+       	  
+       		<div  class="col-sm-8" style="padding-left:20px;">
+       			
+				 <div class="panel panel-default">
+				        <!-- <div class="panel-heading"> -->
+				          <div id="table-wrapper">
+				  <div id="tscroll">
+				           <table class="table">
+
+				    <thead>
+				      <tr >
+				             <th><span class="text">InvGroupId</span></th>
+				             <th><span class="text">InvGroupName</span></th>
+				            <!--  <th><span class="text">ValueNotation</span></th> -->
+                     <th><span class="text">Alias</span></th>
+                     <th><span class="text">SortOrder</span></th>
+				              <th class = "space"><span class="text" >Edit/Delete</span></th>
+				           </tr>
+				    </thead>
+				    <tbody >
+
+				     <tr ng-repeat ="inventoryGroupsDetails in inventoryGroupsDetails | orderBy :
+				     'sortOrder'" >
+				
+
+				             <td>{{inventoryGroupsDetails.InvGroupID}}</td>
+				             <td>{{inventoryGroupsDetails.InvGroupName}}</td>
+				             <td>{{inventoryGroupsDetails.Alias}}</td>
+				             <td>{{inventoryGroupsDetails.SortOrder}}</td>
+                         <td class = "space" ng-if='$last == false'>
+        <button class="material-icons" ng-click="editSale(salesCategoryDetails)">edit</button>
+        </td>         
+    <td class = "space" ng-if='$last == true'>
+        <button class="material-icons" ng-click="editSale(salesCategoryDetails)">edit</button>
+        <button class="material-icons" ng-click="deleteSale(salesCategoryDetails)">close</button></td>
+
+
+
+				           </tr>
+
+				       </tbody>
+				       </table>
+				       </div>
+				       </div>
+				    
+				 </div>
+				</div>
+       		<div class="col-sm-4">
+       			 
+       			<form >
+
+       				<p>
+					    <label>InvGroupId:<span id="star"><font size="04">*</font></span></label>
+					     <input type="text"  ng-model='invGroupID' placeholder="InvGroupId" ng-disabled="all1">
+					    </p>
+					    <br>
+					    <br>
+					    <p>
+					    <label>SortOrder:<span id="star"><font size="04">*</font></span></label>
+					     <input    type="text" ng-model='SortOrder' placeholder="SortOrder" ng-disabled="all1">
+					    </p>
+					    <br>
+					    <br>
+					    <p>
+					    <label>InvGroupName:<span id="star"><font size="04">*</font></span></label>
+					     <input type="text"   type="text" ng-model='InventoryGroup.InvGroupName' placeholder="InvGroupName" ng-disabled="all">
+					    </p>
+					    <br>
+					    <br>
+              <p>
+              <label>Alias:<span id="star"><font size="04">*</font></span></label>
+               <input type="text" ng-model='InventoryGroup.Alias'  type="text"  placeholder="Alias" ng-disabled="all">
+              </p>
+              <br>
+              <br>
+            <!--   <p>
+              <label>Rate:<span id="star"><font size="04">*</font></span></label>
+               <input type="text"   type="text"  placeholder="rate">
+              </p>
+              <br>
+              <br> -->
+				 
+				</form> 
+				  <div align="center">
+          <button  id="buttonwidth" class="btn btn-info" ng-click="newInventoryGroup()">New</button>
+           <button type="button" id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails == true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup)" ng-cloak>Update</button>
+        <button  id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails != true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup)" ng-disabled="all">Save</button>
+               
+             <button  class="btn btn-warning" ng-click='cancelInventoryGroup()' ng-disabled="all">Cancel</button>
+            </div>
+          </div>
+       </div>
+    
+    
+ 
+
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+
+      <script type="text/javascript" src="controller/inventoryGroup.js"></script>   
+      
+</html>
