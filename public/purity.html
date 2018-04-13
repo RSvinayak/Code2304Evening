@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
 	<title>Purity</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
@@ -9,6 +9,7 @@
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <style type="text/css">
@@ -16,7 +17,7 @@
   position:relative;
 }
 #tscroll {
-  height:90%;
+  height:550px;
   overflow:auto;  
   margin-top:5%;
 }
@@ -100,6 +101,7 @@ form  { display: table;      }
   label { display: table-cell; text-align: right}
   input { display: table-cell; }
   select { display: table-cell; }
+  td{width: 16%;}
  #selectrow1:focus {
     background-color: blue;
 }
@@ -142,7 +144,7 @@ form  { display: table;      }
 }*/
 </style>
 
-<body style="background-color:#ffe4b5;">
+<body style="background-color:#ffe4b5;" ng-controller="PurityCntrl">
 	 <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >          
@@ -346,7 +348,7 @@ form  { display: table;      }
        </div> 
        <div class="row" >
        	  
-       		<div  class="col-sm-8" style="padding-left:20px;">
+       		<div  class="col-sm-7" style="padding-left:20px;">
        			
 				 <div class="panel panel-default">
 				        <!-- <div class="panel-heading"> -->
@@ -361,19 +363,27 @@ form  { display: table;      }
 				             <th><span class="text">ValueNotation</span></th>
                      <th><span class="text">Conversion%</span></th>
                      <th><span class="text">Rate</span></th>
-				             
+				              <th class = "space"><span class="text" >Edit/Delete</span></th>
 				           </tr>
 				    </thead>
 				    <tbody >
 
-				    <!--  <tr ng-repeat ="itemdetails1 in itemdetails | orderBy :
-				     'itemType'" ng-click="selectrow(itemdetails1)" id="selectrow1" ng-class="{selected : itemdetails1 === idSelectedVote}">
-				 -->
+			       
+             <tr ng-repeat ="PuritysDetails in PuritysDetails | orderBy :
+             'NotationID'" >
+        
 
-				            <!--  <td>{{itemdetails1.Name}}</td>
-				             <td>{{itemdetails1.InvGroupName}}</td>
-				             <td>{{itemdetails1.SaleCategory}}</td>
-				             <td>{{itemdetails1.ItemType}}</td> -->
+                     <td>{{PuritysDetails.NotationID}}</td>
+                     <td>{{PuritysDetails.InvGroupID}}</td>
+                     <td>{{PuritysDetails.ValueNotation}}</td>
+                     <td>{{PuritysDetails.ConversionPercentage}}</td>
+                     <td>{{PuritysDetails.Rate}}</td>
+                         <td class = "space" ng-if='$last == false'>
+                      <button class="material-icons" ng-click="editPurity(PuritysDetails)">edit</button>
+                      </td>         
+                  <td class = "space" ng-if='$last == true'>
+                      <button class="material-icons" ng-click="editPurity(PuritysDetails)">edit</button>
+                      <button class="material-icons" ng-click="deletePurity(PuritysDetails)">close</button></td>
 
 
 
@@ -387,47 +397,60 @@ form  { display: table;      }
 				    
 				 </div>
 				</div>
-       		<div class="col-sm-4">
+       		<div class="col-sm-3">
        			 
        			<form >
 
        				<p>
 					    <label>NotationId:<span id="star"><font size="04">*</font></span></label>
-					     <input type="text"   placeholder="notationId" >
+					     <input type="Number" ng-model='NotationID'  placeholder="notationId" ng-disabled="all1" >
 					    </p>
 					    <br>
 					    <br>
 					    <p>
 					    <label>InvGroupId:<span id="star"><font size="04">*</font></span></label>
-					     <input    type="password"  placeholder="InvGroupId">
+					 
+               <select type="Number"  ng-model='purity.InvGroupID' placeholder="InvGroupId"  ng-disabled="all" ng-change="getInvGroupName(purity.InvGroupID)">
+              <option ng-repeat="invGroupIDDetails in invGroupIDDetails" >{{invGroupIDDetails.InvGroupID}}</option >
+              </select>
 					    </p>
 					    <br>
 					    <br>
+              <p>
+              <label>InvGroupName:<span id="star"><font size="04">*</font></span></label>
+           
+               <input type="text"  ng-model='purity.InvGroupName' placeholder="InvGroupName"  ng-disabled="all1">
+             
+              </p>
+              <br>
+              <br>
 					    <p>
 					    <label>ValueNotation:<span id="star"><font size="04">*</font></span></label>
-					     <input type="text"   type="text"  placeholder="ValueNotation">
+					     <input type="Number" ng-model='purity.ValueNotation'  type="text"  placeholder="ValueNotation" ng-disabled="all">
 					    </p>
 					    <br>
 					    <br>
               <p>
               <label>Conversion%:<span id="star"><font size="04">*</font></span></label>
-               <input type="text"   type="text"  placeholder="percentage">
+               <input type="Number" ng-model='purity.ConversionPercentage'  type="text"  placeholder="percentage" ng-disabled="all">
               </p>
               <br>
               <br>
               <p>
               <label>Rate:<span id="star"><font size="04">*</font></span></label>
-               <input type="text"   type="text"  placeholder="rate">
+               <input type="Number" ng-model='purity.Rate'  type="text"  placeholder="rate" ng-disabled="all">
               </p>
               <br>
               <br>
 				 
 				</form> 
 				<div align="center">
-				<button  id="buttonwidth"  class="btn btn-info" ng-if ="test=='display'" class="btn btn-default"  ng-click="saveitem()" ng-disabled="all">Save</button>
-                <button type="button" id="buttonwidth" class="btn btn-success" ng-if ="test=='update1'" class="btn btn-default" ng-click="saveitem()">Update</button>
-       			 <button  class="btn btn-warning" ng-click=cancelitem() ng-disabled="all">Cancel</button>
-       			</div>
+          <button  id="buttonwidth" class="btn btn-info" ng-click="newPurity()">New</button>
+           <button type="button" id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updatePurity == true" ng-click="validationPurity(NotationID,purity)" ng-cloak>Update</button>
+        <button  id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updatePurity != true" ng-click="validationPurity(NotationID,purity)" ng-disabled="all">Save</button>
+               
+             <button  class="btn btn-warning" ng-click='cancelPurity()' ng-disabled="all">Cancel</button>
+            </div>
        		</div>
        </div>
     
@@ -437,6 +460,6 @@ form  { display: table;      }
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 
-      <script type="text/javascript" src="controller/staff.js"></script>   
+      <script type="text/javascript" src="controller/purity.js"></script>   
       
 </html>

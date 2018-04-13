@@ -7,7 +7,11 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
+<<<<<<< HEAD
+  };
+=======
           };
+>>>>>>> origin
  // $scope.name="shivu";
  $scope.rpamt=[];
  $scope.paymode='Cash';
@@ -104,7 +108,11 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
           if(recentId1 == null){
       // alert("recentID1 is null");
               $scope.details=response;
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
           }
           else{
             // alert("when recentId is not null");

@@ -252,8 +252,8 @@ refresh();
 $scope.editit = function(tax4) {
   $scope.pur1=[]
   add1()
-  $scope.button1 = false;
-  $scope.test = 'update1'
+  $scope.button1 = true;
+  $scope.test = 'update1';
   $http.get('/editititem2',{params:{"aliasname":tax4.aliasname,"taxname":tax4.taxname}}).success(function(response) {
     console.log(response);
     forupdate = response

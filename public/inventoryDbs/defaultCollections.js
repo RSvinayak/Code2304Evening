@@ -109,16 +109,16 @@
                     }           
                 }
           })
-          db.salesCategoryMaster.find(function (err, salesCategoryMasterValues) {
-                if (salesCategoryMasterValues.length == 0) {
-                    var salesCategoryMasterInsert = defaultDropDown.dropDown[7];
+          // db.salesCategoryMaster.find(function (err, salesCategoryMasterValues) {
+          //       if (salesCategoryMasterValues.length == 0) {
+          //           var salesCategoryMasterInsert = defaultDropDown.dropDown[7];
                     
-                    for (var salesCategoryMasterIndex = 0; salesCategoryMasterIndex < salesCategoryMasterInsert.maingroup.length; salesCategoryMasterIndex++) {
-                            var salesCategoryMasterObj = { "SaleCategoryNo": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryNo,"SaleCategoryType": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryType,"SortedOrderNo": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SortedOrderNo,"SaleCategoryType": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryType,"PrnFileName": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].PrnFileName }
-                            db.salesCategoryMaster.insert(salesCategoryMasterObj, function (err, mc) { });
-                    }           
-                }
-          })
+          //           for (var salesCategoryMasterIndex = 0; salesCategoryMasterIndex < salesCategoryMasterInsert.maingroup.length; salesCategoryMasterIndex++) {
+          //                   var salesCategoryMasterObj = { "SaleCategoryNo": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryNo,"SaleCategoryType": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryType,"SortedOrderNo": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SortedOrderNo,"SaleCategoryType": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].SaleCategoryType,"PrnFileName": salesCategoryMasterInsert.maingroup[salesCategoryMasterIndex].PrnFileName }
+          //                   db.salesCategoryMaster.insert(salesCategoryMasterObj, function (err, mc) { });
+          //           }           
+          //       }
+          // })
           db.stockPointMaster.find(function (err, stockPointMasterValues) {
                 if (stockPointMasterValues.length == 0) {
                     var stockPointMasterInsert = defaultDropDown.dropDown[8];
@@ -149,27 +149,27 @@
                     }           
                 }
           })
-           db.items.find(function (err, itemsValues) {
-                if (itemsValues.length == 0) {
-                    var itemsInsert = defaultDropDown.dropDown[15];
-                    //console.log(itemTypeInsert.maingroup.length);
-                    for (var itemsIndex = 0; itemsIndex < itemsInsert.maingroup.length; itemsIndex++) {
-                            var itemsObj = { "Name": itemsInsert.maingroup[itemsIndex].Name,
-                                              "Hsc": itemsInsert.maingroup[itemsIndex].Hsc,
-                                              "Desc": itemsInsert.maingroup[itemsIndex].Desc,
-                                              "InvGroupName": itemsInsert.maingroup[itemsIndex].InvGroupName,
-                                              "ItemType": itemsInsert.maingroup[itemsIndex].ItemType,
-                                              "SaleCategory": itemsInsert.maingroup[itemsIndex].SaleCategory,
-                                              "comboItem": itemsInsert.maingroup[itemsIndex].comboItem,
+          //  db.items.find(function (err, itemsValues) {
+          //       if (itemsValues.length == 0) {
+          //           var itemsInsert = defaultDropDown.dropDown[15];
+          //           //console.log(itemTypeInsert.maingroup.length);
+          //           for (var itemsIndex = 0; itemsIndex < itemsInsert.maingroup.length; itemsIndex++) {
+          //                   var itemsObj = { "Name": itemsInsert.maingroup[itemsIndex].Name,
+          //                                     "Hsc": itemsInsert.maingroup[itemsIndex].Hsc,
+          //                                     "Desc": itemsInsert.maingroup[itemsIndex].Desc,
+          //                                     "InvGroupName": itemsInsert.maingroup[itemsIndex].InvGroupName,
+          //                                     "ItemType": itemsInsert.maingroup[itemsIndex].ItemType,
+          //                                     "SaleCategory": itemsInsert.maingroup[itemsIndex].SaleCategory,
+          //                                     "comboItem": itemsInsert.maingroup[itemsIndex].comboItem,
 
 
-                                           }
+          //                                  }
                            
                                                 
-                            db.items.insert(itemsObj, function (err, mc) { });
-                    }           
-                }
-          })
+          //                   db.items.insert(itemsObj, function (err, mc) { });
+          //           }           
+          //       }
+          // })
           db.transactionSeriesInvoice.find(function (err, transactionSeriesInvoiceValues) {
                 if (transactionSeriesInvoiceValues.length == 0) {
                     var transactionSeriesInvoiceInsert = defaultDropDown.dropDown[9];
@@ -188,69 +188,69 @@
                     }           
                 }
           })
-          db.inventoryGroupValueNotation.find(function (err, inventoryGroupValueNotationValues) {
-                if (inventoryGroupValueNotationValues.length == 0) {
-                    var inventoryGroupValueNotationInsert = defaultDropDown.dropDown[10];
+          // db.inventoryGroupValueNotation.find(function (err, inventoryGroupValueNotationValues) {
+          //       if (inventoryGroupValueNotationValues.length == 0) {
+          //           var inventoryGroupValueNotationInsert = defaultDropDown.dropDown[10];
                     
-                    for (var inventoryGroupValueNotationIndex = 0; inventoryGroupValueNotationIndex < inventoryGroupValueNotationInsert.maingroup.length; inventoryGroupValueNotationIndex++) {
-                            var inventoryGroupValueNotationObj = { "NotationID": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].NotationID,
-                                                                    "InvGroupID": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].InvGroupID,
-                                                                    "ValueNotation": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].ValueNotation,
-                                                                    "ConversionPercentage": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].ConversionPercentage,
-                                                                    "Rate": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].Rate 
+          //           for (var inventoryGroupValueNotationIndex = 0; inventoryGroupValueNotationIndex < inventoryGroupValueNotationInsert.maingroup.length; inventoryGroupValueNotationIndex++) {
+          //                   var inventoryGroupValueNotationObj = { "NotationID": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].NotationID,
+          //                                                           "InvGroupID": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].InvGroupID,
+          //                                                           "ValueNotation": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].ValueNotation,
+          //                                                           "ConversionPercentage": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].ConversionPercentage,
+          //                                                           "Rate": inventoryGroupValueNotationInsert.maingroup[inventoryGroupValueNotationIndex].Rate 
                                                                 
-                                                                }
-                            db.inventoryGroupValueNotation.insert(inventoryGroupValueNotationObj, function (err, mc) { });
-                    }           
-                }
-          })
-          db.inventoryGroupMaster.find(function (err, inventoryGroupMasterValues) {
-                if (inventoryGroupMasterValues.length == 0) {
-                    var inventoryGroupMasterInsert = defaultDropDown.dropDown[11];
+          //                                                       }
+          //                   db.inventoryGroupValueNotation.insert(inventoryGroupValueNotationObj, function (err, mc) { });
+          //           }           
+          //       }
+          // })
+          // db.inventoryGroupMaster.find(function (err, inventoryGroupMasterValues) {
+          //       if (inventoryGroupMasterValues.length == 0) {
+          //           var inventoryGroupMasterInsert = defaultDropDown.dropDown[11];
                     
-                    for (var inventoryGroupMasterIndex = 0; inventoryGroupMasterIndex < inventoryGroupMasterInsert.maingroup.length; inventoryGroupMasterIndex++) {
-                            var inventoryGroupMasterObj = { "InvGroupID": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].InvGroupID,
-                                                                    "InvGroupName": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].InvGroupName,
-                                                                    "Alias": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].Alias,
-                                                                    "sortOrder": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].sortOrder,
-                                                                    "PurchaseAcc" :[
-                                                                                    {
-                                                                                         "AccId": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].PurchaseAcc[0].AccId,
-                                                                                         "AccNo" : inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].PurchaseAcc[0].AccNo
+          //           for (var inventoryGroupMasterIndex = 0; inventoryGroupMasterIndex < inventoryGroupMasterInsert.maingroup.length; inventoryGroupMasterIndex++) {
+          //                   var inventoryGroupMasterObj = { "InvGroupID": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].InvGroupID,
+          //                                                           "InvGroupName": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].InvGroupName,
+          //                                                           "Alias": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].Alias,
+          //                                                           "sortOrder": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].sortOrder,
+          //                                                           "PurchaseAcc" :[
+          //                                                                           {
+          //                                                                                "AccId": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].PurchaseAcc[0].AccId,
+          //                                                                                "AccNo" : inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].PurchaseAcc[0].AccNo
                                                                   
-                                                                                     }
-                                                                                    ],
-                                                                     "SalesAcc" :[
-                                                                                    {
-                                                                                         "AccId": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].SalesAcc[0].AccId,
-                                                                                         "AccNo" : inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].SalesAcc[0].AccNo
+          //                                                                            }
+          //                                                                           ],
+          //                                                            "SalesAcc" :[
+          //                                                                           {
+          //                                                                                "AccId": inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].SalesAcc[0].AccId,
+          //                                                                                "AccNo" : inventoryGroupMasterInsert.maingroup[inventoryGroupMasterIndex].SalesAcc[0].AccNo
                                                                   
-                                                                                     }
-                                                                                    ]               
+          //                                                                            }
+          //                                                                           ]               
                                                                    
-                                                                }
-                            db.inventoryGroupMaster.insert(inventoryGroupMasterObj, function (err, mc) { });
-                    }           
-                }
-          })
-          db.inventoryGroupValueNotationDaily.find(function (err, inventoryGroupValueNotationDailyValues) {
-                if (inventoryGroupValueNotationDailyValues.length == 0) {
-                    var inventoryGroupValueNotationDailyInsert = defaultDropDown.dropDown[12];
+          //                                                       }
+          //                   db.inventoryGroupMaster.insert(inventoryGroupMasterObj, function (err, mc) { });
+          //           }           
+          //       }
+          // })
+          // db.inventoryGroupValueNotationDaily.find(function (err, inventoryGroupValueNotationDailyValues) {
+          //       if (inventoryGroupValueNotationDailyValues.length == 0) {
+          //           var inventoryGroupValueNotationDailyInsert = defaultDropDown.dropDown[12];
                     
-                    for (var inventoryGroupValueNotationDailyIndex = 0; inventoryGroupValueNotationDailyIndex < inventoryGroupValueNotationDailyInsert.maingroup.length; inventoryGroupValueNotationDailyIndex++) {
-                            var inventoryGroupValueNotationDailyObj = { "NotationID": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].NotationID,
-                                                                    "InvGroupID": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].InvGroupID,
-                                                                    "ValueNotation": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].ValueNotation,
-                                                                    "ConversionPercentage": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].ConversionPercentage,
-                                                                    "Rate": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].Rate, 
-                                                                    "InvGroupName": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].InvGroupName,
-                                                                    "date": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].date
+          //           for (var inventoryGroupValueNotationDailyIndex = 0; inventoryGroupValueNotationDailyIndex < inventoryGroupValueNotationDailyInsert.maingroup.length; inventoryGroupValueNotationDailyIndex++) {
+          //                   var inventoryGroupValueNotationDailyObj = { "NotationID": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].NotationID,
+          //                                                           "InvGroupID": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].InvGroupID,
+          //                                                           "ValueNotation": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].ValueNotation,
+          //                                                           "ConversionPercentage": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].ConversionPercentage,
+          //                                                           "Rate": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].Rate, 
+          //                                                           "InvGroupName": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].InvGroupName,
+          //                                                           "date": inventoryGroupValueNotationDailyInsert.maingroup[inventoryGroupValueNotationDailyIndex].date
                                                                 
-                                                                }
-                            db.inventoryGroupValueNotationDaily.insert(inventoryGroupValueNotationDailyObj, function (err, mc) { });
-                    }           
-                }
-          })
+          //                                                       }
+          //                   db.inventoryGroupValueNotationDaily.insert(inventoryGroupValueNotationDailyObj, function (err, mc) { });
+          //           }           
+          //       }
+          // })
           db.ledgeraccounts.find({"accountIds" : "L001"},function (err, ledgeraccountsValues) {
                 if (ledgeraccountsValues.length == 0) {
                     var ledgeraccountsInsert = defaultDropDown.dropDown[13];

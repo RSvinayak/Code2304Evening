@@ -11,7 +11,7 @@ var db=mongojs('inventory200',['user','tags','transaction','saleInvoice','mode',
   'roundOffConfig','sgIds','subgroups','subscribers','trDetails','transactionInvoice','ugIds','updatelist','user',
   'users','merchantDetails','trail','staff','receipts','cardType','payments','orders','printData','orderType','orderManage']);
 
-var bodyParser=require('body-parser');
+//var bodyParser=require('body-parser');
 
 //var app            = express();
 //var mongoose       = require('mongoose');
@@ -21,7 +21,14 @@ var bson = require('bson');
 var Promise = require('es6-promise').Promise;
 var Decimal128 = require('mongodb').Decimal128;
 app.use(express.static('public'));
+<<<<<<< HEAD
+//app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'})); // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true,parameterLimit:50000}));// parse application/x-www-form-urlencoded
+=======
 app.use(bodyParser.json());
+>>>>>>> origin
 
 // if (signUpSuccessful(request, response)) {
 //     response.statusCode = 302; 
@@ -90,7 +97,11 @@ app.get('/getPaidPayments:party',function(req,res){
   });
 });
 
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 app.get('/stonecalc',function(req,res){
   console.log("sssssssssssssssssssssssssssssssssssss");
   db.labcal.find({},function(err,doc){
@@ -1842,11 +1853,12 @@ app.get('/batchrecords/:update',function(req,res)
  
 app.post('/tags',function(req,res)
 {
-    console.log("tags insert call");
-    db.tags.insert(req.body,function(err,doc)
-    {
-   res.json(doc);
-    })
+  
+
+       db.tags.insert(req.body,function(err,doc)
+          {
+              res.json(doc);
+          })
 
 })
 // edit update
@@ -2819,10 +2831,12 @@ app.post('/insertinventoryGroupDetails',function(req,res){
    })
 })
 app.post('/updateinventoryGroupDetails',function(req,res){
-
-   db.inventoryGroupMaster.update({_id:mongojs.ObjectId(req.body._id)},{$set:{InventoryGroupNo:req.body.InventoryGroupNo,InventoryGroupType:req.body.InventoryGroupType,SortedOrderNo:req.body.SortedOrderNo,PrnFileName:req.body.PrnFileName}},function(err,doc){
+   
+   db.inventoryGroupMaster.update({_id:mongojs.ObjectId(req.body._id)},{$set:{InvGroupID:req.body.InvGroupID,InvGroupName:req.body.InvGroupName,
+    sortOrder:req.body.sortOrder,Alias:req.body.Alias,"PurchaseAcc":req.body.PurchaseAcc,"SalesAcc":req.body.SalesAcc}},function(err,doc){
        res.json(doc);
    })
+   
 })
 
 app.delete('/deleteinventoryGroupDetails',function(req,res){
@@ -2832,8 +2846,81 @@ app.delete('/deleteinventoryGroupDetails',function(req,res){
     })
 })
 //end InventoryGroup cntrl
+//start Purity cntrl
+app.get('/getPurityCount',function(req,res){  
+
+    db.inventoryGroupValueNotation.find({},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    });
+ 
+})
+app.get('/getInvGroupID',function(req,res){
+    //var transaction = req.query.transaction;
+ //console.log(" req.query.transaction "+ req.query.InvGroupID + typeof(req.query.InvGroupID))
+    db.inventoryGroupMaster.find({ "InvGroupID" : Number(req.query.InvGroupID)},function(err,doc){
+        //console.log(doc);
+        res.json(doc);
+    })
+})
+
+app.get('/getInvGroupIDCall',function(req,res){  
+
+    db.inventoryGroupMaster.find({},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    });
+ 
+})
+
+app.get('/editPurityDetails',function(req,res){  
+
+  db.inventoryGroupValueNotation.find({"_id":mongojs.ObjectId(req.query._id)},function(err,doc){
+      res.json(doc);
+  })
+})
+app.post('/insertPurityDetails',function(req,res){
+
+   
+    db.inventoryGroupValueNotationDaily.find({}).sort({_id:-1},function(err,doc){
+            //console.log(doc); db.barCodeSummary.find({status:"completed"})
+            //res.json(doc);
+            if (doc.length == 0) {
+              console.log(" zero inventoryGroupValueNotationDaily inventoryGroupValueNotationDaily inventoryGroupValueNotationDaily inventoryGroupValueNotationDaily")
+              req.body.date = new Date(((new Date().toISOString().slice(0, 23))+"-05:30")).toISOString();
+              db.inventoryGroupValueNotationDaily.insert(req.body)
+            }else{
+              console.log(" non zero  "+doc[0].date);
+              req.body.date = doc[0].date;
+              db.inventoryGroupValueNotationDaily.insert(req.body)
+             
+            }
+    })
+
+   db.inventoryGroupValueNotation.insert(req.body,function(err,doc){
+       res.json(doc);
+   })
+})
+app.post('/updatePurityDetails',function(req,res){
+
+   db.inventoryGroupValueNotation.update({_id:mongojs.ObjectId(req.body._id)},{$set:{NotationID:req.body.NotationID,InvGroupID:req.body.InvGroupID,ValueNotation:req.body.ValueNotation,ConversionPercentage:req.body.ConversionPercentage,Rate:req.body.Rate,InvGroupName:req.body.InvGroupName}},function(err,doc){
+       res.json(doc);
+   })
+})
+
+app.delete('/deletePurityDetails',function(req,res){
+   console.log(req.query._id)
+    db.inventoryGroupValueNotation.remove({_id: mongojs.ObjectId(req.query._id)}, function(err, docs) {
+        res.json(docs);
+    })
+})
+//end Purity cntrl
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
 // Transaction urd
 app.post('/Transaction',function(req,res)
 { 
@@ -5865,7 +5952,10 @@ app.delete('/tagdeleted12/:update',function(req,res){
    
    var id=req.params.update;
     console.log(id);
-      db.tags.remove({_id: mongojs.ObjectId(id)})
+      //db.tags.remove({_id: mongojs.ObjectId(id)})
+        db.tags.remove({_id: mongojs.ObjectId(id)}, function(err, docs) {
+           res.json("deleted");
+        })
      //console.log(" tag delete after remove function");
 })
 //delete and create a new one
@@ -9528,9 +9618,15 @@ mongoose.connect(db1.url, function(err, db) {
   console.log("Connected to Database");
 });
 
+<<<<<<< HEAD
+// app.use(bodyParser.json({limit: '50mb'})); // parse application/json
+// app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));// parse application/x-www-form-urlencoded
+=======
 app.use(bodyParser.json({limit: '20mb'})); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({limit: '20mb', extended: true}));// parse application/x-www-form-urlencoded
+>>>>>>> origin
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
@@ -9542,10 +9638,22 @@ require('./public/inventoryDbs/defaultCollections')(app);
 require('./apiCalls/materialAdvancePdf')(app);
 //app.set('port', process.env.PORT || 8000); 
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.listen(8100)
 console.log("server running on port 8100");
 =======
 app.listen(8200)
 console.log("server running on port 8200");
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+// var a = 100;
+// console.log(" a "+a+ typeof(a))
+var port = 9200;
+app.listen(port)
+console.log("server running on port "+port);
+=======
+app.listen(8200)
+console.log("server running on port 8200");
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 exports = module.exports = app;

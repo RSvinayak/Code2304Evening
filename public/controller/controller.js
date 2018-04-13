@@ -11,7 +11,11 @@ function($scope,$http,$window,$filter,$timeout,$q,ControllerService){
           };
   $scope.usersalesperson = true;
   $scope.desgination = window.sessionStorage.getItem("desgination")
+<<<<<<< HEAD
+  //alert($scope.desgination)
+=======
 
+>>>>>>> origin
     $scope.ordmat="";
     $scope.schmat="";
     $scope.totmat="";
@@ -30,7 +34,11 @@ function($scope,$http,$window,$filter,$timeout,$q,ControllerService){
     $scope.disabled=0;
     $scope.staffSelected=0;
     $scope.urdispresent=0;
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
     // $scope.Cash=0;
     // $scope.Card=0;
     // $scope.Credit=0;
@@ -168,7 +176,11 @@ $scope.userOption=function(value){
   }
 }
 
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 //added charan's code below
 $scope.orderRes=[];
 
@@ -1284,7 +1296,7 @@ $scope.itemSelect = function(itemname,in1,id) {
                            
 
                             console.log(lastdate)
-                           // alert(lastdate)
+                            //alert(lastdate)
                             var itempuritydata = response[0].InvGroupID +","+lastdate;
                            $http.get('/itemPurityDetails'+itempuritydata).success(function(response){
                               console.log(response)
@@ -4043,7 +4055,11 @@ $scope.finalNetAmount = function (value){
 
 =======
       // alert("final");
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
       console.log($scope.roundOffMethod);
       console.log( $scope.roundOffValue);
       if($scope.roundOffValue !=0){
@@ -4127,7 +4143,11 @@ $scope.finalNetAmount = function (value){
 =======
  }//if round off value
 
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 }
 
 
@@ -4545,7 +4565,11 @@ $scope.cal=function()
       }
 
   }//if
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 //for getting tax for receipt voucher
   if($scope.transaction=="Receipt Voucher"){
     $scope.labamt=0;
@@ -6360,7 +6384,11 @@ $scope.dateValid=function(){
 
                       if($scope.transaction == "Approval Sale" ){
                          if($scope.checkstaff1.state =='customer'){
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
                               if( $scope.partyname ==null||$scope.partyname ==undefined||$scope.partyname =="" ){
                          
                                alert("Please Select Partyname")
@@ -6381,7 +6409,11 @@ $scope.dateValid=function(){
                         if($scope.transaction=="Sale Return" || $scope.transaction=="Purchase Return"
 =======
          if($scope.transaction=="Sale Return" || $scope.transaction=="Purchase Return"
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
                     ||$scope.transaction=="Approval Sale"){
                              //alert($scope.checklength+"in save");
                             if($scope.checklength==0){
@@ -7459,7 +7491,11 @@ $scope.confirmOrder = function(){
 =======
         $scope.issueVoucherTax2 = response[0].issueVoucherTax2;
         $scope.receiptVoucherTax2 = response[0].receiptVoucherTax2;
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
       //  var printconfiguration = withheader;
       //   var printconfiguration = withoutheader;
       // // alert("labourTaxInterest "+labourTaxInterest )
@@ -7554,7 +7590,11 @@ function($scope,$http,$window){
      // alert($scope.Payyes+" $scope.Payyes");
       $scope.Nopayment = window.sessionStorage.getItem("abscent");
         // alert($scope.Nopayment+" $scope.Nopayment");
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
      if ($scope.billnum == 'Credit') {
       // alert(" credit")
      }else if ($scope.billnum == 'Cash') {
@@ -7574,7 +7614,11 @@ $scope.Credit=0;
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 
 window.sessionStorage.setItem("abscent",0);
  var navigationCheckCallToPdf = window.sessionStorage.getItem("paymentCallFromTransaction")
@@ -8060,7 +8104,11 @@ if($scope.trans == "Urd Purchase"||$scope.trans == "Sale Return"||$scope.trans =
 =======
           window.sessionStorage.setItem("urdpre",0);
       window.sessionStorage.setItem("paymentmade",0);
+<<<<<<< HEAD
 >>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
+=======
+>>>>>>> origin
+>>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
 }
 
  $scope.styleFunction = function(condition,Num){
