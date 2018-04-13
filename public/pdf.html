@@ -189,6 +189,9 @@ display: block;
     text-align: right;
     
         }
+    #right3{
+      margin-left:800px;
+    }
         .mark{
               font-weight:normal;
 
@@ -395,25 +398,19 @@ display: block;
 </div>
 <div class="row">
 
-<<<<<<< HEAD
 <div class="col-sm-10" ng-hide="trans=='Opening Stock' || trans=='Approval Sale'">
-<p ng-show="partyType==null||partyType=='null'||partyType== 0" ng-cloak>Party Name:{{partyname}} <br>
-=======
-<div class="col-sm-10" ng-hide="trans=='Opening Stock'">
-<p ng-cloak>Party Name:{{partyname}} <br>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+<p ng-show="partyType==null||partyType=='null'||partyType== 0||partyType=='false'" ng-cloak>Party Name:{{partyname}} <br>
 Party License:{{partyLicense}}<br>
 Party PAN:{{partyPAN}}<br>
 Party Address:{{city}}<br>
 City:{{city}}</p>
-<<<<<<< HEAD
-<p ng-show="partyType == 'true'" ng-cloak>
+<p ng-show="partyType == 'staff'" ng-cloak>
   StaffName:{{staffParty}}
 </p>
 
 </div>
 <div class="col-sm-10" ng-hide="trans!='Approval Sale'">
-  <p ng-show="staffstatus=='true'" ng-cloak>StaffName:{{staffParty}}</p>
+  <p ng-show="staffstatus=='staff'" ng-cloak>StaffName:{{staffParty}}</p>
 Party Name:{{partyname}} <br>
 Party License:{{partyLicense}}<br>
 Party PAN:{{partyPAN}}<br>
@@ -424,8 +421,6 @@ City:{{city}}
   StaffName:{{staffParty}}
 </p> -->
 
-=======
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 </div>
 <div ng-cloak ng-if="trans !='Valuation'&&trans!='Opening Stock'">Invoice No:{{invoice}}<br>
   <!-- <p>Invoice No:B1393<br> -->
@@ -499,7 +494,8 @@ City:{{city}}
 <div class="col-sm-4">
 <table class="table no-border">
     <thead>
-      <tr ng-if = "sca != 0 || smca != 0 || orad != 0 || ormd != 0||urd_adj != 0 ">
+      <!-- <tr ng-if = "(sca != 0 || smca != 0 || orad != 0 || ormd != 0||urd_adj != 0 || presenturd==1 ) && trans=='Regular Sale'&& Nopayment != 1"> -->
+      <tr ng-if = "(sca != 0 || smca != 0 || orad != 0 || ormd != 0||urd_adj != 0 || presenturd==1 ) && trans=='Regular Sale'">
       <th>Particulars</th>
         <th >Adjusted</th>
         <th>Balance</th>
@@ -529,20 +525,30 @@ City:{{city}}
   <td>0</td>
   <td>0</td>
 </tr>
-<tr ng-if = "urd_adj != 0 || adj !=0">
-  <td ng-if = "urd_adj != 0 ">Last URD Purchase</td>
-  <td  ng-if = "urd_adj != 0 ">{{adj}}</td>
-  <td ng-if = "urd_adj != 0 ">{{urd_adj}}</td>
+<!-- <tr ng-if = "(urd_adj != 0 || adj !=0)||(presenturd==1 && trans == 'Regular Sale')"> -->
+<!-- <tr ng-if = "(presenturd==1 && trans == 'Regular Sale'&& Nopayment != 1)"> -->
+<tr ng-if = "(presenturd==1 && trans == 'Regular Sale')">
+  <td ng-if = "urd_adj != 0||(presenturd==1 && trans == 'Regular Sale') ">Last URD Purchase</td>
+  <td  ng-if = "urd_adj != 0 || (presenturd==1 && trans == 'Regular Sale')">{{adj}}</td>
+  <td ng-if = "urd_adj != 0 || (presenturd==1 && trans == 'Regular Sale')">{{urd_bal}}</td>
  
  <!-- <td>{{urdTotalBalance}}</td>  -->
 </tr>
-<tr ng-if = "urd_adj != 0 " ng-repeat="urdDetails in urdDetails">
-  <td ng-if = "urd_adj != 0 ">Urd BillNo</td>
-  <td ng-if = "urd_adj != 0 ">{{urdDetails1.urdDate | date  : "dd-MM-y"}}</td>
-  <td ng-if = "urd_adj != 0 ">{{urdDetails1.urdVoucherNo }}</td>
+<tr ng-if = "(presenturd==1 && trans == 'Regular Sale')" ng-repeat="urdDetails in urdDetails">
+  <td ng-if = "urd_adj != 0 || presenturd == 1">Urd BillNo</td>
+  <td ng-if = "urd_adj != 0 || presenturd == 1">{{urdDetails1.urdDate | date  : "dd-MM-y"}}</td>
+  <td ng-if = "urd_adj != 0 || presenturd == 1">{{urdDetails1.urdVoucherNo }}</td>
  
 </tr>
 </tbody>
+</table>
+<table border="1" ng-if="Payyes==1 && trans=='Regular Sale'">
+  <tr>
+      <th>Amount Refunded</th>
+      <!-- <th>Balance</th> -->
+      <th>   </th>
+      <td>{{urd_bal}}</td>
+  </tr>
 </table>
 
 </div>
@@ -602,29 +608,17 @@ City:{{city}}
       <td  id="right2">{{taxableval}}</td>
     </tr>  
     <tr>
-<<<<<<< HEAD
       <th ng-if="gst == 'cgst'">Cgst Total:</th>
-=======
-      <th ng-if="gst == 'cgst'">CGST Total:</th>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2">{{cgsttax}}</td>
 
     </tr> 
     <tr>
-<<<<<<< HEAD
       <th ng-if="gst == 'cgst'">Sgst Total:</th>
-=======
-      <th ng-if="gst == 'cgst'">SGST Total:</th>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2">{{sgsttax}}</td>
 
     </tr> 
     <tr>
-<<<<<<< HEAD
       <th ng-if="gst == 'igst'">Igst Total:</th>
-=======
-      <th ng-if="gst == 'igst'">IGST Total:</th>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
       <td  id="right2" ng-if="gst == 'igst'">{{igsttax}}</td>
 
     </tr>
@@ -662,6 +656,34 @@ City:{{city}}
 
   </div>
 </div>
+<div style="margin-left:700px;"  ng-show="trans == 'Receipt Voucher'">
+  <div style="margin-top:-20px;">
+  <table width="250px">
+    <tr>
+    <th id="right3">Item Total:</th>
+      <td  id="right2">{{Rtaxableval}}</td>
+    </tr>  
+    <tr>
+      <th id="right3">Tax Total:</th>
+      <td  id="right2">{{Rtotaltax}}</td>
+
+    </tr> 
+        <tr>
+      <th  id="right3">Subtotal:</th>
+      <td  id="right2">{{Rsubtotal}}</td>
+    </tr>
+    <tr>
+      <th id="right3">Transaction Nett:</th>
+      <td  id="right2"><b>{{Rnett}}</b></td>
+     </tr> 
+    <tr>
+       <th id="right3">Invoice Value:</th>
+      <td  id="right2"><b>{{Rnett}}</b></td>
+    </tr>
+      </table>
+    </div>
+
+  </div>
 
 </div>
 <!-- <<<<<<< HEAD -->
@@ -728,6 +750,7 @@ City:{{city}}
 </div>
 </div>
 </div>
+<br>
 <div  ng-hide="trans!='Issue Voucher'&& trans!='Receipt Voucher' && trans != 'Approval Out' && trans !='Approval Return'" >
   
 <table>

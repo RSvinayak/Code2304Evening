@@ -5,13 +5,12 @@ myApp.controller('ItemCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
   //alert("well come to ItemCntrl")
    $scope.usernamedetails = window.sessionStorage.getItem("username")
-<<<<<<< HEAD
-=======
+
     if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
    $scope.itemdetails = []
     var duplicat = [];
     var duplicate = [];

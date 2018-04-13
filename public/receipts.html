@@ -232,7 +232,7 @@ display: block;
 
 }
 .first1{
-  width:1000px;
+  width:1100px;
   height:180px;
   font-size:15px;
   margin-top:0px;
@@ -241,6 +241,12 @@ display: block;
 /*  border:1px solid black;*/
   color:black;
 }
+
+li#name1 {
+    right: -100px;
+    font-size: 27px;
+    font-style: italic;
+} 
 
 #head1{
   position:fixed;
@@ -281,8 +287,18 @@ display: block;
 }
 #party{
 margin-top:30px;
+margin-left:-28px;
 /*border:1px solid black;*/
 }
+#party11{
+  margin-top:30px;
+  margin-left:200px;
+}
+#party33{
+  margin-top:-30px;
+  margin-left:720px;
+}
+
 
 #details{
   margin-top:200px;
@@ -391,10 +407,6 @@ thead tr th {
 
             float: left;
         }
-/*        input[type="text"]
-{
-    font-size:24px;
-}*/
 
 </style>
 
@@ -467,20 +479,12 @@ thead tr th {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
                 </a>
-              </li>
-             
-             
+              </li>             
             </ul>
-          </li>
-          
-          
+          </li>          
           <li >
             <a href='#'>
               Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -504,9 +508,7 @@ thead tr th {
                 <a href="GroupWise.html">
                   Group Wise
                 </a>
-              </li>
-             
-              
+              </li>              
             </ul>
           </li>
           <li >
@@ -516,11 +518,8 @@ thead tr th {
               Tax Configuration
             </a>
 
+          </li>      
           </li>
-            
-        
-          </li>
-
           <li >
               <a href="dailyRates.html">
               Daily Rates 
@@ -537,8 +536,7 @@ thead tr th {
                   Receipt
                 </a>
               </li>
-                
-
+  
                <li>
                 <a href="payments.html">
                   
@@ -565,10 +563,7 @@ thead tr th {
           
           </li>
           
-        </ul>
-
-
-        
+        </ul>        
       </div>
   <div style="margin-top:0px;font-size:25px;text-align:center;">RECEIPT
       <div class="title2">
@@ -586,39 +581,15 @@ thead tr th {
                     </select>
                   </datalist>
                 </div>
-<<<<<<< HEAD
-                    <div class="col-md-5" id="party">
-=======
-                    <div class="col-md-3" id="party">
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
-                    <span style="font-size:15px;margin-left:-100px;margin-top:10px">Date:</span>
+                    <div class="col-md-3" id="party11">
+                    <span style="font-size:15px;margin-left:-200px;margin-top:10px">Date:</span>
                     <input type="date" style="height:25px;width:150px;font-size:15px" ng-model="billDate" readonly>
-                  </div>
-
-<<<<<<< HEAD
-                        <div class="col-md-3" id="party" ng-if="dataHide=='yes'">
-                    <span style="font-size:15px">Order No:</span>
-                    <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO">
-                  </div>
-                  <div class="col-md-3" id="party" ng-hide="dataHide=='yes'">
-=======
-                        <!-- <div class="col-md-4" id="party" ng-if="dataHide=='yes'">
-                    <span style="font-size:15px">Order No:</span>
-                    <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO">
-                  </div> -->
-                  <div class="col-md-5" id="party" >
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
-
-                  
-
+                  </div>          
+                  <div class="col-md-5" id="party33" >
                     <span style="font-size:15px">Receipt No:</span>
-<<<<<<< HEAD
-                    <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="billNo" readonly>
-=======
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="billNo" readonly></input>
                      <span style="font-size:15px" ng-if="dataHide=='yes'" >Order No:
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO"></span>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                   </div>
                 </div>
           <br>
@@ -645,24 +616,24 @@ thead tr th {
          </table>
          <!-- </div> -->
   </div>
-  <div class="col-sm-6" style="background-color: white;border:1px solid black;margin-top:10px;height:155px;margin-left:10px;overflow-y:auto;width:550px;" ng-hide="dataHide=='yes'">
+  <div class="col-sm-6" style="background-color: white;border:1px solid black;margin-top:10px;height:155px;margin-left:10px;overflow-y:auto;width:573px;" ng-hide="dataHide=='yes'">
     <table  class="table" style="background-color: white">
       <thead >
       <tr>
       <th style="width:45px;margin-left:5px;"> BillNo</th>
-        <th style="width:45px;margin-left:30px;">Mode</th>
-        <th style="width:35px;margin-left:50px;">Date</th>
-        <th style="width:35px;margin-left:50px;">Amount</th>
-        <th style="width:100px;margin-left:60px;">Narration</th>
+        <th style="width:45px;margin-left:20px;">Mode</th>
+        <th style="width:105px;margin-left:20px;">Date</th>
+        <th style="width:35px;margin-left:20px;">Amount</th>
+        <th style="width:140px;margin-left:60px;">Narration</th>
       </tr>
     </thead>
     <tbody ng-cloak  id="hi">
       <tr ng-repeat="receiptData in receiptData" ng-click="row4($index);rePrint($index,receiptData.BillNo,receiptData.Mode,receiptData.Amount.$numberDecimal);" id="tag1" ng-class="{selected1 : $index === idSelectedVotes}">
         <td style="width:45px;margin-left:5px;">{{receiptData.BillNo}}</td>
-        <td style="width:45px;margin-left:30px;">{{receiptData.Mode}}</td>
-        <td style="width:35px;margin-left:50px;">{{receiptData.BilledDate|date:'dd-MM-yyyy'}}</td>
-        <td style="width:35px;margin-left:50px;"> {{receiptData.Amount.$numberDecimal}}</td>
-        <td style="width:100px;margin-left:60px;">{{receiptData.Narration}}</td>
+        <td style="width:45px;margin-left:20px;">{{receiptData.Mode}}</td>
+        <td style="width:105px;margin-left:20px;">{{receiptData.BilledDate|date:'dd-MM-yyyy'}}</td>
+        <td style="width:35px;margin-left:20px;"> {{receiptData.Amount.$numberDecimal}}</td>
+        <td style="width:140px;margin-left:60px;">{{receiptData.Narration}}</td>
       </tr>
     </tbody>
     </table>
@@ -675,14 +646,7 @@ thead tr th {
 </div>
 <br>
 <div class="row" id="pending" style="color:black">
-  <!-- <div class="col-md-6">
-    <span style="font-size:20px;margin-left:-100px;margin-top:25px">Date:</span>
-    <input type="date" style="height:31px;width:150px;font-size:15px">
-  </div>
-  <div class="col-md-6">
-    <span style="font-size:20px">Bill No:</span>
-    <input type="text" style="height:30px;width:100px">
-  </div> -->
+  
 </div>
 <div class="row">
    <!-- <p>Date: <input type="date" id="datepicker"></input></p> -->
@@ -709,22 +673,14 @@ thead tr th {
           <tbody ng-cloak ng-repeat="item in rpamt" id="hi1">
             <tr>
             <td><input type="checkbox" style="margin-left:0px;width:20px;" ng-model="check" ng-true-value="1" ng-false-value="0" ng-click="removeChecked($index,check);indexFunctionCall($index,check)"/></td>
-<<<<<<< HEAD
-<!-- ng-init="item.paymode='Cash'" -->
-=======
             <!-- ng-init="item.paymode='Cash'" -->
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             <td style="width:75px;margin-left:25px">
              <select ng-model="item.paymode"  ng-init="item.paymode='Cash'">
              <option ng-repeat="mode in modes" >{{mode.name}}</option> 
             </td>
 
             <td >
-<<<<<<< HEAD
-              <input type="number" min="0" ng-model="item.amount" style="width:60px;text-align:right;margin-left:25px" ng-change="totalAmount(item.amount)" / >
-=======
-              <input type="number" ng-model="item.amount" style="width:60px;text-align:right;margin-left:25px" ng-change="totalAmount(item.amount)" / >
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+              <input type="number" ng-model="item.amount" style="width:60px;text-align:right;margin-left:25px" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-change="totalAmount(item.amount);" / >
             </td>
 <!-- change="totalAmount($index)" -->
             <td >
@@ -778,23 +734,19 @@ thead tr th {
 <br>
 
     <div class="row" style="color:black">
-  <div class="col-sm-12" style="margin-left:10px">
+  <div class="col-sm-12" style="margin-left:-45px">
      <span style="font-size:20px;">Narration:</span>
   <input type="text" id="input" ng-model="narrate" style="font-size:20px;"/>
   <!-- </div>
   <div  class="col-sm-4"> -->
-    <span style="font-size:20px;color:black;margin-left:200px;width:20px">Total:</span>
-    <input type="Numbers" id="input1" ng-model="totals"  style="font-size:20px;" readonly>
+    <span style="font-size:20px;color:black;margin-left:370px;width:20px">Total:</span>
+    <input type="Numbers" id="input1" ng-model="totals"  style="font-size:20px;margin-right:-100px;" readonly>
         </div>
         <div>
           <br>
-<<<<<<< HEAD
-        <button class="btn btn-danger" style="margin-left:370px;" ng-click="clear()">Cancel</button>
-=======
-        <button class="btn btn-danger" style="margin-left:400px;" ng-click="clear()">Cancel</button>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+        <button class="btn btn-danger" style="margin-left:385px;" ng-click="clear()">Cancel</button>
         <!-- <a href={{materialAdvance}}> -->
-        <button class="btn btn-success" style="margin-left:50px;" ng-click="save()">Save</button>
+        <button class="btn btn-success" style="margin-left:50px;width:80px;" ng-click="save()">Save</button>
       <!-- </a> -->
           </div>
     </div>

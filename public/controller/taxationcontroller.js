@@ -3,14 +3,13 @@ myApp.controller('AppCtrl', ['$scope', '$http',function($scope, $http,$route,$wi
     console.log("Hello World from controller");
  //all global variables declared here
   $scope.usernamedetails = window.sessionStorage.getItem("username")
-<<<<<<< HEAD
- $scope.test = 'display'
-=======
+
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-          };$scope.test = 'display'
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+          };
+          $scope.test = 'display'
+
  var duplicat = [];
  var  forupdate = null;
  $scope.button1 = true;
@@ -287,18 +286,7 @@ $scope.editit = function(tax4) {
 };  
 //for cancel
 $scope.canceldata = function() {
-<<<<<<< HEAD
-   if($scope.tax.taxname == undefined && $scope.tax.aliasname  == undefined )
-  {
-   alert("Please fill all mandetory fields");
-  }
-  else{
-  $scope.test='display' 
-  refresh()
-  $scope.pur1=[]
-  add1()
-}
-=======
+
    if($scope.tax.taxname == undefined && $scope.tax.aliasname  == undefined ){
      alert("Please fill all mandetory fields");
    
@@ -312,7 +300,7 @@ $scope.canceldata = function() {
                             date: new Date()
                           };
           }
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
 }
 //for update
 $scope.updated = function() {
@@ -392,12 +380,11 @@ $scope.updated = function() {
              $scope.test = 'display'
              $scope.pur1=[]
              add1()
-<<<<<<< HEAD
-=======
+
              $scope.bit = {
                             date: new Date()
                           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
            }
 
        }//else 
@@ -436,8 +423,7 @@ $http.get('/purchasess').success(function(response) {
      console.log("i displaying a data");
 
 });
-<<<<<<< HEAD
-=======
+
 $http.get('/sales').success(function(response) {
   console.log("kkkkkkkkkkkkkkk");
  // $scope.taxp = response;
@@ -447,16 +433,8 @@ $http.get('/sales').success(function(response) {
      console.log("i displaying a data");
 
 });
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
-// $http.get('/sales').success(function(response) {
 
-//    console.log(response);
-//    $scope.salesAC = response;
-//    console.log(  $scope.salesAC[0]._id);
-//      console.log("i displaying a data");
 
-// });
-// for done button
 $scope.Taxcreate = function() {
 
   if((num%2)==0){
