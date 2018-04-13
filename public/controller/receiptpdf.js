@@ -16,12 +16,6 @@ myApp.controller('billpdfCntrl',['$scope','$http','$window',
  // alert("data111111111111111"+$scope.datarp);
  // $scope.dates=window.sessionStorage.getItem("date");
  $scope.dates=new Date();
-<<<<<<< HEAD
-$scope.usernamedetails = window.sessionStorage.getItem("username")
- 
-=======
-
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
  $scope.billnum=window.sessionStorage.getItem("billnumber");
  // alert("billnumber"+$scope.billnum);
 //for getting receipt data

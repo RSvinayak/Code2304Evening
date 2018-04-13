@@ -23,10 +23,11 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
  $scope.printreceipt=window.sessionStorage.getItem("rprint");
  var recentId=JSON.parse(window.sessionStorage.getItem("siid"));
  var recentId1=recentId;
+ 
    //alert(recentId1+"  bbbbbbbbbbbbbb");
     //alert("selected party"+$scope.printreceipt);
  $scope.partyname=$scope.customer;
-  // alert("partyname"+$scope.partyname);
+   // alert("partyname"+$scope.partyname);
  console.log("selected party"+$scope.customer);
          $http.get('/cash').success(function(response){
           console.log(response);
@@ -34,10 +35,10 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
           //alert($scope.items);
     });
 
-
-
-  
-
+//for getting all bills based on partyname 6/4/18
+      // $http.get('/allPaidBills'+$scope.partyname).success(function(response){
+      //   console.log(response);
+      // })
          $http.get('/getRecentVoucherNo'+recentId1).success(function(response){
           console.log(response);
           $scope.vno=response[0].voucherNo;
@@ -54,9 +55,9 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
 
             $scope.partyname=$scope.customer;
             var pname=$scope.partyname;
-  $http.get('/getvoucherids'+pname).success(function(response){
-    // alert("got voucherno");
-    console.log(response);
+   $http.get('/getvoucherids'+pname).success(function(response){
+     // alert("got voucherno");
+     console.log(response);
     // $scope.alldetails=response;
     //alert("ll"+response.length);
     for(var i=0;i<=response.length-1;i++){
@@ -67,16 +68,17 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
       if($scope.vno == response[i].voucherNo){
          //alert("with in if"+i);
         // $scope.idSelectedVote=i;
-        $scope.row3(i);
-       console.log($scope.vno+"22222222222222222222");
+            $scope.row3(i);
+           console.log($scope.vno+"22222222222222222222");
          $http.get('/getvoucherAmount'+$scope.vno).success(function(response){
-    console.log(response);
-    console.log(response[0].netamt);
-    // $scope.selectedAmount=response[0].netamt;
-    $scope.storeVoucher(i,$scope.vno,response[0].netamt)
-      });
+            console.log(response);
+            console.log(response[0].netamt);
+            // $scope.selectedAmount=response[0].netamt;
+              $scope.storeVoucher(i,$scope.vno,response[0].netamt)
+         });
         // $scope.storeVoucher();
         // document.getElementById("tag1").onclick()
+<<<<<<< HEAD
       }
     }
     // $scope.details=response;
@@ -95,7 +97,27 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
 
 
   })
+=======
+      }//if
+    }//for
+    // $scope.details=response;
+          if(recentId1 == null){
+      // alert("recentID1 is null");
+              $scope.details=response;
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
           }
+          else{
+            // alert("when recentId is not null");
+            $http.get('/getOnlyRecentData'+$scope.vno).success(function(response){
+              console.log(response);
+              $scope.details=response;
+            })
+          }//else
+
+
+
+  })
+}//else
 
         $http.get('/bank').success(function(response){
         $scope.banks=response;
@@ -180,7 +202,9 @@ $scope.row4 = function(rowno){
 
 //function for saving voucherno
 $scope.storeVoucher=function(index,voucher,net){
-   // alert(index+"bbbbbbbbbb"+voucher);
+    //alert(index+"bbbbbbbbbb"+voucher);
+  
+
   $scope.voucherId=voucher;
   $scope.selectedAmount = net;
   //$scope.net=net;
@@ -207,12 +231,17 @@ $scope.storeVoucher=function(index,voucher,net){
 
         //new function for getting voucher based on partyname
 $scope.getVouchers=function(party){
-   //alert(party+"partyname");
+   // alert(party+"partyname");
   var pname=party;
   $http.get('/getvoucherids'+pname).success(function(response){
     console.log(response);
     $scope.details=response;
   })
+  $http.get('/allPaidBills'+pname).success(function(response){
+        console.log(response);
+        $scope.receiptData=response;
+      })
+
 }
 
  //clear()
@@ -248,17 +277,19 @@ $scope.totalAmount=function(data){
 }
 
 $scope.newRow=function(){
-  $scope.rpamt.push({
-    'paymode':"",
-    'amount':"",
-    'bank':"",
-    'chequeno':"",
-    'dates':"",
-    'cardnos':"",
-    'ctype':"",
-    'appno':""
-  
-  })
+  if($scope.partyname != null && editrow3 != null){
+        $scope.rpamt.push({
+          'paymode':"",
+          'amount':"",
+          'bank':"",
+          'chequeno':"",
+          'dates':"",
+          'cardnos':"",
+          'ctype':"",
+          'appno':""
+        
+        })
+    }//i
 }
 
 $scope.billDate=new Date();
@@ -622,7 +653,7 @@ $scope.rePrint=function(index,bno,modes,amts){
 }
 
 $scope.rePrinting=function(){
-  $scope.name="vinnu"
+  // $scope.name="vinnu"
    // alert($scope.billid+","+$scope.smode+","+$scope.samount);
   // console.log($scope.billid+"id id id"+$scope.samount);
   // $scope.datasearch=$scope.billid+","+$scope.smode+","+$scope.samount;

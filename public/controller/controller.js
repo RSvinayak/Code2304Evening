@@ -19,11 +19,18 @@ function($scope,$http,$window,$filter,$timeout,$q,ControllerService){
     $scope.edituse= null;
     var remainingNtWt=0;
     $scope.transaction = 'Regular Sale';
-     $scope.billtype="Credit";
+    $scope.billtype="Credit";
     $scope.userit=[];
     $scope.useritbill=[];
     $scope.useritsplit=[];
     $scope.voucherdetails=0;
+<<<<<<< HEAD
+=======
+    $scope.dis=0;
+    $scope.disabled=0;
+    $scope.staffSelected=0;
+    $scope.urdispresent=0;
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
     // $scope.Cash=0;
     // $scope.Card=0;
     // $scope.Credit=0;
@@ -42,91 +49,126 @@ $scope.receiptOrder=window.sessionStorage.getItem("oreceipt");
 $scope.receiptOrder2=window.sessionStorage.getItem("oreceipt2");
  // alert("receipt staus222222 "+$scope.receiptOrder2);
 //added on 29/3 for getting staffnames
-$scope.getStaff = function(chk1){
-  // alert("got staffs "+chk1);
-  if(chk1 == true){
-      $http.get('/getstaffnames').success(function(response){
-        console.log(response);
-        $scope.staffnames=response;
-      })
-
-  }//if
-  else{
-    $scope.snames='';
-  }
-}
-
-//for disabling customer on 30/3 vinayak
-$scope.disableCustomer = function(cvalue){
-   // alert(cvalue+"cus");
-  if(cvalue == true){
-    $scope.disabled=1;
-    if($scope.transaction != 'Approval Sale'){
-    $scope.staffclicked=1;
-     window.sessionStorage.setItem("staffpresent",$scope.staffclicked);
-    }
-    if($scope.transaction == 'Approval Sale'){
-      // alert("clicked on staff")
-      $scope.staffclicked=0;
-      $scope.getDetails();
-    }
-  }
-  else{
-    $scope.disabled=0;
-    $scope.staffclicked=0;
-    $scope.sname='';
-    $scope.staffnames='';
-    $scope.datex='';
-    $scope.userit='';
-    $scope.getDetails();
-    $scope.partyname="";
-  }
- 
-}
-$scope.disableStaff = function(cvalue1){
-   // alert(cvalue1+"staff");
-  if(cvalue1 == true){
-    $scope.dis=1;
-    $scope.sname='';
-    $scope.staffclicked=0;
-      if($scope.transaction == 'Approval Sale'){
-      // alert("clicked on customer")
-      $scope.getDetails();
-    }
-  }
-  else{
-    // alert("customer unselected");
-    $scope.dis=0;
-    // $scope.staffclicked=1;
-    $scope.partyname='';
-    $scope.datex='';
-    $scope.getDetails();
-  }
-}
-
-//new function wrote on 4/4
-// $scope.userOption=function(value){
-//   alert("hi")
-//   if(value == 'staff'){
-//         alert("if");
-//           if($scope.transaction != 'Approval Sale'){
-//           $scope.staffclicked=1;
-//            window.sessionStorage.setItem("staffpresent",$scope.staffclicked);
-//           }
+// $scope.getStaff = function(chk1){
+//   // alert("got staffs "+chk1);
+//   if(chk1 == true){
 //       $http.get('/getstaffnames').success(function(response){
 //         console.log(response);
 //         $scope.staffnames=response;
 //       })
-//   }
+
+//   }//if
 //   else{
-//     alert("else");
-//     $scope.sname='';
-//     $scope.staffclicked=0;
-//     $scope.dis=1;
+//     $scope.snames='';
 //   }
 // }
 
+// $scope.getStaff = function(chk1){
+//    alert("got staffs "+chk1);
+//   if(chk1 == 'staff'){
+//       $http.get('/getstaffnames').success(function(response){
+//         console.log(response);
+//         $scope.staffnames=response;
+//       })
 
+//   }//if
+//   else{
+//     $scope.snames='';
+
+//   }
+//   $scope.checkstaff.state="false";
+// }
+
+
+//for disabling customer on 30/3 vinayak
+// $scope.disableCustomer = function(cvalue){
+//    // alert(cvalue+"cus");
+//   if(cvalue == true){
+//     $scope.disabled=1;
+//     if($scope.transaction != 'Approval Sale'){
+//     $scope.staffclicked=1;
+//      window.sessionStorage.setItem("staffpresent",$scope.staffclicked);
+//     }
+//     if($scope.transaction == 'Approval Sale'){
+//       // alert("clicked on staff")
+//       $scope.staffclicked=0;
+//       $scope.getDetails();
+//     }
+//   }
+//   else{
+//     $scope.disabled=0;
+//     $scope.staffclicked=0;
+//     $scope.sname='';
+//     $scope.staffnames='';
+//     $scope.datex='';
+//     $scope.userit='';
+//     $scope.getDetails();
+//     $scope.partyname="";
+//   }
+ 
+// }
+// $scope.disableStaff = function(cvalue1){
+//    // alert(cvalue1+"staff");
+//   if(cvalue1 == true){
+//     $scope.dis=1;
+//     $scope.sname='';
+//     $scope.staffclicked=0;
+//       if($scope.transaction == 'Approval Sale'){
+//       // alert("clicked on customer")
+//       $scope.getDetails();
+//     }
+//   }
+//   else{
+//     // alert("customer unselected");
+//     $scope.dis=0;
+//     // $scope.staffclicked=1;
+//     $scope.partyname='';
+//     $scope.datex='';
+//     $scope.getDetails();
+//   }
+// }
+
+//new function wrote on 4/4
+$scope.userOption=function(value){
+  // alert("hi")
+  // $scope.dis=0;
+  if(value == 'staff'){
+          $scope.radio.state="staff";
+           // alert("if");
+           $scope.staffSelected=1;
+          if($scope.transaction != 'Approval Sale'){
+           $scope.staffclicked=1;
+           window.sessionStorage.setItem("staffpresent",$scope.staffclicked);
+          }
+      $http.get('/getstaffnames').success(function(response){
+        console.log(response);
+        $scope.staffnames=response;
+
+<<<<<<< HEAD
+=======
+        // alert($scope.staffnames.length);
+      })
+      $scope.partyname='';
+      $scope.mobile='';
+      $scope.place='';
+      $scope.datex='';
+    // $scope.getStaff('staff');
+    $scope.checkstaff1.state='false';
+  }
+  else{
+    // alert("else");
+    $scope.checkstaff.state="false";
+    $scope.radio.state="customer";
+    $scope.sname="";
+    $scope.staffclicked=0;
+    $scope.dis=1;
+    $scope.staffnames="";
+    $scope.datex='';
+
+  }
+}
+
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 //added charan's code below
 $scope.orderRes=[];
 
@@ -678,7 +720,7 @@ $scope.change=function(date){
 
 
 $scope.radiobutton=function(condition){
-        //alert(indexvalue)
+        // /alert(indexvalue)
         //alert(condition)
        // $scope.radio.state = "out of state"
         if(condition == "with in state"){
@@ -889,10 +931,10 @@ $scope.taxSelectionCall = function ($index,taxSelection,call) {
 }//main closer
 
 //new function for receipt voucher saleinvoice Calculation
-
+ 
 $scope.receiptSaleInvoice = function(){
-   // alert("receipt voucher saleinvoice");
-  var receipttaxable=0;
+    // alert("receipt voucher saleinvoice");
+    var receipttaxable=0;
   var receipttax=0;
   var receiptsubtol=0;
   $scope.rectaxable=0;
@@ -900,7 +942,7 @@ $scope.receiptSaleInvoice = function(){
   $scope.recsubtol=0;
   for(i=0;i<=$scope.userit.length-1;i++)
   {
-    // alert($scope.userit[i].taxval+" taxable");
+     // alert($scope.userit[i].taxval+" taxable");
     console.log($scope.userit[i]);
     receipttaxable=parseFloat($scope.userit[i].labval);
     $scope.rectaxable +=receipttaxable;
@@ -1256,18 +1298,28 @@ $scope.itemSelect = function(itemname,in1,id) {
                                // $scope.addNew();
 
                                // $scope.userit.push({
-                                 $scope.userit[in1].taxSelection=$scope.issueVoucherTax;
+                                if($scope.radio.state == 'with in state'){
+                                     $scope.userit[in1].taxSelection=$scope.issueVoucherTax;
                                  // $scope.userit[in1].withinstatecgst=$scope.issCgst,
                                  // $scope.userit[in1].withinstatesgst=$scope.issSgst
-                                    $scope.taxSelectionCall(in1,$scope.issueVoucherTax);
-                                         // });
+                                    // $scope.taxSelectionCall(in1,$scope.issueVoucherTax);
+                                  }
+                                  else{
+                                      $scope.userit[in1].taxSelection=$scope.issueVoucherTax2;
+                                       // $scope.taxSelectionCall(in1,$scope.issueVoucherTax2);
+                                  }     // });
                                }
                                 if($scope.transaction=='Receipt Voucher'){
-                                   // alert($scope.receiptVoucherTax+','+$scope.receiptCgst+","+$scope.receiptSgst);
+                                    // alert($scope.receiptVoucherTax2+','+$scope.receiptCgst+","+$scope.receiptSgst);
                                  // if($scope.taxval > 0){
                                   // alert("jjjj");
-                                  $scope.userit[in1].taxSelection=$scope.receiptVoucherTax;
-                                  $scope.taxSelectionCall(in1$scope.receiptVoucherTax);
+                                      if($scope.radio.state == 'with in state'){
+                                            $scope.userit[in1].taxSelection=$scope.receiptVoucherTax;
+                                            // $scope.taxSelectionCall(in1,$scope.receiptVoucherTax);
+                                      }else{
+                                            $scope.userit[in1].taxSelection=$scope.receiptVoucherTax2;
+                                            // $scope.taxSelectionCall(in1,$scope.receiptVoucherTax2);
+                                      }
                                  // }// $scope.userit[in1].withinstatecgst=$scope.receiptCgst,
                                  // $scope.userit[in1].withinstatesgst=$scope.receiptSgst
                                 }
@@ -1983,6 +2035,7 @@ $scope.getDetails=function(rvalue,voucherNo){
   }
   if(($scope.transaction == 'Receipt Voucher'|| $scope.receiptOrder2 == 1) && $scope.receiptOrder != 1){
     // alert("hi");
+    window.sessionStorage.setItem('receiptfinal',$scope.receiptOrder2);
     $scope.voucherdetails=1;
     $scope.finalCal();
   }
@@ -2014,13 +2067,18 @@ $scope.getDetails=function(rvalue,voucherNo){
       if($scope.transaction == "Approval Sale"||$scope.transaction == 'Approval Return' && ($scope.partyname != null || $scope.sname != null)){
         // $scope.app=$scope.partyname+","+$scope.transaction;
         console.log($scope.partyname+" ghjk");
-        // alert("hii")
-        window.sessionStorage.setItem("partyStatus",$scope.checkstaff);
+        // alert("hii "+$scope.checkstaff);
+        console.log($scope.checkstaff);
+        // $scope.checkstaff=JSON.parse($scope.checkstaff);
+        // alert("hii "+$scope.checkstaff);
+        window.sessionStorage.setItem("partyStatus",$scope.checkstaff.state);
             if($scope.transaction == "Approval Sale"){
-                  if($scope.checkstaff!=null||$scope.checkstaff1!=null){
-                    // alert("either")
-                        if($scope.checkstaff1!=null&&$scope.partyname != null){
-                          // alert("customer is selected")
+                  if($scope.checkstaff.state != null||$scope.checkstaff1.state != null){
+                      // alert("either ")
+
+                     console.log($scope.checkstaff1);
+                        if($scope.checkstaff1.state == "customer" && $scope.partyname != null){
+                           // alert("customer is selected")
                                 $http.get('/appouts'+$scope.partyname).success(function(response){
                                   console.log(response);
                                   // $scope.voucherNo=response.voucherNo;
@@ -2029,9 +2087,10 @@ $scope.getDetails=function(rvalue,voucherNo){
                                    $scope.voucherNo=$scope.datex._id.voucherNo;
                                 });
                         }//if
-                        if($scope.sname != null||$scope.sname != undefined){
+                        if(($scope.sname != null||$scope.sname != undefined) && $scope.checkstaff.state == 'staff'){
                            //  && $scope.partyname !=null)alert("not selected anything "+$scope.sname);
-                          window.session
+                          // window.session
+                         // alert("staff")
                           $http.get('/staffouts'+$scope.sname).success(function(response){
                             console.log(response);
                             $scope.datex=response;
@@ -2040,11 +2099,11 @@ $scope.getDetails=function(rvalue,voucherNo){
                   }//if
               }//if(App Sale)
               else{
-                // alert("for App Return")
-                if($scope.checkstaff!=null||$scope.checkstaff1!=null){
-                    // alert("either")
-                        if($scope.checkstaff1!=null&&$scope.partyname != null){
-                          // alert("customer is selected")
+                 // alert("for App Return")
+                if($scope.checkstaff.state != null || $scope.checkstaff1.state != null){
+                     // alert("either")
+                        if($scope.checkstaff1.state == 'customer' && $scope.partyname != null){
+                           // alert("customer is selected")
                                 $http.get('/appouts'+$scope.partyname).success(function(response){
                                   console.log(response);
                                   // $scope.voucherNo=response.voucherNo;
@@ -2053,9 +2112,10 @@ $scope.getDetails=function(rvalue,voucherNo){
                                    $scope.voucherNo=$scope.datex._id.voucherNo;
                                 });
                         }//if
-                        if($scope.sname != null||$scope.sname != undefined){
+                        if(($scope.sname != null||$scope.sname != undefined) && $scope.checkstaff.state == 'staff'){
                            // ) && $scope.partyname !=nullalert("not selected anything "+$scope.sname);
-                          window.session
+                          // window.session
+                           // alert("staff is selected")
                           $http.get('/staffouts'+$scope.sname).success(function(response){
                             console.log(response);
                             $scope.datex=response;
@@ -2265,20 +2325,8 @@ $scope.getDetails=function(rvalue,voucherNo){
  }
   //finalCalAfterRemove(rvalue,response.length);
 function finalCalAfterRemove(rvalue,length) {
-// <<<<<<< HEAD
-   // alert(rvalue+"i am in final");
-// =======
-//alert("i am in final");
-// >>>>>>> 61946425920cfde23eb0ef81e1ccb2a84ae6baa2
-  // alert($scope.edituseritButton);
-  // alert(rvalue+"rvalue");
-  // alert("remove through new method");
-  //alert("finalCalAfterRemove "+$scope.edituseritButton)
-    if(rvalue!=true||$scope.edituseritButton == null || $scope.edituseritButton == false ){
-          // alert(rvalue+"  rvalue "+length+"  length1");
-          // if (rvalue != true ) {
-          // alert("edit final calllll");
-             
+// 
+    if(rvalue!=true||$scope.edituseritButton == null || $scope.edituseritButton == false ){        
               if (rvalue == undefined) {
                 //   $scope.finalCal();
                    const timeoutSendData = setTimeout(() => {
@@ -2980,7 +3028,11 @@ if($scope.transaction != 'Issue Voucher' && $scope.transaction != 'Receipt Vouch
         $scope.userit[$index].taxamt=0;
         $scope.userit[$index].final=0;
         $scope.newwas($index,pctcal);
+<<<<<<< HEAD
         $scope.dropDownCalls($index,"gwt");
+=======
+         $scope.dropDownCalls($index,"gwt");
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
     
 
     }else{        
@@ -3349,7 +3401,11 @@ $scope.mrpCal=function($index)
 {
   //alert( "mrp "+$scope.userit[$index].mrp)
     //alert("hi mrp");
+<<<<<<< HEAD
    // alert($scope.userit[$index].mrp)
+=======
+    //alert($scope.userit[$index].mrp)
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 
      var num = ($scope.userit[$index].mrp).toString(); // Convert to string
                 //alert(( (num.split('.')[1] || []).length))
@@ -3531,7 +3587,12 @@ if($scope.transaction != 'Receipt Voucher'){
                  $scope.userit[$index].labval=($scope.userit[$index].labamt).toFixed($scope.rupeesDecimalPoints);
               // alert($scope.userit[$index].labval+" amt when RV");
                  $scope.userit[$index].taxval = $scope.userit[$index].labval;
-                $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+                if($scope.radio.state == 'with in state'){
+                     $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+                }else{
+                    $scope.taxSelectionCall($index,$scope.receiptVoucherTax2);
+                }
+
                 // $scope.saleinv[0].taxableval=$scope.userit[$index].taxval;
         }else if(labval2 == 'PerUnit'){
           if($scope.userit[$index].labamt=="" || $scope.userit[$index].labamt==undefined  || $scope.userit[$index].labamt== null|| $scope.userit[$index].labamt==NaN) {
@@ -3541,15 +3602,26 @@ if($scope.transaction != 'Receipt Voucher'){
                 $scope.userit[$index].labval=($scope.userit[$index].labamt*$scope.userit[$index].gwt).toFixed($scope.rupeesDecimalPoints);
               // alert($scope.userit[$index].labval+" amt when RV");
                 $scope.userit[$index].taxval = $scope.userit[$index].labval;
-                $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+                // $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
                 // $scope.saleinv[0].taxableval=$scope.userit[$index].taxval;
+                  if($scope.radio.state == 'with in state'){
+                     $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+                }else{
+                    $scope.taxSelectionCall($index,$scope.receiptVoucherTax2);
+                }
         }
         else{
           alert("u can't use Percentage parameter");
           $scope.userit[$index].labamt=0; 
            $scope.userit[$index].labval=0;
           $scope.userit[$index].taxval=0;
-          $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+          // $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+          if($scope.radio.state == 'with in state'){
+                     $scope.taxSelectionCall($index,$scope.receiptVoucherTax);
+                }else{
+                    $scope.taxSelectionCall($index,$scope.receiptVoucherTax2);
+                }
+
         }
            // $scope.saleinv.push({
            //            'taxableval':0,
@@ -3890,7 +3962,7 @@ $scope.getTotNetAmt=function(){
 
 $scope.newFinalCal=function( subtol){
   //alert("gh"+$scope.orderFinal)
-    // alert("kk"+$scope.saleinv[0].invoiceValue)
+     // alert("kk"+$scope.saleinv[0].invoiceValue)
   // if(parseFloat($scope.saleinv[0].netamt)==0 &&  $scope.length==1){
    // alert("jjjjjjjjj")
   // }
@@ -3958,55 +4030,73 @@ $scope.newFinalCal=function( subtol){
   }
   else{
       // alert("u selected urd"+$scope.saleinv[0].adj)
-    $scope.adjnetamt=parseFloat($scope.saleinv[0].invoiceValue)-parseFloat($scope.decimals)-parseFloat($scope.saleinv[0].adj);
+    $scope.adjnetamt=parseFloat($scope.saleinv[0].invoiceValue)-parseFloat($scope.saleinv[0].adj);
        // alert($scope.adjnetamt+"$scope.adjnetamt")
       $scope.finalNetAmount($scope.adjnetamt);
   }
   // alert()
 }
 
-
+// $scope.decimals=0;
 $scope.finalNetAmount = function (value){
+<<<<<<< HEAD
 
+=======
+      // alert("final");
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
       console.log($scope.roundOffMethod);
       console.log( $scope.roundOffValue);
       if($scope.roundOffValue !=0){
       var n = 0;
       var roundoff = $scope.roundOffValue ;
       var modulus = value %  roundoff;
-      // alert(modulus+"modulus");
+        // alert(modulus+"modulus");
       
       if( $scope.roundOffMethod == "Nearest"){
           if( modulus > ( roundoff/2)){
              n= Math.ceil(value/roundoff) *  roundoff;
               // alert(n+"11111111");
+              var vin=parseFloat(n-value);
+          // alert(vin+" vin");
            }else{
              n= Math.floor(value/roundoff) *  roundoff;
              // alert(n+"222222222");
+             var vin=parseFloat(n-value);
+          // alert(vin+" vin");
            }
       }else if($scope.roundOffMethod == "Lower"){
            n= Math.floor(value/ roundoff) *  roundoff;
             // alert(n+"lower");
+            var vin=parseFloat(n-value);
+          // alert(vin+" vin");
 
       }else if($scope.roundOffMethod == "Upper"){
          n= Math.ceil(value/ roundoff) *  roundoff;
-         // alert(n+"upper");
+          // alert(n+"upper");
+          var vin=parseFloat(n-value);
+          // alert(vin+" vin");
       }
    
      if(n > value){
-              // alert("n > value n > value")
-        $scope.decimals = Math.abs(modulus);
+               // alert("n > value n > value")
+        // $scope.decimals = Math.abs(modulus);
+        $scope.decimals = Math.abs(vin);
+        // alert($scope.decimals+" n>values");
         console.log($scope.decimals);
         $scope.finalnetamt=n;
+        // alert($scope.finalnetamt+" n > value")
         console.log($scope.finalnetamt);
-        $scope.saleinv[0].char=$scope.ccamt1.toFixed($scope.rupeesDecimalPoints);
+        $scope.saleinv[0].char=parseFloat($scope.ccamt1);
         $scope.saleinv[0].netamt=parseFloat($scope.finalnetamt).toFixed($scope.rupeesDecimalPoints);
         console.log($scope.saleinv[0].netamt);
       }else if(n < value){
-               // alert("n < value n < value n < value ")
-         $scope.decimals = n - value ;
+                // alert("n < value n < value n < value ")
+         // $scope.decimals = n - value ;
+          $scope.decimals = Math.abs(vin);
          console.log($scope.decimals);
+         // alert($scope.decimals+" n<values");
               $scope.finalnetamt=n;
+              // alert($scope.finalnetamt+" n< value")
                   // alert(n+' ..... '+$scope.finalnetamt);
                  console.log(n);
                  console.log($scope.finalnetamt);
@@ -4016,10 +4106,10 @@ $scope.finalNetAmount = function (value){
                console.log($scope.saleinv[0].netamt);
                  // alert(typepof($scope.saleinv[0].netamt)+" , "+$scope.saleinv[0].netamt)
       }else if(n == value){
-               // alert("n == value n == value n == value "+n)
+                // alert("n == value n == value n == value "+n)
         $scope.decimals = 0;
         $scope.finalnetamt=n;
-        // alert($scope.finalnetamt);
+         // alert($scope.finalnetamt+" n == value");
         console.log($scope.finalnetamt);
         $scope.saleinv[0].char=$scope.ccamt1;
         $scope.saleinv[0].netamt=parseFloat($scope.finalnetamt).toFixed($scope.rupeesDecimalPoints);
@@ -4032,7 +4122,12 @@ $scope.finalNetAmount = function (value){
    // alert($scope.saleinv[0].subtol1+"end end end end end end");
 
     }      
+<<<<<<< HEAD
  }
+=======
+ }//if round off value
+
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 }
 
 
@@ -4338,9 +4433,9 @@ $scope.fixDecimal=function(){
 
 //new function
 $scope.newCharges=function(){
- // alert("editing charges")
+// alert($scope.ccamt+" editing charges "+$scope.discount)
    if($scope.userit.length==0){
-    alert("please enter neccessary details");
+    // alert("please enter neccessary details");
     $scope.discount='';
     $scope.ccamt='';
     return;
@@ -4369,13 +4464,13 @@ $scope.newCharges=function(){
                        $scope.newFinalCal();
                   }//else if
                  else{
-                  // alert("both values are present");
+                   // alert("both values are present");
                        $scope.discount1=$scope.discount;
                        $scope.ccamt=$scope.ccamt;
                 
                        if($scope.discount1 > $scope.ccamt){
                           $scope.ccamt1v=parseFloat($scope.discount1)-parseFloat($scope.ccamt);
-                          $scope.ccamt1=-$scope.ccamt1v.toFixed(2); 
+                          $scope.ccamt1=-parseFloat($scope.ccamt1v.toFixed(2)); 
                         }
                         else{
                            $scope.ccamt1=(parseFloat($scope.ccamt)-parseFloat($scope.discount)).toFixed(2);
@@ -4389,7 +4484,7 @@ $scope.newCharges=function(){
                                   $scope.invoice=(parseFloat($scope.saleinv[0].subtol) + parseFloat($scope.ccamt1)).toFixed(2);
                                  // $scope.finalNetAmount($scope.invoice);
                                 }
-                        $scope.newFinalCal();
+                        $scope.newFinalCal($scope.invoice);
                
                     }//else
     }//else
@@ -4408,6 +4503,7 @@ $scope.cal=function()
   
      window.sessionStorage.setItem("Str41",JSON.stringify($scope.userit));
       if($scope.transaction=="Issue Voucher"){
+<<<<<<< HEAD
       // alert("issue"+$scope.issueVoucherTax);
     $http.get('/gettaxforissue'+$scope.issueVoucherTax).success(function(response){
       console.log(response);
@@ -4420,15 +4516,56 @@ $scope.cal=function()
       // alert($scope.issCgst+"bbbbbbbbb"+$scope.issSgst);
     })
   }
+=======
+       // alert("issue"+$scope.issueVoucherTax2);
+  if($scope.radio.state == 'with in state'){
+    // alert("issue"+$scope.issueVoucherTax);
+              $http.get('/gettaxforissue'+$scope.issueVoucherTax).success(function(response){
+                console.log(response);
+                $scope.issCgst = response[0].Rate;
+                $scope.issSgst = response[0].Rate;
+
+                $scope.issCgst=0;
+                $scope.issSgst=0;
+
+                // alert($scope.issCgst+"bbbbbbbbb"+$scope.issSgst);
+              })
+    }
+    //for outoff state
+    else{
+       // alert("issue "+$scope.issueVoucherTax2);
+      console.log($scope.issueVoucherTax2);
+          $http.get('/getoutofstateforissue'+$scope.issueVoucherTax2).success(function(response){
+            console.log(response);
+            // alert(response);
+            $scope.issIgst=response[0].Rate;
+            $scope.issIgst=0;
+            // $scope.igst=response[0].
+          })
+      }
+
+  }//if
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 //for getting tax for receipt voucher
   if($scope.transaction=="Receipt Voucher"){
-      // alert("receipt"+$scope.receiptVoucherTax);
-    $http.get('/gettaxforreceipt'+$scope.receiptVoucherTax).success(function(response){
-      console.log(response);
-      $scope.receiptCgst = response[0].Rate;
-      $scope.receiptSgst = response[0].Rate;
-      // alert($scope.receiptCgst+"bbbbbbbbb"+$scope.receiptSgst);
-    })
+    $scope.labamt=0;
+      // alert("receipt"+$scope.radio.state);
+      if($scope.radio.state == 'with in state'){
+        // alert("within state");
+          $http.get('/gettaxforreceipt'+$scope.receiptVoucherTax).success(function(response){
+            console.log(response);
+            $scope.receiptCgst = response[0].Rate;
+            $scope.receiptSgst = response[0].Rate;
+            // alert($scope.receiptCgst+"bbbbbbbbb"+$scope.receiptSgst);
+          })
+      }else{
+        // alert("out of stste")
+        $http.get('/getreceiptoutofstate'+$scope.receiptVoucherTax2).success(function(response){
+          console.log(response);
+          $scope.receiptIgst = response[0].Rate;
+
+        })
+      }
   }
 
     if ($scope.InvGroupAndPurity != null) {
@@ -5072,87 +5209,137 @@ var diff = 0;
 var subtol = 0;
 var total = 0;
 var pushid = [];
-$scope.myClick = function(myChkModel,item){
+$scope.urdpay=0;
+$scope.urdispresent=0;
+$scope.myClick = function(myChkModel,item,index){
     // console.log(myChkModel);\
-    // alert("urd");
-    // console.log(item);
+    // alert("pushid1 "+index);
+     // alert("urd "+ item );
+   // console.log(item);
    console.log(item._id)
    console.log(item)
    if(myChkModel == true){
-    // alert("checked");
+          // alert("pushid2 "+pushid);
+     // alert("checked "+item.final);urdAdjustment
+             // alert("checked "+item.urdAdjustment);
           console.log($scope.saleinv[0].invoiceValue);
           subtol = $scope.saleinv[0].invoiceValue;
-          total += parseFloat(item.final);
+          // total += parseFloat(item.final);
+          total += parseFloat(item.urdAdjustment);
           console.log(total);
+          // alert("selected item total "+total)
           console.log(pushid); 
           console.log($scope.adjqty);
+           //when urd total is greater than Regular sale invoiceAmount
            if( total >  subtol){
 
                 if($scope.saleinv[0].netamt == 0){
-                  // alert("Net Amount is already zero you cannot add extra amount")
+                   // alert("Net Amount is already zero you cannot add extra amount")
                   //myChkModel = false
+                  // alert("netamount is zero");
                   
                 }else{// urd amount greater then the net amt
-                        // alert("netamt is not zero");
-                        $scope.adjqty = subtol
+                          // alert("netamt is not zero");
+                        $scope.adjqty = subtol;
+                        // alert(total +" "+","+" "+subtol);
                         console.log($scope.adjqty);
                         diff = total - subtol
-                        pushid.push(item._id)
-                        //alert("Diff Value:"+diff)
+                        // alert("pushid in else  "+pushid);
+                         if(pushid.indexOf(item._id) == -1){
+                          // alert("id is abscent1");
+                              pushid.push(item._id);
+                            // alert(pusjid.length+" length");
+                           }    
+                        // alert(pushid.push(item._id)+" when urd is greater");
+                         // alert("Diff Value:"+diff)
                         console.log( diff);
-                        $scope.saleinv[0].netamt = 0;
+                        // $scope.saleinv[0].netamt = 0;
                         $scope.getTotNetAmt();
                         urdinvoice(total,diff)
                        
                      }
                
            }else{ //if if( total >  subtol
-               
-                 // alert("on selecting urd");
+                // alert("urd adjustment is less than netamt");
+                    // alert("pushid in else when sub>urd  "+pushid);
+                  // alert("on selecting urd and invoiceamount is gretaer then urdamount");
                    $scope.adjqty = total
                  
                    console.log(total)
-                   pushid.push(item._id)
+                   // alert(total+" total on selecting");
+                   // diff =subtol - total;
+                   // alert("diff "+diff+" diff");
+                   // pushid.push(item._id)
+                     if(pushid.indexOf(item._id) == -1){
+                    //           alert("id is ");
+                              pushid.push(item._id);
+                       } 
+                    // alert(pushid.length+" length");
+                   console.log(pushid);
+                   // alert(pushid.push(item._id)+" when subtol is greater "+item._id);
                    console.log($scope.adjqty)
                    $scope.getTotNetAmt();
-
+                    diff=0;
                     urdinvoice(total,diff)
                  }//else  if( total >  subtol
 
     }else{ 
-                // alert("on unselecting"+$scope.saleinv[0].adj+","+$scope.adjqty);
-               // if($scope.indexSelected.length==0){
-               //  alert("gtgt")
-               //  $scope.discount1=0;
-               //  $scope.ccamt=0;
-               //  $scope.ccamt1=0;
-               // }
-              console.log(item.final+"item.final");
+        //when item is unchecked or removed
+         // alert("when item is removed "+item._id);
+           // alert("when item is unchecked "+item._id);
+          console.log(pushid+" pushed id are");
+          // for(i=0;i<=pushid.length-1;i++){
+          //   alert("enterd for");
+              console.log(item.urdAdjustment+"item.final");
               console.log(total+"total");
 
-            total = parseInt(total) - parseInt(item.final)
-            //console.log(total)
+            total = parseInt(total) - parseInt(item.urdAdjustment)
+            console.log(total)
             $scope.adjqty = total
+             // alert("total diff "+total)
+            // if(pushid[i].id == item._id){
+            //   alert("poping selected id");
+            // pushid.pop(item._id);
+      for(var f=0;f<=pushid.length-1;f++){
+             // alert(item._id+" f ffff "+pushid[f]);
+           // alert($scope.voucherid[f].id+"  $scope.voucherid[f].id  "+" "+ids);
+    if ( pushid[f] === item._id) pushid.splice(f, 1);
+         // alert(pushid[f]+" matched "+item._id)
+          
+          console.log(pushid);
+          // alert(pushid)
+        }
+
+
+
+            // console.log(pushid.pop(i));
+           // }
+            // alert(pushid.pop(item._id)+" item id poped "+item._id);
+            // console.log(pushid.pop(item._id));
+            console.log("urd is unchecked");
             console.log($scope.adjqty);
-            // alert($scope.adjqty+"$scope.adjqty")
+            // diff = total;
+             // alert($scope.saleinv[0].invoiceValue+"$scope.saleinv[0].invoiceValue")
                // $scope.saleinv[0].invoiceValue=parseFloat($scope.saleinv[0].subtol)-parseFloat($scope.ccamt1);
               // console.log($scope.saleinv[0].invoiceValue);
                  $scope.getTotNetAmt()
-               // $scope.newFinalCal($scope.saleinv[0].invoiceValue,$scope.saleinv[0].adj);
+                $scope.newFinalCal($scope.saleinv[0].invoiceValue,$scope.saleinv[0].adj);
               // $scope.saleinv[0].netamt=$scope.saleinv[0].invoiceValue;
              urdinvoice(total,diff)
-
-        }  //else   if(myChkModel == true){
+          // }//for
+      } //else   if(myChkModel != true){
 }//$scope.myClick
 
 // urd to display invoice
 var urdinvoice = function(total,diff){
-     // alert("urdinvoice"+diff);
+         // alert("urdinvoice"+diff);
+          $scope.urdispresent=1;
+    window.sessionStorage.setItem("urdpre",$scope.urdispresent);
      window.sessionStorage.setItem("urdIds", JSON.stringify(pushid));
      
      window.sessionStorage.setItem("URD_ADJUSTED",total);
      window.sessionStorage.setItem("URD_BALANCE",diff);
-      window.sessionStorage.setItem("URD_Total",$scope.urdAdjustmentTotal);
+     window.sessionStorage.setItem("URD_Total",$scope.urdAdjustmentTotal);
 }
 //to make window zero when not called
 if(diff == 0 && subtol == 0){
@@ -5206,6 +5393,13 @@ $scope.TransactionDetails = function( ){
 
     else if($scope.transaction == 'Approval Sale'||$scope.transaction == 'Approval Out'||$scope.transaction == 'Approval Return'){
       // alert("asdfg");
+      if($scope.transaction == 'Approval Sale'){
+// alert("hi");
+         $scope.staffclicked=0;
+         $scope.sname='';
+     }
+
+
       $scope.checkstaff=0;
       $scope.checkstaff1=0;
       $scope.disabled=0;
@@ -5570,13 +5764,13 @@ $scope.resu ;
                                                         if($scope.transaction=="Approval Return"){
                                                           // alert("approval Return 111")
                                                           $scope.userit[i].stockInward="yes";
-                                                           if($scope.checkstaff == undefined){
+                                                           if($scope.checkstaff.state == undefined || $scope.checkstaff.state == false){
                                     // alert("party");
                                                                   $scope.userit[i].partyname=$scope.partyname;
                                                                 }
                                                                 else{
                                                                     // alert("staff staff staff staff staff   "+$scope.checkstaff);
-                                                                  window.sessionStorage.setItem("selectedType",$scope.checkstaff);
+                                                                  window.sessionStorage.setItem("selectedType",$scope.checkstaff.state);
                                                                   window.sessionStorage.setItem("staffName",$scope.sname);
                                                                   $scope.userit[i].staffname=$scope.sname;
                                                                 }
@@ -5633,13 +5827,13 @@ $scope.resu ;
                                 $scope.userit[i].orderStatus="completed";
                                 $scope.userit[i].stockInward="no";
                                 // alert("else else else");
-                                  if($scope.checkstaff == undefined){
-                                    // alert("party");
+                                  if($scope.checkstaff.state == undefined||$scope.checkstaff.state == false){
+                                     alert("party party party party");
                                     $scope.userit[i].partyname=$scope.partyname;
                                   }
                                   else{
                                      // alert("staff "+$scope.checkstaff);
-                                    window.sessionStorage.setItem("selectedType",$scope.checkstaff);
+                                    window.sessionStorage.setItem("selectedType",$scope.checkstaff.state);
                                     window.sessionStorage.setItem("staffName",$scope.sname);
                                     $scope.userit[i].staffname=$scope.sname;
                                   }
@@ -5653,7 +5847,7 @@ $scope.resu ;
                                   }
                                   else{
                                      // alert("staff "+$scope.checkstaff);
-                                    window.sessionStorage.setItem("selectedType",$scope.checkstaff);
+                                    window.sessionStorage.setItem("selectedType",$scope.checkstaff.state);
                                     window.sessionStorage.setItem("staffName",$scope.sname);
                                     $scope.userit[i].staffname=$scope.sname;
                                   }
@@ -5733,6 +5927,7 @@ $scope.resu ;
                                        console.log(update)
                                        $http.get('/transdetails/'+update).success(function(response)
                                            { 
+                                            // alert(response);
                                              console.log(response)
                                              $scope.urd = response;
                                              //$scope.urd = response;
@@ -5743,7 +5938,7 @@ $scope.resu ;
                                                  $scope.urdAdjustmentTotal =( parseFloat($scope.urdAdjustmentTotal)+ parseFloat(response[p].urdAdjustment)).toFixed($scope.rupeesDecimalPoints);
                      
                                                }
-                                                                                       }) 
+                                                       }) 
                                            } 
 
                                          
@@ -6140,25 +6335,53 @@ $scope.dateValid=function(){
                        
                         }
                       }
+<<<<<<< HEAD
 
                       if($scope.transaction == 'Approval Out'||$scope.transaction == "Approval Sale" || $scope.transaction == "Approval Return"){
                         if($scope.checkstaff == undefined||$scope.checkstaff==false){
+=======
+                      if($scope.transaction == 'Approval Out'|| $scope.transaction == "Approval Return"){
+                         if($scope.checkstaff.state == 'customer'){
+                              if( $scope.partyname ==null||$scope.partyname ==undefined||$scope.partyname =="" ){
+                             
+                                   alert("Please Select Partyname")
+                                   flag = 1;             
+                                  }
+                          }
+                          if($scope.checkstaff.state == 'staff'){
+                            if($scope.sname == undefined||$scope.sname==null||$scope.sname==''){
+                            alert("please select the staff");
+                            flag=1;
+                          }
+                          }
+
+
+                      }//if(App Out && App Ret)
+
+                      if($scope.transaction == "Approval Sale" ){
+                         if($scope.checkstaff1.state =='customer'){
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
                               if( $scope.partyname ==null||$scope.partyname ==undefined||$scope.partyname =="" ){
                          
                                alert("Please Select Partyname")
                                flag = 1;             
                               }
-                        }else{
+                         }
+                         if($scope.checkstaff.state=='staff'){
                           if($scope.sname == undefined||$scope.sname==null||$scope.sname==''){
-                            alert("please select the party");
+                            alert("please select the staff");
                             flag=1;
                           }
-                        }
+                         }
 
                       }
 
 
+<<<<<<< HEAD
                         if($scope.transaction=="Sale Return" || $scope.transaction=="Purchase Return"
+=======
+         if($scope.transaction=="Sale Return" || $scope.transaction=="Purchase Return"
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
                     ||$scope.transaction=="Approval Sale"){
                              //alert($scope.checklength+"in save");
                             if($scope.checklength==0){
@@ -6432,6 +6655,7 @@ $scope.dateValid=function(){
           else{
 // <<<<<<< HEAD
                  //alert("else zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+           $scope.urdispresent=0;
            var saleinvoice_id = window.sessionStorage.getItem("saleinvoicedata_id");
                          
                                 console.log(saleinvoice_id )
@@ -6797,7 +7021,7 @@ window.sessionStorage.setItem("oreceipt2",null);
 
   $scope.afterConfirm=function(){
             var defer2=$q.defer();
-            // alert("3rd outer promise "+$scope.partyname);
+              // alert("3rd outer promise "+$scope.partyname);
             // window.sessionStorage.setItem("party1name",$scope.partyname);
             if($scope.user[0].itemName!=null){
         
@@ -6805,17 +7029,16 @@ window.sessionStorage.setItem("oreceipt2",null);
               //  pushid=[]
                console.log( pushid)
                console.log( pushid.length)
-               for(let i=0;i<pushid.length;i++){
-                  console.log( pushid[i])
-                
+               for(let i=0;i<=pushid.length-1;i++){
+                  console.log( pushid[i])          
                    //this is for handling urd extra amount
-
+                    // alert("for loop")
                   if( i == pushid.length-1 ){
                        //urd adjustment
-                       // alert("i == pushid.length-1")
+                        // alert("i == pushid.length-1")
                       if( total >  subtol){
 
-                           // alert("total >  subtol")
+                            // alert( total+" total >  subtol "+  subtol)
 
                            console.log("total2 >  subtol2 total2 >  subtol2")
                            $scope.adjqty = subtol
@@ -6825,8 +7048,10 @@ window.sessionStorage.setItem("oreceipt2",null);
                            // $scope.saleinv[0].netamt = 0
                            var data2 = pushid[i]+","+diff;
 
-                       var r = confirm("Do you want to pay cash return "+ parseInt(diff))
-                       if (r == true) {
+                       var u = confirm("Do you want to pay cash return "+ parseInt(diff))
+                       if (u == true) {
+
+                              $scope.urdPay=1;
                             var urdRefund = parseInt(diff);
                             // window.sessionStorage.setItem("urdRefund",diff);
                             var urdUpdate = pushid[i]+","+diff+","+urdRefund ;
@@ -6838,15 +7063,20 @@ window.sessionStorage.setItem("oreceipt2",null);
                                  // alert("r == true")
                                  console.log("i got replay form confirm")
                                  console.log(response);
-                                 // setTimeout(function(){window.location.href="payments.html"},500);
+                                  
                                   // window.location.href="payments.html";
                                  // $scope.resul=response;
                                 // console.log($scope.resul);
     
                             })
+                            window.sessionStorage.setItem("payurd",$scope.urdPay);
+                            window.sessionStorage.setItem("remainingAmount",diff);
+                            window.sessionStorage.setItem("UrdParty",$scope.partyname);
+                            // setTimeout(function(){window.location.href="payments.html"},400);
+                              window.location.href="payments.html"
                             // break;
                          }else{
-                                  //  alert(" total >  subtol false")
+                                   // alert(" total >  subtol false i am going to update the orderstatus")
                                  $http.put('/urdstatus/'+ data2).success(function(response){ 
                                 
                                         console.log("i got replay form confirm")
@@ -6855,36 +7085,40 @@ window.sessionStorage.setItem("oreceipt2",null);
        
                                   })
                                  // break;
-                             }
+                             }//else
                   }else{
-
-                                           var urdRefund = 0;
+                                   // alert("complete else "+$scope.urdispresent);
+                                            var urdRefund = 0;
                             window.sessionStorage.setItem("urdRefund",diff);
                       
-
+                      // if($scope.urdispresent==1){   
                            $http.put('/urdstatus123/'+ pushid[i]).success(function(response)
                              {  
                                  console.log("i got replay form confirm")
                                  console.log(response);
         
                              })
-                        }  
+                         // }//$scope.urdispresent
+                        }//else  
              //here
              }else{
-                  //alert("urdstatus123")
+               // alert("urdstatus123111 "+$scope.urdispresent)
+                  // if($scope.urdispresent == 1){
+                  
                   $http.put('/urdstatus123/'+ pushid[i]).success(function(response) {  
                          console.log("i got replay form confirm")
                          console.log(response);
                          // $scope.resul=response;
                          // console.log($scope.resul);
                   })
+                // }
 
                 }
              
 
            }//for loop closer
                  defer2.resolve("last promise");
-               }
+               }//if
                // alert(defer2.promise);
              return defer2.promise;
 
@@ -7061,10 +7295,12 @@ $scope.confirmation=function(bill1,sale,name,tran){
    $scope.receiptprint=1;
 
 
-   if ($scope.saleinv[0].netamt!= 0) {
+   if ($scope.saleinv[0].netamt > 0) {
 
   if(billtype=='Cash'){
     // alert("billtype is cash");
+    $scope.Urdabscent=1;
+      window.sessionStorage.setItem("abscent",$scope.Urdabscent);
         $scope.Astatus="completed";
         $scope.variables=id+","+$scope.Astatus;
         $http.put("/newAccountstatus"+$scope.variables).success(function(response){
@@ -7081,7 +7317,9 @@ $scope.confirmation=function(bill1,sale,name,tran){
   else{
     var move=confirm("Do you want to pay now");
     if(move==true){
-
+      $scope.urdispresent=0;
+      $scope.Urdabscent=1;
+      window.sessionStorage.setItem("abscent",$scope.Urdabscent);
   $scope.partyname=$scope.partyname;
         $scope.Astatus="Inprogress";
         $scope.variables=id+","+$scope.Astatus;
@@ -7112,13 +7350,20 @@ $scope.confirmation=function(bill1,sale,name,tran){
         
      }
     else{
+      $scope.Urdabscent=1;
+      window.sessionStorage.setItem("abscent",$scope.Urdabscent);
         $scope.Astatus="Inprogress";
           $scope.variables=id+","+$scope.Astatus;
         $http.put("/newAccountstatus"+ $scope.variables).success(function(response){
           console.log(response);
-          //alert(" final length to navigate > 0 "+response.length)
+          // alert(" final length to navigate > 0 "+response.length)
           if(response.length != 0){
+            if($scope.urdpay != 1){
             window.location.href="pdf.html";
+           }
+           // else{
+           //  window.location.href="pdf.html";
+           // }
           }
         })
 
@@ -7209,7 +7454,12 @@ $scope.confirmOrder = function(){
         $scope.inVoiceSeries = response[0].inVoiceSeries ;
          $scope.issueVoucherTax = response[0].issueVoucherTax;
         $scope.receiptVoucherTax = response[0].receiptVoucherTax;
+<<<<<<< HEAD
 
+=======
+        $scope.issueVoucherTax2 = response[0].issueVoucherTax2;
+        $scope.receiptVoucherTax2 = response[0].receiptVoucherTax2;
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
       //  var printconfiguration = withheader;
       //   var printconfiguration = withoutheader;
       // // alert("labourTaxInterest "+labourTaxInterest )
@@ -7252,6 +7502,7 @@ function($scope,$http,$window){
    var taxvaltotal = 0;
    var subtotal1 = 0;
    var fixdec = 2;
+   $scope.presenturd=0;
    //used for display array
    $scope.Billtype=null;
    $scope.Mode=null;
@@ -7293,7 +7544,17 @@ function($scope,$http,$window){
     // alert($scope.staffParty+" staffparty");
     $scope.partyType = window.sessionStorage.getItem("selectedType");
      $scope.staffstatus = window.sessionStorage.getItem("partyStatus");
+<<<<<<< HEAD
     
+=======
+     $scope.finalreceipt = window.sessionStorage.getItem("receiptfinal");
+     $scope.presenturd = window.sessionStorage.getItem("urdpre");
+        // alert($scope.presenturd+"$scope.presenturd");
+     $scope.Payyes = window.sessionStorage.getItem("paymentmade");
+     // alert($scope.Payyes+" $scope.Payyes");
+      $scope.Nopayment = window.sessionStorage.getItem("abscent");
+        // alert($scope.Nopayment+" $scope.Nopayment");
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
      if ($scope.billnum == 'Credit') {
       // alert(" credit")
      }else if ($scope.billnum == 'Cash') {
@@ -7310,8 +7571,12 @@ $scope.Credit=0;
       $scope.Billtype = null;
     };
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 
+window.sessionStorage.setItem("abscent",0);
  var navigationCheckCallToPdf = window.sessionStorage.getItem("paymentCallFromTransaction")
 
  if (navigationCheckCallToPdf == 'true') {
@@ -7339,16 +7604,7 @@ $scope.Credit=0;
   }else if($scope.trans == 'Regular Sale'||$scope.trans == 'Approval Sale'){
       // alert("hi");
       console.log("hi hyfjklsdgsds");
-      // $http.get('/getpaymentbilldata'+"PA16").success(function(response){
-      // console.log(response);
-      // alert(response.length)
-      //  $scope.billdata=response;
-      // })
-             
-// =======
-//     if($scope.trans == 'Regular Sale'){
-// >>>>>>> 7a8f5baafd1db8333d296c8333f507e52e0c2c4e
-//$scope.billnum = "rttry"
+    
    $http.get('/getbilldata'+$scope.billnum).success(function(response){
       console.log(response);
      
@@ -7371,7 +7627,8 @@ $scope.Credit=0;
       $scope.billamount=response[0].PaidAmount.$numberDecimal;
       $scope.bill=response[0].BillNo;
       // alert($scope.billamount+"total bill amount");
-
+    window.sessionStorage.setItem("urdpre",0);
+      window.sessionStorage.setItem("paymentmade",0);
         
       // }
       $scope.billdata=response;
@@ -7505,14 +7762,16 @@ else{
      $scope.urd_adj = window.sessionStorage.getItem("URD_ADJUSTED");
      $scope.urd_adj = parseFloat($scope.urd_adj).toFixed(fixdec);
      $scope.urd_bal = window.sessionStorage.getItem("URD_BALANCE");
+    
      $scope.urd_bal = parseFloat($scope.urd_bal).toFixed(fixdec);
+       // alert($scope.urd_bal+"$scope.urd_bal");
      $scope.urdRefund = window.sessionStorage.getItem("urdRefund");
      //  $scope.urdRefund = parseFloat($scope.urdRefund).toFixed(fixdec);
       //console.log(" $scope.urd_adj "+$scope.urd_adj);
       //console.log(" $scope.urd_bal "+$scope.urd_bal);
       $scope.urdTotal = window.sessionStorage.getItem("URD_Total");
       $scope.urdTotal = parseFloat($scope.urdTotal).toFixed(fixdec);
-      // alert( "urd total "+$scope.urdTotal);
+       // alert( "urd total "+$scope.urdTotal);
        // alert( " $scope.urdRefund "+ $scope.urdRefund);
          // $scope.saleinv[0].taxableval = "dfhjdfgj";
                  // $scope.saleinv[0].netamt = "sdh";
@@ -7520,17 +7779,19 @@ else{
                  // $scope.saleinv[0].tax="dsfghj";
                  // $scope.saleinv[0].subtol ="qwerty";
         if($scope.urdRefund == null ){
-           //alert("nana");
+           // alert("Refund is zero");
            $scope.urdRefund = 0;
          }else{
+                 // alert($scope.urd_bal+" URD refund is not null "+$scope.urdRefund);
                 $scope.urdRefund = parseFloat( $scope.urdRefund).toFixed(fixdec);
                 $scope.urd_adj = 0;
               }
   
      
          if( $scope.urdRefund != undefined){
-              //alert("urd refund "+$scope.urdRefund)
-             $scope.urd_bal = 0;
+                // alert($scope.urd_bal+" urd refund "+$scope.urdRefund)
+               // $scope.urd_bal = 0;
+             $scope.urd_bal = $scope.urd_bal;
          }
      
         // $http.get('/getsaleinvoice_id'+saleinvoice_id).success(function(response){ 
@@ -7543,13 +7804,9 @@ else{
                // alert(" $scope.Billtype "+$scope.Billtype);
                 if ($scope.Billtype == "Credit") {
                    //alert(" $scope.Billtype "+$scope.Billtype);
-// <<<<<<< HEAD
-//                         if ($scope.trans ==  "Regular Sale" ) {
-// =======
+
                         if ($scope.trans ==  "Regular Sale") {
-// >>>>>>> 7a8f5baafd1db8333d296c8333f507e52e0c2c4e
-                             
-                      
+
                              $http.get('/getReceivableAmount'+response[0].partyname).success(function(response){
                                 
                                      $scope.netReceivable = parseFloat(response).toFixed(2);
@@ -7570,9 +7827,6 @@ else{
                                 
                              })
                         };
-
-// =======
-// >>>>>>> 7a8f5baafd1db8333d296c8333f507e52e0c2c4e
                        if ($scope.trans == "RD Purchase") {
                              $http.get('/getpaymentReceivableAmount'+response[0].partyname).success(function(response){
                                  // $scope.netReceivable = response[0].Due.$numberDecimal;
@@ -7591,8 +7845,6 @@ else{
                         if ($scope.trans == "Urd Purchase"||$scope.trans == "RD Purchase"||$scope.trans == "Regular Sale") {
                                 setTimeout(trdetailsInsert("Cash"), 2000); 
                           };
-
-                       //alert(" $scope.Billtype "+$scope.Billtype);
               
                  };
 
@@ -7676,7 +7928,7 @@ else{
 
 
         })////getsaleinvoice_id
-
+    window.sessionStorage.setItem("URD_BALANCE",0);
       $http.get('/getpartydetails'+ $scope.partyname ).success(function(response){
 
             console.log(response)
@@ -7714,7 +7966,8 @@ else{
           }
     }
     
-
+      window.sessionStorage.setItem("urdpre",0);
+      window.sessionStorage.setItem("paymentmade",0);
     if(urdparty ==$scope.partyname){
        $scope.urd_value = window.sessionStorage.getItem("URD_VALUE");
        console.log($scope.urd_value)
@@ -7739,13 +7992,15 @@ if($scope.trans == "Urd Purchase"||$scope.trans == "Sale Return"||$scope.trans =
   ||$scope.trans == "Issue Voucher"||$scope.trans == "Receipt Voucher"||$scope.trans=='Approval Out'
   ||$scope.trans == "Approval Sale"||$scope.trans == 'Approval Return'){
     //for barcode data =
- // alert("if for app")
+  
     l = 0; 
     for(let k=0;k<=user1.length-1;k++)
     {
+      // alert("if for receipt voucher "+user1[k].id)
       console.log("in for");
       console.log(user1[k].id);
       if($scope.trans!="Approval Sale"){
+       // alert("if condition");
        $http.get('/getparty',{params:{"id":user1[k]}}).success(function(response){
          console.log(response)
        //  console.log(l)
@@ -7753,16 +8008,30 @@ if($scope.trans == "Urd Purchase"||$scope.trans == "Sale Return"||$scope.trans =
             $scope.userdisplay[l].Number = k+1 ;
            // $scope.labourValue=response[0].labval;
            $scope.invoice = response[0].voucherNo ;
+          // alert("$scope.invoice "+$scope.invoice)
           console.log( $scope.userdisplay[l])
           l++;
            // $scope.nett = ($scope.subtotal1).toFixed(fixdec)
          // to disapper in pdf
           $scope.LabourTaxCheck = "No"    
-          numberwords();
+          // numberwords();
         })
+       if($scope.trans == 'Receipt Voucher'){
+        setTimeout(function(){
+            // alert("only for receipt voucher "+$scope.invoice);
+            $http.get('/getreceiptVoucherFinCal'+$scope.invoice).success(function(response){
+              console.log(response);
+              $scope.Rtaxableval=response[0].taxableval;
+              $scope.Rtotaltax=response[0].tax;
+              $scope.Rsubtotal=response[0].subtol;
+              $scope.Rnett=response[0].netamt;
+            })
+          },80);
+          }
      }
      else{
-        // alert("else"+user1[k].id+",,,"+user1.length);
+      // alert("hello u can continue");
+         // alert("else"+user1[k].id+",,,"+user1.length);
       $http.get('/getparty',{params:{"id":user1[k].id}}).success(function(response){
         console.log('in else');
          console.log(response)
@@ -7786,7 +8055,12 @@ if($scope.trans == "Urd Purchase"||$scope.trans == "Sale Return"||$scope.trans =
         window.sessionStorage.setItem("selectedType",null);
          window.sessionStorage.setItem("staffName",null);
          window.sessionStorage.setItem("partyStatus",null);
+<<<<<<< HEAD
 
+=======
+          window.sessionStorage.setItem("urdpre",0);
+      window.sessionStorage.setItem("paymentmade",0);
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 }
 
  $scope.styleFunction = function(condition,Num){
@@ -7807,7 +8081,8 @@ if($scope.trans == "Urd Purchase"||$scope.trans == "Sale Return"||$scope.trans =
   && $scope.trans!='Approval Return'){
 // &&$scope.trans !='Approval Sale'
         if($scope.trans == "Regular Sale" || $scope.trans == "RD Purchase"){
- 
+      //     window.sessionStorage.setItem("urdpre",0);
+      // window.sessionStorage.setItem("paymentmade",0);
               // trdetailsInsert();
         }
 

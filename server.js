@@ -48,6 +48,49 @@ app.get('/getstaffnames',function(req,res){
 });
 //end of staff
 
+<<<<<<< HEAD
+=======
+//for getting out of state tax
+app.get('/getoutofstateforissue:isstax',function(req,res){
+  var tax=req.params.isstax;
+  console.log(tax+"tax tax tax tax");
+  db.tax.find({"taxname":tax},function(err,doc){
+    res.json(doc);
+
+  })
+})
+
+//to get outoff state for receipt 
+app.get('/getreceiptoutofstate:rectax',function(req,res){
+     var outtax=req.params.rectax;
+     console.log(outtax+" out out out out out");
+     db.tax.find({"taxname":outtax},function(err,doc){
+      res.json(doc);
+     }) 
+})
+
+//for getting the bill's based on partyname
+app.get('/allPaidBills:pname',function(req,res){
+  console.log("getting the bills based on partyname");
+  var name=req.params.pname;
+  db.receipts.find({"partyname":name,"BillNo":{$ne:"null"}},function(err,doc){
+    res.json(doc);
+    console.log(doc);
+  });
+
+});
+
+//for getting all payments for party
+app.get('/getPaidPayments:party',function(req,res){
+  var pname=req.params.party;
+  console.log("getting payment bill details based on partyname");
+  db.payments.find({"partyname":pname,"BillNo":{$ne:"null"}},function(err,doc){
+    res.json(doc);
+    console.log(doc);
+  });
+});
+
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 app.get('/stonecalc',function(req,res){
   console.log("sssssssssssssssssssssssssssssssssssss");
   db.labcal.find({},function(err,doc){
@@ -94,7 +137,18 @@ app.get('/vendorNames',function(req,res){
         
         res.json(doc);
     })
+});
+
+//for getting receipt voucher Final Calculation
+app.get('/getreceiptVoucherFinCal:recvouNo',function(req,res){
+  var receiptNo=req.params.recvouNo;
+  console.log("getting final calculation getting final calculation"+receiptNo);
+  db.saleInvoice.find({"voucherNo":receiptNo},function(err,doc){
+    res.json(doc);
+    console.log(doc);
+  })
 })
+
 
 //charan's
 app.put('/putDeliverd/:thh',function(req,res){
@@ -2796,7 +2850,7 @@ app.post('/Transaction',function(req,res)
 app.put('/urdstatus123/:data',function(req,res)
 { 
   var str=req.params.data;
-    console.log(str);
+    console.log(str+" urdurd urd urd urd urd urd urd urdurd");
 
     var str_array=str.split(",");
     var id=str_array[0];
@@ -2819,9 +2873,9 @@ app.put('/urdstatus/:data',function(req,res)
     console.log(id);
     var diff = str_array[1];
     var urdRefund = str_array[2];
-     console.log("diff  console.log(diff);  console.log(diff);  console.log(diff);  console.log(diff);");
+     console.log("diff  console.log(diff);  console.log(diff);  console.log(diff);  console.log(diff);"+urdRefund);
     console.log(diff);
-    console.log("urdRefund "+urdRefund );
+    console.log("urdRefund urdRefund urdRefund urdRefund "+urdRefund );
     if(urdRefund == undefined){
        console.log("urdRefund == undefined "+urdRefund );
       var orderstatus = "Inprogress"
@@ -3603,12 +3657,19 @@ app.post('/paymentdata/:datas',function(req,res){
   var voucher=rdata1_array[13];
   var voucherStatus = rdata1_array[14];
   var netBalance = rdata1_array[15];
+  var urdStatus = rdata1_array[16];
+  var urdamount = rdata1_array[17];
+  var urdvoucher = rdata1_array[18];
+  if(urdStatus == 'yes'){
+    console.log("inserting voucherNo for urd transaction11111111")
+    voucher = urdvoucher;
+  }
    amount = parseFloat(amount).toFixed(rupeesDecimalPoints);
    totals = parseFloat(totals).toFixed(rupeesDecimalPoints);
    netBalance = parseFloat(netBalance).toFixed(rupeesDecimalPoints);
   //db.receipts.insert({"name":"gvhdfgfehyu"})
   db.payments.insert({"Mode":mode,"Amount":Decimal128.fromString(amount),"Bank":bank,"ChequeNo":chequeno,"Date":chequeDate,"CardNo":cardnos,"CardType":ctype,"ApprovalNo":appno,"partyname":pname,"BilledDate":new Date(bdate),
-    "BillNo":bill,"Narration":narrate,"PaidAmount":Decimal128.fromString(totals),"voucherNo":voucher,"voucherStatus":voucherStatus,'netBalance':Decimal128.fromString(netBalance)},function(err,doc){
+    "BillNo":bill,"Narration":narrate,"PaidAmount":Decimal128.fromString(totals),"voucherNo":voucher,"voucherStatus":voucherStatus,'netBalance':Decimal128.fromString(netBalance),"UrdStatus":urdStatus,"UrdAmountRefunded":urdamount},function(err,doc){
      console.log(" checking data here ");
      console.log(doc);
     res.json(doc);
@@ -9480,6 +9541,11 @@ require('./app/routes')(app); // pass our application into our routes
 require('./public/inventoryDbs/defaultCollections')(app);
 require('./apiCalls/materialAdvancePdf')(app);
 //app.set('port', process.env.PORT || 8000); 
+<<<<<<< HEAD
 app.listen(8100)
 console.log("server running on port 8100");
+=======
+app.listen(8200)
+console.log("server running on port 8200");
+>>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
 exports = module.exports = app;
