@@ -531,6 +531,7 @@ margin-top:-20px;
                   Item
                 </a>
               </li>
+<<<<<<< HEAD
                <li ng-if="desgination == 'Admin'">
 
                 <a href="staff.html">
@@ -561,6 +562,8 @@ margin-top:-20px;
               </li>
 
              
+=======
+>>>>>>> origin
              
              
             </ul>
@@ -702,7 +705,7 @@ margin-top:-20px;
            </div>
            <br>
            
-     <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Sale'||transaction == 'Approval Return'"><input type="checkbox" ng-model="checkstaff" ng-change="disableCustomer(checkstaff);getStaff(checkstaff);" ng-disabled="dis">StaffName:
+    <!--  <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Sale'||transaction == 'Approval Return'"><input type="checkbox" ng-model="checkstaff" ng-change="disableCustomer(checkstaff);getStaff(checkstaff);" ng-disabled="dis">StaffName:
             <input type="text" list="sname" ng-model="sname" ng-change="getDetails()" style="border: 1px solid;background-color: white;width:100px;margin-top:-5px;">
             <datalist id="sname">
               <select >
@@ -712,18 +715,19 @@ margin-top:-20px;
            </div>
            <br>
            <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Return'||transaction == 'Approval Sale'"><input type="checkbox" ng-model="checkstaff1" ng-change="disableStaff(checkstaff1)" ng-disabled="disabled">customer
-           </div>
-          <!--  <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Sale'||transaction == 'Approval Return'"><input type="radio" ng-model="checkstaff" value='staff' name="option" ng-change="userOption(checkstaff);" >StaffName:
+           </div> -->
+          
+          <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Sale'||transaction == 'Approval Return'"><input type="radio" ng-model="checkstaff.state" ng-change="userOption(checkstaff.state);getStaff(checkstaff.state);" name="options" value="staff" >StaffName:
             <input type="text" list="sname" ng-model="sname" ng-change="getDetails()" style="border: 1px solid;background-color: white;width:100px;margin-top:-5px;">
             <datalist id="sname">
               <select >
-                <option ng-repeat="staff in staffnames"  ng-disabled="dis" ng-cloak>{{staff.name}}</option>
+                <option ng-repeat="staff in staffnames"  ng-cloak>{{staff.name}}</option>
               </select>
             </datalist>
            </div>
            <br>
-           <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Return'||transaction == 'Approval Sale'"><input type="radio" ng-model="checkstaff1" value="customer" ng-change="userOption(checkstaff1)" ng-disabled="disabled" name="option">customer
-           </div> -->
+           <div id="Anyone" ng-show="transaction == 'Approval Out'||transaction == 'Approval Return'||transaction == 'Approval Sale'"><input type="radio"  value="customer" ng-model="checkstaff1.state" ng-change="userOption(checkstaff1.state)" name="options" > Customer
+           </div> 
 
             <br>
             <div id="frm1" ng-hide="(transaction=='Valuation' || transaction=='Sale Return' ||transaction=='Purchase Return'|| transaction=='Issue Voucher' || transaction=='Receipt Voucher' || transaction=='Approval Out' || transaction=='Approval Return')">
@@ -827,7 +831,7 @@ margin-top:-20px;
       <tr ng-repeat="item in urd" >
       
        <td>
-          <input type="checkbox" ng-model="myChkModel" ng-change="myClick(myChkModel,item)" />
+          <input type="checkbox" ng-model="myChkModel" ng-change="myClick(myChkModel,item,$index)" />
        </td>
         <td style="background-color: white;" ng-cloak>{{item.date | date  : "dd-MM-y" }}</td>
         <td style="background-color: white;width:35px;" ng-cloak>{{item.urdAdjustment}}</td>
