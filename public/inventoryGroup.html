@@ -67,9 +67,11 @@
   
     text-align: left;
     padding: 0px;
+
   }
   #tax > tbody {
   height: 80%;
+
 }
 #buttonwidth{
   width:80px;
@@ -100,6 +102,7 @@ form  { display: table;      }
   label { display: table-cell; text-align: right}
   input { display: table-cell; }
   select { display: table-cell; }
+ 
  #selectrow1:focus {
     background-color: blue;
 }
@@ -111,11 +114,11 @@ form  { display: table;      }
 #table-wrapper {
   position:relative;
 }
-/*#tscroll {
-  height:90%;
+#tscroll {
+  height:550px;
   overflow:auto;
   margin-top:5%;
-}*/
+}
 #table-wrapper table {
   width:100%;
 }
@@ -131,11 +134,17 @@ form  { display: table;      }
 
      color:red;
 }
-form  { display: table;      }
-  p     { display: table-row;  }
-  label { display: table-cell; text-align: right}
-  input { display: table-cell; }
-  select { display: table-cell; }
+
+  .tableBody{
+     width: 20%;
+  }
+  .smallWidth{
+     width: 100%;
+  }
+td.break {
+  float: left;
+  line-height: 22px;
+}
 /*.col-sm-6 {
     width: 50%;
     padding-left: 25px;
@@ -357,31 +366,68 @@ form  { display: table;      }
 				           <table class="table">
 
 				    <thead>
-				      <tr >
-				             <th><span class="text">InvGroupId</span></th>
-				             <th><span class="text">InvGroupName</span></th>
-				            <!--  <th><span class="text">ValueNotation</span></th> -->
-                     <th><span class="text">Alias</span></th>
-                     <th><span class="text">SortOrder</span></th>
-				              <th class = "space"><span class="text" >Edit/Delete</span></th>
-				           </tr>
+               <tr>
+                 <th colspan="4"></th>
+                <th colspan="2">Purchase Acc</th>   
+                <th colspan="2">Sales Acc</th>   
+                
+              </tr>
+				  
+                    <tr >
+                     <th><span >InvGroupId</span></th>
+                     <th><span >InvGroupName</span></th>
+                   
+                     <th><span >Alias</span></th>
+                     <th><span >SortOrder</span></th>
+                       <th ><span >AccId</span></th>
+                         <th><span >AccNo</span></th>
+                         <th><span >AccId</span></th>
+                         <th><span >AccNo</span></th>
+                      <th class = "space"><span  >Edit/Delete</span></th>
+                   </tr>
 				    </thead>
-				    <tbody >
+				    <tbody ng-cloak>
 
 				     <tr ng-repeat ="inventoryGroupsDetails in inventoryGroupsDetails | orderBy :
 				     'sortOrder'" >
 				
 
-				             <td>{{inventoryGroupsDetails.InvGroupID}}</td>
-				             <td>{{inventoryGroupsDetails.InvGroupName}}</td>
-				             <td>{{inventoryGroupsDetails.Alias}}</td>
-				             <td>{{inventoryGroupsDetails.SortOrder}}</td>
-                         <td class = "space" ng-if='$last == false'>
-        <button class="material-icons" ng-click="editSale(salesCategoryDetails)">edit</button>
+				             <td class="tableBody">{{inventoryGroupsDetails.InvGroupID}}</td>
+				             <td class="tableBody">{{inventoryGroupsDetails.InvGroupName}}</td>
+				             <td class="tableBody">{{inventoryGroupsDetails.Alias}}</td>
+				             <td class="tableBody">{{inventoryGroupsDetails.sortOrder}}</td>
+                     
+
+                     <td  >
+                      <span  ng-repeat ="inventoryG in inventoryGroupsDetails.PurchaseAcc">
+                     {{inventoryG.AccId}}<br/></span></td>
+                    <td>
+                        <span  ng-repeat ="inventoryG in inventoryGroupsDetails.PurchaseAcc">
+                        {{inventoryG.AccNo}}<br/></span></td>
+                   
+                    <td>
+                      <span  ng-repeat ="inventoryG in inventoryGroupsDetails.SalesAcc">
+                      {{inventoryG.AccId}}<br/></span>
+                    </td>
+                    <td>
+                       <span  ng-repeat ="inventoryG in inventoryGroupsDetails.SalesAcc">
+                       {{inventoryG.AccNo}}<br/></span>
+                    </td>
+                   
+                     <!--  <td  >
+                      <span  ng-repeat ="inventoryG in inventoryGroupsDetails.Accounts">
+                     {{inventoryG.PurchaseAccNo}}</span></td> -->
+                     <!-- <td   ng-repeat-end >
+                     {{inventoryG.PurchaseAccNo}}</td> -->
+
+
+                     <!-- <td class="tableBody" >{{inventoryGroupsDetails.sortOrder}}</td> -->
+                         <td class="tableBody" ng-if='$last == false'>
+        <button class="material-icons" ng-click="editInventoryGroup(inventoryGroupsDetails)">edit</button>
         </td>         
     <td class = "space" ng-if='$last == true'>
-        <button class="material-icons" ng-click="editSale(salesCategoryDetails)">edit</button>
-        <button class="material-icons" ng-click="deleteSale(salesCategoryDetails)">close</button></td>
+        <button class="material-icons" ng-click="editInventoryGroup(inventoryGroupsDetails)">edit</button>
+        <button class="material-icons" ng-click="deleteInventoryGroup(inventoryGroupsDetails)">close</button></td>
 
 
 
@@ -422,18 +468,41 @@ form  { display: table;      }
               </p>
               <br>
               <br>
-            <!--   <p>
-              <label>Rate:<span id="star"><font size="04">*</font></span></label>
-               <input type="text"   type="text"  placeholder="rate">
-              </p>
-              <br>
-              <br> -->
+              
 				 
 				</form> 
+        <table class="table table-bordered">
+    <thead>
+      <tr>
+    <th colspan="2">Purchase Acc</th>   
+    <th colspan="3">Sales Acc</th>   
+    
+  </tr>
+      <tr>
+        <th>AccId</th>
+        <th>AccNo</th>
+        <th>AccId</th>
+        <th>AccNo</th>
+        <th>Add</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="InventoryGroupAccounts in InventoryGroupAccounts">
+
+         <td ><input type="text" class="smallWidth" ng-model="InventoryGroupAccounts.PurchaseAcc.AccId" > </td>
+        <td ><input type="text" class="smallWidth" ng-model="InventoryGroupAccounts.PurchaseAcc.AccNo"></td>
+        <td ><input type="text" class="smallWidth" ng-model="InventoryGroupAccounts.SalesAcc.AccId" ></td>
+        <td ><input type="text" class="smallWidth" ng-model="InventoryGroupAccounts.SalesAcc.AccNo"></td>
+         <td > <button  class="material-icons"  ng-click="addrow1()">library_add</button> </td>
+     {{"sdd"}}{{InventoryGroupAccounts.PurchaseAcc[0].AccId}}
+      </tr>
+     
+    </tbody>
+  </table>
 				  <div align="center">
           <button  id="buttonwidth" class="btn btn-info" ng-click="newInventoryGroup()">New</button>
-           <button type="button" id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails == true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup)" ng-cloak>Update</button>
-        <button  id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails != true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup)" ng-disabled="all">Save</button>
+           <button type="button" id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails == true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup,InventoryGroupAccounts)" ng-cloak>Update</button>
+        <button  id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-if="updateInventoryGroupDetails != true" ng-click="validationInventoryGroup(invGroupID,SortOrder,InventoryGroup,InventoryGroupAccounts)" ng-disabled="all">Save</button>
                
              <button  class="btn btn-warning" ng-click='cancelInventoryGroup()' ng-disabled="all">Cancel</button>
             </div>

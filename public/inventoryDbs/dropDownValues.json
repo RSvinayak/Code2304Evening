@@ -124,42 +124,10 @@
             
              "maingroup": [
                                     {
-<<<<<<< HEAD
-                                            "name" : "Lingaraj",
-                                            "password" : "777",
-                                            "desgination" : "Billing Person"
-                                              },
-                                    {
-                                           "name" : "Vinayak",
-                                            "password" : "222",
-                                            "desgination" : "Billing Person"
-                                            },
-                                            {
-                                           "name" : "Balakrishna",
-                                            "password" : "111",
-                                            "desgination" : "Billing Person"
-                                            },
-                                            {
-                                           "name" : "JayaPrakash",
-                                            "password" : "333",
-                                            "desgination" :"Billing Person"
-                                            },
-                                            {
-                                           "name" : "RadhaKrishna",
-                                            "password" : "444",
-                                            "desgination" : "Billing Person"
-                                            },
-                                            {
-                                           "name" : "Balavanth",
-                                            "password" : "555",
-                                            "desgination" : "Billing Person"
-                                            }
-=======
                                             "name" : "Admin",
                                             "password" : "12345",
                                             "desgination" : "Admin"
                                               }
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                                     
                          ]
          },

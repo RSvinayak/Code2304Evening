@@ -3,13 +3,12 @@ myApp.controller('ListCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
     console.log("hi listCntrl ");
       $scope.usernamedetails = window.sessionStorage.getItem("username")
-<<<<<<< HEAD
-=======
+
        if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
      // for transaction details collection in inventory
          $http.get('/transactiondetails').success(function(response){
             console.log(response)

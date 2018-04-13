@@ -2,15 +2,13 @@
 var myApp=angular.module('myApp',[]);
 myApp.controller('billCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
-<<<<<<< HEAD
 
-=======
 $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
  // $scope.name="shivu";
  $scope.rpamt=[];
  $scope.paymode='Cash';
