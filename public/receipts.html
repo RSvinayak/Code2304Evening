@@ -586,39 +586,23 @@ thead tr th {
                     </select>
                   </datalist>
                 </div>
-<<<<<<< HEAD
-                    <div class="col-md-5" id="party">
-=======
                     <div class="col-md-3" id="party">
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                     <span style="font-size:15px;margin-left:-100px;margin-top:10px">Date:</span>
                     <input type="date" style="height:25px;width:150px;font-size:15px" ng-model="billDate" readonly>
                   </div>
 
-<<<<<<< HEAD
-                        <div class="col-md-3" id="party" ng-if="dataHide=='yes'">
-                    <span style="font-size:15px">Order No:</span>
-                    <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO">
-                  </div>
-                  <div class="col-md-3" id="party" ng-hide="dataHide=='yes'">
-=======
                         <!-- <div class="col-md-4" id="party" ng-if="dataHide=='yes'">
                     <span style="font-size:15px">Order No:</span>
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO">
                   </div> -->
                   <div class="col-md-5" id="party" >
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
                   
 
                     <span style="font-size:15px">Receipt No:</span>
-<<<<<<< HEAD
-                    <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="billNo" readonly>
-=======
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="billNo" readonly></input>
                      <span style="font-size:15px" ng-if="dataHide=='yes'" >Order No:
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="orderNO"></span>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                   </div>
                 </div>
           <br>
@@ -709,22 +693,14 @@ thead tr th {
           <tbody ng-cloak ng-repeat="item in rpamt" id="hi1">
             <tr>
             <td><input type="checkbox" style="margin-left:0px;width:20px;" ng-model="check" ng-true-value="1" ng-false-value="0" ng-click="removeChecked($index,check);indexFunctionCall($index,check)"/></td>
-<<<<<<< HEAD
-<!-- ng-init="item.paymode='Cash'" -->
-=======
             <!-- ng-init="item.paymode='Cash'" -->
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             <td style="width:75px;margin-left:25px">
              <select ng-model="item.paymode"  ng-init="item.paymode='Cash'">
              <option ng-repeat="mode in modes" >{{mode.name}}</option> 
             </td>
 
             <td >
-<<<<<<< HEAD
-              <input type="number" min="0" ng-model="item.amount" style="width:60px;text-align:right;margin-left:25px" ng-change="totalAmount(item.amount)" / >
-=======
               <input type="number" ng-model="item.amount" style="width:60px;text-align:right;margin-left:25px" ng-change="totalAmount(item.amount)" / >
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
             </td>
 <!-- change="totalAmount($index)" -->
             <td >
@@ -788,11 +764,7 @@ thead tr th {
         </div>
         <div>
           <br>
-<<<<<<< HEAD
-        <button class="btn btn-danger" style="margin-left:370px;" ng-click="clear()">Cancel</button>
-=======
         <button class="btn btn-danger" style="margin-left:400px;" ng-click="clear()">Cancel</button>
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
         <!-- <a href={{materialAdvance}}> -->
         <button class="btn btn-success" style="margin-left:50px;" ng-click="save()">Save</button>
       <!-- </a> -->

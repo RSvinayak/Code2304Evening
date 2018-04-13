@@ -1,16 +1,13 @@
 
 var myApp = angular.module('myApp', []);
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http,$localStorage,$sessionStorage, $window) {
+myApp.controller('AppCtrl', ['$scope', '$http','$window', function($scope, $http, $window) {
     console.log("Hello World from controller display");
-<<<<<<< HEAD
- $scope.usernamedetails = window.sessionStorage.getItem("username")
-=======
+
 $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 var refresh = function() {
 $http.get('/getitemtaxation').success(function(response) {
  	console.log("i get the data i requested");

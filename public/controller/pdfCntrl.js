@@ -2,15 +2,13 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('PdfCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
    // alert("pdf controller called");
-<<<<<<< HEAD
-    $scope.usernamedetails = window.sessionStorage.getItem("username")
-=======
+
   $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
    var sgsttotal = 0 ;
    var cgsttotal = 0 ;
    var igsttotal = 0;

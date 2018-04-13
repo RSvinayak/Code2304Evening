@@ -292,13 +292,6 @@ doc.font('Times-Roman')
 
 doc.moveDown()
 
-<<<<<<< HEAD
-    doc.text('Material Receipt Voucher',{align: 'center'})
-    //party details 
-     heightOfHeader += 40; 
-     var rigthSide = heightOfHeader; 
-    doc.text('PartyName'+":"+partyNames , 10, heightOfHeader)
-=======
     doc.text('Receipt Voucher',{align: 'center'})
     //party details 
      heightOfHeader += 40; 
@@ -309,7 +302,6 @@ doc.moveDown()
         doc.text('PartyName'+":"+partyNames , 10, heightOfHeader)
      }
     
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
      heightOfHeader += 20;  
     doc.text('Address'+":"+address, 10, heightOfHeader)
      heightOfHeader += 20;  
@@ -476,23 +468,14 @@ doc2.font('Times-Roman')
 
 doc2.moveDown()
 
-<<<<<<< HEAD
-    doc2.text('Receipt Voucher',{align: 'center'})
-=======
     doc2.text('Receipt ',{align: 'center'})
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
     //party details 
      heightOfHeader += 40; 
      var rigthSide = heightOfHeader; 
     doc2.text('For Order advance from '+":"+partyNames , 10, heightOfHeader)
    //commented on 26/3 voucher number is not available here only order appers 
-<<<<<<< HEAD
-    // doc2.text('Voucher No'+":"+ detailsDisplay[0].BillNo , 400, rigthSide)
-    // rigthSide += 20;
-=======
     doc2.text('Receipt No'+":"+ detailsDisplay[0].BillNo , 400, rigthSide)
      rigthSide += 20;
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
     //comm ended 26/3
      doc2.text('order No'+":"+orderNO , 400, rigthSide)
     rigthSide += 20;
@@ -691,11 +674,7 @@ doc.moveDown()
     //party details 
      heightOfHeader += 40; 
      var rigthSide = heightOfHeader; 
-<<<<<<< HEAD
-    doc.text('PartyName'+":"+partyNames , 10, heightOfHeader)
-=======
     doc.text('Vendor Name'+":"+partyNames , 10, heightOfHeader)
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
      heightOfHeader += 20;  
     doc.text('Address'+":"+address, 10, heightOfHeader)
      heightOfHeader += 20;  

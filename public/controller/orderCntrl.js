@@ -2,20 +2,16 @@
 var myApp=angular.module('myApp',[]); 
 myApp.controller('orderCntrl',['$scope','$http','$window','$rootScope',"ControllerService",'$location',
 function($scope,$http,$window,$rootScope,ControllerService,$location){
-<<<<<<< HEAD
-
 $scope.date=new Date()
 $scope.ordersReceipt=0;
 $scope.ordersReceipt1=0;
-=======
+
 $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
 $scope.date=new Date()
-
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 
 $http.get('/Orderprefixs').success(function(response){
   console.log(response);
@@ -144,10 +140,9 @@ $scope.radiowithinstate = "withinstate";
    $scope.radio = {
         state:'with in state'  
       };
-<<<<<<< HEAD
+
   $scope.usernamedetails = window.sessionStorage.getItem("username")
-=======
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
    $scope.userit.push({ 
 
          
@@ -390,33 +385,34 @@ return;
 
        }
        $scope.allocateAlert = function(ff,tag){
-       
+       //alert(ff+"kk")
+       $http.post('/recieveChange',$scope.use[tag] ).success(function(response){
+             console.log(response)
+              //$scope.idData=response._id;
+              //alert(response._id)
+            //alert($scope.idData)
+               })
        console.log($scope.use[tag])
        console.log($scope.party)
       if (ff=="Received"){
-<<<<<<< HEAD
-=======
-         alert($scope.use[tag].allocate)
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
 //console.log($scope.use)
     var r = confirm("Land To Receipt Voucher?")
             if (r==true) {
 console.log($scope.use)
            $scope.transaction="Receipt Voucher"     
   $window.location="Transaction.html"
-<<<<<<< HEAD
+
   $scope.ordersReceipt1=1;
   window.sessionStorage.setItem("oreceipt2",$scope.ordersReceipt1);
   window.sessionStorage.setItem("goToReceipt",$scope.transaction)
-  console.log($scope.party)
-    window.sessionStorage.setItem("getPatyName",$scope.use[tag].partyNames)
-=======
-  window.sessionStorage.setItem("goToReceipt",$scope.transaction)
-  console.log($scope.party)
+
 
     window.sessionStorage.setItem("getPatyName",$scope.use[tag].allocate)
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 window.sessionStorage.setItem("orderPatyName",$scope.use[tag].orderNO)
+//alert("kkkkkk")
+//alert($scope.use[tag]._id)
+window.sessionStorage.setItem("idVocherPartyId",$scope.use[tag]._id)
      var receiptPartyId =$scope.use[tag]._id+","+$scope.use[tag].allocate;
   
     console.log(receiptPartyId)
@@ -424,15 +420,24 @@ window.sessionStorage.setItem("orderPatyName",$scope.use[tag].orderNO)
   
   }
   else{
-   // alert("kk")
-    console.log($scope.use[tag])
+    //alert("kk")
+    
     $http.put('/changesta', $scope.use[tag]).success(function(response){
              console.log(response)
               //$scope.use=response;
                })
+    // $http.post('/recieveChange',$scope.use[index] ).success(function(response){
+    //          console.log(response)
+    //           //$scope.idData=response._id;
+    //           //alert(response._id)
+    //         //alert($scope.idData)
+    //            })
     
   }
+ 
 }
+
+
 
        }
       
@@ -520,7 +525,7 @@ $scope.purityCal=function(val,purity){
        //alert($scope.userit[val].gwt);
 //alert($scope.userit[val].itemName);
 //itemRatesCall($scope.userit[val].itemName,val);
-
+ 
        for(i=0;i<$scope.irate.length;i++)
        {
           if (purity == $scope.irate[i].ValueNotation)
@@ -1139,7 +1144,8 @@ $scope.uomConversion=function($index,uom){
 
 
     // alert("carata"+typeof( $scope.userit[$index].uom) )
-  }else if(uom == "Gms" || uom == undefined){
+  }
+  else if(uom == "Gms" || uom == undefined){
    // alert("gms")
   checkRepeat = true;
    $scope.userit[$index].uomValue = 1;
@@ -1148,41 +1154,31 @@ $scope.uomConversion=function($index,uom){
 
   }
 
-if(checkRepeat == true){
-  $scope.newstwt($index)
-}
+// if(checkRepeat == true){
+//   $scope.newstwt($index)
+// }
 
-   if( $scope.userit[$index].pctcal!= undefined){
-                             // alert($scope.userit[0].pctcal)
-                              $scope.newwas($index,$scope.userit[$index].pctcal)
+//    if( $scope.userit[$index].pctcal!= undefined){
+//                              // alert($scope.userit[0].pctcal)
+//                               $scope.newwas($index,$scope.userit[$index].pctcal)
                                     
-                               }
-                            if( $scope.userit[$index].labcal!= undefined){
-                                 $scope.newlab($index,$scope.userit[$index].labcal)
-                            } 
-                            if( $scope.userit[$index].stonecal!= undefined){
-                               $scope.newstchg($index,$scope.userit[$index].stonecal)
-                            } 
+//                                }
+//                             if( $scope.userit[$index].labcal!= undefined){
+//                                  $scope.newlab($index,$scope.userit[$index].labcal)
+//                             } 
+//                             if( $scope.userit[$index].stonecal!= undefined){
+//                                $scope.newstchg($index,$scope.userit[$index].stonecal)
+//                             } 
                              
 
 }
 
 $scope.newgwt=function($index,pctcal)
 {  
-  //$scope.totalVal+=parseFloat($scope.userit[$index].final);
-  //alert($index)
-    //for index specifing
-    //  alert(wttolerance) calMrpValue($index)
+  //alert("llllll")
     indexvalue = $index
     $scope.uomConversion($index,$scope.userit[$index].uom)
-    console.log("i got call")
-  
-    //console.log($scope.userit[0].gwt)
-
-    //alert($scope.userit[$index].gwt)
-    //decimal point validation
    
-    
     if($scope.userit[$index].labamt==null){
          $scope.userit[$index].labval=0;
         }
@@ -1193,7 +1189,7 @@ $scope.newgwt=function($index,pctcal)
 
     if($scope.userit[$index].gwt=="")
     {
-        //alert("null value")
+        //alert("KK")
         $scope.userit[$index].chgunt=0;
         $scope.userit[$index].ntwt=0;
         $scope.userit[$index].taxval=0;
@@ -1213,30 +1209,18 @@ $scope.newgwt=function($index,pctcal)
        }
         $scope.userit[$index].gwt  = (parseFloat($scope.userit[$index].gwt)).toFixed(fixdec);
         $scope.userit[$index].gwt  = parseFloat($scope.userit[$index].gwt)
-  
+  //alert("Kklll")
    $scope.userit[$index].stwt = 0;
-     $scope.userit[$index].ntwt=((parseFloat($scope.userit[$index].gwt)-parseFloat($scope.userit[$index].stwt))*parseFloat($scope.userit[$index].uomValue)).toFixed(fixdec);
+    $scope.userit[$index].ntwt=((parseFloat($scope.userit[$index].gwt)-parseFloat($scope.userit[$index].stwt))*parseFloat($scope.userit[$index].uomValue)).toFixed(fixdec);
        
       if($scope.userit[$index].stwt!=null)
     {
-      
+     // alert("KKll")
        $scope.userit[$index].ntwt=((parseFloat($scope.userit[$index].gwt)-parseFloat($scope.userit[$index].stwt))*parseFloat($scope.userit[$index].uomValue)).toFixed(fixdec);
      }
     $scope.userit[$index].chgunt=($scope.userit[$index].ntwt);
     $scope.userit[$index].taxval=($scope.userit[$index].chgunt*$scope.userit[$index].rate).toFixed(2);
-    //$scope.userit[$index].final=$scope.userit[$index].taxval
-    //
-    // if( $scope.userit[$index].pctcal!= undefined){
-    //       $scope.newwas($index,$scope.userit[$index].pctcal)
-    //   } 
-    // if( $scope.userit[$index].labcal!= undefined){
-    //       $scope.newlab($index,$scope.userit[$index].labcal)
-    //   } 
-    // if( $scope.userit[$index].stonecal!= undefined){
-    //       $scope.newstchg($index,$scope.userit[$index].stonecal)
-    //   }
-    //
-    //saleInvoiceCalculations();
+  
     $scope.dropDownCalls($index,"gwt");
 
 
@@ -1246,7 +1230,22 @@ $scope.newgwt=function($index,pctcal)
     
 }*/
 }
+$scope.threeDecimals=function(ind){
+   //var num = ($scope.userit[ind].gwt).toString(); // Convert to string
+//alert(( (num.split('.')[1] || []).length))
+//  if ((num.split('.')[1] || []).length >=1) {
+   //$scope.userit[ind].gwt=$scope.userit[ind].gwt
+// //alert($scope.userit[ind].gwt)
 
+
+$scope.userit[ind].gwt  =parseFloat($scope.userit[ind].gwt).toFixed(fixdec)
+//alert(typeof($scope.userit[ind].gwt )+$scope.userit[ind].gwt)
+// }
+// else{
+//    //$scope.userit[ind].gwt=parseFloat($scope.userit[ind].gwt)Math.round(3)
+// alert($scope.userit[ind].gwt)
+// }
+}
 $scope.newstwt=function($index)
 {
    //alert(($scope.userit[$index].stwt))
@@ -1860,16 +1859,11 @@ return;
          if (r==false) {    
             var f = confirm("Material Advance")
             if (f==true) {
-
-<<<<<<< HEAD
                    $scope.transaction="Receipt Voucher"  
               //added by vinayak-4/4
                    $scope.ordersReceipt=1;
             window.sessionStorage.setItem("oreceipt",$scope.ordersReceipt);
 
-=======
-                   $scope.transaction="Receipt Voucher"       
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
                 $scope.mylink = "Transaction.html";
 
                 window.sessionStorage.setItem("orderGetReceipt",$scope.transaction)
@@ -2001,7 +1995,7 @@ $scope.removeSelectedRows = function() {
 }//trial
   $scope.selectrow = function(tag,index){
   console.log(tag)
- //alert($scope.idData)
+ //alert(tag.initial)
  $scope.initDis=tag.initial
   $scope.selectedrow = index
   //alert(allo)
@@ -2009,20 +2003,22 @@ $scope.removeSelectedRows = function() {
  $scope.allocatevendor="";
   //alert("tag"+tag.initial)
   if(tag.initial!="Received"){
+    //alert(tag.initial)
   $http.put('/changesta', tag).success(function(response){
              console.log(response)
               //$scope.use=response;
                })
 }
   //alert("afetr"+$scope.idData)
-  if($scope.idData!=undefined){
-both=tag._id+","+$scope.idData+","+tag.allocate+","+tag.initial
-console.log(both)
-    $http.put('/manageChange/'+both).success(function(response){
-             console.log(response)
-             //$scope.use=response;
-             })
-      }
+//  if($scope.idData!=undefined){
+    
+// both=tag._id+","+$scope.idData+","+tag.allocate+","+tag.initial
+// console.log(both)
+//     $http.put('/manageChange/'+both).success(function(response){
+//              console.log(response)
+//              //$scope.use=response;
+//              })
+//       }
 
   
 }

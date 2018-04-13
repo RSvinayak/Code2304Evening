@@ -2,15 +2,12 @@
 var myApp=angular.module('myApp',[]);
 myApp.controller('billCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
-<<<<<<< HEAD
 
-=======
 $scope.usernamedetails = window.sessionStorage.getItem("username")
   if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
  // $scope.name="shivu";
  $scope.rpamt=[];
  $scope.paymode='Cash';
@@ -20,10 +17,7 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
  $scope.trans="Receipt";
  var setPatyName="null"
  // $scope.totals=50000;
-<<<<<<< HEAD
- $scope.usernamedetails = window.sessionStorage.getItem("username")
-=======
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
  $scope.customer=JSON.parse(window.sessionStorage.getItem("partyname"));
  $scope.billtype=window.sessionStorage.getItem("Billtype");
  $scope.printreceipt=window.sessionStorage.getItem("rprint");
@@ -85,7 +79,21 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
         // document.getElementById("tag1").onclick()
       }
     }
-    $scope.details=response;
+    // $scope.details=response;
+          if(recentId1 == null){
+      // alert("recentID1 is null");
+        $scope.details=response;
+    }
+    else{
+      // alert("when recentId is not null");
+      $http.get('/getOnlyRecentData'+$scope.vno).success(function(response){
+        console.log(response);
+        $scope.details=response;
+      })
+    }
+
+
+
   })
           }
 
@@ -209,18 +217,7 @@ $scope.getVouchers=function(party){
 
  //clear()
 $scope.clear=function(){
-  // alert("clicked on clear button");
-  // $scope.amount='';
-  // $scope.date=null;
-  // $scope.cardnos1="";
-  // $scope.bank="";
-  // $scope.chequeno="";
-  // $scope.appno="";
-  // $scope.ctype="";
-  // $scope.cardnos="";
-  // $scope.chequeno1=null;
-    // $scope.rpamt=[];
-    // $scope.totals="";
+  
       if($scope.rpamt.length == 0){
       if($scope.printreceipt==1){
       window.location.href="pdf.html";
@@ -233,10 +230,7 @@ $scope.clear=function(){
       alert("remove all mode you have entered");
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 //for total amount Calculation
  $scope.total1=0;
 
@@ -252,18 +246,7 @@ $scope.totalAmount=function(data){
  $scope.totals = $scope.total1;
  // window.sessionStorage.setItem('tamount',$scope.totals);
 }
-<<<<<<< HEAD
-//for negative value restriction
-// $scope.restrictNegative = function(amt){
-//   var enteredamt=amt;
-//   alert(enteredamt+"entered value");
-//   if(enteredamt<0){
-//     alert("negative values are not allowed");
-//   }
-// }
-=======
 
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
 $scope.newRow=function(){
   $scope.rpamt.push({
     'paymode':"",
@@ -504,16 +487,12 @@ if (setPatyName!="null" && setPatyName!=null) {
                         
             
       if(flag==0){
-<<<<<<< HEAD
-        if($scope.orderNO!=undefined){
-          $scope.billNo=null;
-        }
-=======
+
         // commented on 29/3/vijay to work billno
         // if($scope.orderNO!=undefined){
         //   $scope.billNo=null;
         // }
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
      
       for(i=0;i<=$scope.rpamt.length-1;i++){
 

@@ -5,15 +5,12 @@ function($scope,$http,$window,$rootScope){
 	console.log("well come to mainpage.html")
 
 	$scope.usernamedetails = window.sessionStorage.getItem("username")
-<<<<<<< HEAD
-	//salert($scope.usernamedetails)
-=======
+
 	 if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
    };
-  //salert($scope.usernamedetails)
->>>>>>> cc45d5087f19638a7317db6078422156a466a9d0
+
 	//console.log($rootScope.name)
 	$scope.admin = true;
 	var currentdateCheck = null;

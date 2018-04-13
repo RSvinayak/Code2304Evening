@@ -1,0 +1,642 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    <title>Inventory</title>  
+  
+      <style>
+
+      .center {
+    margin:auto;
+    width: 10%;
+    
+    
+}
+
+   .selectpic {
+   /* margin:auto;*/
+    width: 230%;    
+}
+      ul.dark_menu {
+list-style: none;
+padding: 5px 1px;
+font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+font-weight: 200;
+font-size: 16px;
+letter-spacing: 0.01em;
+font-smooth: always;
+color: #000000;
+line-height: 10px;
+margin: auto;
+
+/*position: relative;*/
+
+background: #2B5797;
+
+ 
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu:after {
+content: "";
+clear: both;
+display: block;
+overflow: hidden;
+visibility: hidden;
+width: 0;
+height: 0;
+position: sticky;}
+ul.dark_menu li {
+float: left;
+position: relative;
+/*position: sticky;*/
+margin: 1px;}
+/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu li a, ul.dark_menu li a:link {
+color: #fafafa;
+text-decoration: none;
+display: block;
+padding: 8px 26px;
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+-o-transition: all 0.2s ease;
+-ms-transition: all 0.2s ease;
+transition: all 0.2s ease;
+/*position: sticky;*/
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu li a:hover {
+color: #fafafa;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu li a.selected {
+border-right: 1px solid #ddd;
+text-transform: uppercase;
+margin-left: 10px;
+}
+ul.dark_menu li a.selected, ul.dark_menu li a:active {
+color: #fafafa;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;}
+ul.dark_menu li ul {
+display: none;
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu li ul:before {
+content: " ";
+position: absolute;
+display: block;
+z-index: 1500;
+left: 0;
+top: -10px;
+height: 10px;
+width: 100%;}
+ul.dark_menu li ul {-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;top:55px;}
+ul.dark_menu li:hover ul {
+position: absolute;
+display: block;
+z-index: 1000;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+left: 0;border-radius: 0px 0px 5px 5px;
+top: 37px;
+padding: 5px 0;
+list-style: none;
+background: #fff;
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu li ul li {
+float: none;
+margin:0px;}
+ul.dark_menu li ul li:first-child {
+margin:0px;
+border-top: 0 none;}
+ul.dark_menu li ul li:last-child {
+border-bottom: 0 none;
+}/* Blog johanes djogzs.blogspot.com */
+ul.dark_menu [data-role="dropdown"] > a::before {
+position: absolute;
+content: "^";
+display: block;
+font-size: 15px;
+left: 100%;
+margin-left: -20px;
+top: 10px;
+-webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+ul.dark_menu li ul li a, ul.dark_menu li ul li a:link {
+color: #222;
+display: block;
+background: transparent none;
+padding: 10px 25px 10px 25px;
+white-space: nowrap;}
+ul.dark_menu li ul li a:hover {
+background:#2D89EF;-moz-transition: all 0.1s ease-in-out;color:#fff;
+-webkit-transition: all 0.1s ease-in-out;
+}/* Blog johanes djogzs.blogspot.com */
+.menujohanes{position:relative;}
+#search input[type="text"]:hover {width:848px;}
+#search input[type="text"] {
+background: #fff url("http://3.bp.blogspot.com/-uYZni0pIn-E/T-xY2vVu_-I/AAAAAAAACUY/ZMfR3_BvRFE/s1600/SEARCH_32x32-32.png")no-repeat center left;
+font-size: 13px;
+color: #222;
+width: 0px;
+padding: 10px 0px 11px 35px;
+z-index: 9;
+border: 1px solid #fff;
+-webkit-transition: all 0.5s ease-in-out;
+-moz-transition: all 0.5s ease-in-out;
+margin-bottom: -1px;
+position: absolute;
+
+top: 0px;
+right:27px;}
+/*#main4, #main5, #main6 {
+width: 303px;
+list-style-type: none;
+float: left;
+margin: 10px;}
+.main3 {width:305px;
+list-style-type: none;
+padding-top: 10px;
+float: left;}
+::-webkit-scrollbar {
+height:12px;
+background: #474747;}
+::-webkit-scrollbar-thumb {
+background-color: #000;
+}*/
+ li#sub ul {
+    display:none;
+  position: absolute; left: 100%; top:0;
+}
+li#sub:hover ul{
+display: block;
+}
+#table-wrapper {
+ /* position:relative;*/
+ position: sticky;
+}
+#tscroll {
+  height:90%;
+  overflow:auto;  
+  margin-top:5%;
+
+}
+
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}
+li#name1 {
+
+    right: -100px;
+
+    font-size: 27px;
+    font-style: italic;
+} 
+#his{
+ margin-left:1150px;
+  margin-top:-90px;
+  color:blue;
+  position:fixed;
+}
+ #buttonwidth{
+  width:80px;
+}
+#buttonwidth1{
+  width:80px;
+}
+    #star{
+
+     color:red;
+}
+ 
+    .button{
+      align:center;
+    }
+    .btn-primary{
+    margin-right: 10px;
+}
+.container{
+  margin: 20px 0;
+}
+        .error {  
+            color: red;  
+        } 
+        
+          .panel-default> #heading1 
+{
+  background:black;
+  height:80px;
+}
+/*span {
+    display: none;
+}*/
+.show {
+    display: inline-block;
+}
+.active
+{
+  font-color:white;
+}
+label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}​
+ #usr
+ {
+  width: 12em;
+ } 
+ .frm {
+  width: 15%;
+  /*margin-top:-20px;*/
+}
+#table1{
+  border-collapse: collapse;
+    border-spacing:4px;
+    width: 220px;
+    border: 1px solid black;
+   /* table-layout: fixed;*/
+    display:block;
+    height:130px;
+    overflow-y:scroll;
+}
+#head1{
+  position:fixed;
+  font-size:14px;
+  
+}
+#th1,#td1{
+  /*width: 200px;*/
+    border-bottom:1px solid black;
+    text-align: left;
+    padding: 4px;
+
+  
+
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 20;
+    width: 2400px;
+    border: 1px solid #ddd;
+    table-layout: fixed;
+    border-collapse: separate;
+}
+
+
+th, td {
+    width: 140px;
+    border: none;
+    text-align: left;
+    padding: 8px;
+    overflow: hidden;
+}
+td {
+  height: 50px;
+}
+.custom {
+    width: 150px !important;
+}
+
+input {
+    border: none;
+    background: transparent;
+}
+
+#gap{
+   border: 1px solid;
+   width:150px;
+   height: 100px;
+margin-left: 80px;
+}
+#frm {
+  display: inline-flex;
+}
+#frm1 {
+
+  display: inline-flex;
+
+}
+#frm2 {
+  display: inline-flex;
+}
+#frm3 {
+  display: inline-flex;
+}
+#frm4 {
+  display: inline-flex;
+}
+#frm5 {
+  display: inline-flex;
+}
+#usr1
+{
+  background: #F5F5DC;
+}
+#save
+{
+  margin-top: 20px;
+}
+#history {
+  margin-left: 28px;
+}
+#scroll
+{
+   overflow-y:auto;
+   height: 16%;
+}
+#tab
+{
+display: inline-block;
+height:140px;
+overflow-y:auto;
+/*width:150px;*/
+
+}
+/*table#tags{width:20%; border:1px solid red;}*/
+#tags tr td {height:10px; border:1px;}
+
+#tag1:focus {
+    background-color: blue;
+
+}
+.selected {
+  background-color: blue;
+}
+.panel.panel-default
+{
+  height: 15%;
+  width: 65%;
+  border-style: solid;
+  border-color: black;
+}
+#inlinetext{
+/*display:inline-flex;*/
+}
+#blockWidth{
+  max-width: 100px;
+  border: 1px solid black;
+}
+#blockWidt{
+ /* max-width: 300px;*/
+ width: 50px;
+   /* position: relative;*/
+    left: 30px;
+    top: 10px;
+ /*   z-index: -1;*/
+    
+}
+#Anyone{
+margin-top:-20px;
+}
+
+#demo {
+  height: 90px;
+  width: 118%;
+  margin-top:-45px;
+}
+#de{
+  border: 1px solid;
+}
+.ng-valid {
+  height: 26px;
+  display: inline-block;
+}
+
+.col-sm-4 {
+  border: 1px solid;
+  height: 120px;
+  /*width: 140px;*/
+  margin-left: 60;
+}
+
+#namnum {
+  display: inline;
+}
+#hrefbtn {
+  margin-left: 20px;
+  margin-top:5px
+  /*position:fixed;*/
+}
+#hisb{
+  /*margin-left:20px;*/
+  margin-left:400px;
+  margin-top:-25px
+  
+}
+#tranhis{
+  margin-left:70px;
+  margin-top:-20px;
+
+}
+#dates{
+  border: 1px solid;
+  width:135px;
+  background-color:white;
+}
+#da{
+  border: 1px solid;
+  width:130px;
+}
+</style>
+
+    
+</head>  
+<body style="background-color:FFE4B5;" ng-controller="FirstCntrl" >
+
+  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+        
+       <ul class='dark_menu' >          
+<li  >
+            <a>
+              Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+            </a>
+            <ul>
+              <li>
+                <a href="Transaction.html">
+                  New
+                </a>
+              </li>
+
+                <li>
+                <a href="orders.html">
+                  Order Management
+                </a>
+              </li>
+               <li>
+                <a href="List.html">
+
+                  List
+                </a>
+              </li>
+                <li>
+                <a href="Phistory.html">
+                  Party History
+                </a>
+              </li>
+            </ul>          
+          </li>
+       <li >
+            <a href='#'>
+              Inventory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+                 <li id='sub'>
+                    <a href='#'>
+                    Barcoding
+                    </a>
+                     <ul>
+                         <li>
+            <a href='Barcode Summary.html'>
+              Barcode Summary
+                             </a></li><li>
+            <a href='Barcode Generation.html'>
+              Barcode Generation
+                             </a></li>
+                             <li>
+            <a href='stockverification.html'>
+              Stock Verification
+                             </a></li>
+                     </ul>
+                         
+                </li>
+
+               <li>
+                <a href="Item.html">
+                  Item
+                </a>
+              </li>
+             
+             
+            </ul>
+          </li>
+          
+          
+          <li >
+            <a href='#'>
+              Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="ClosingStockBookByGroupItem.html">
+                
+                  Closing Stock Book By Group Item
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="DailyClosingStock.html">
+                  
+                  Daily Closing Stock
+                </a>
+              </li>
+              <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li>
+             
+              
+            </ul>
+          </li>
+          <li >
+
+            <a href="Tax Configuration.html">
+
+              Tax Configuration
+            </a>
+            <!-- <ul>
+                
+
+               <li>
+                <a href="indextaxation.html">
+                  Tax Structure
+                </a>
+              </li> -->
+              <!-- <li>
+                <a href="taxation.html">
+                  Tax Name
+                </a>
+              </li> -->
+             
+              
+            <!-- </ul> -->
+          </li>
+            
+        
+          </li>
+          <li >
+              <a href="dailyRates.html">
+              Daily Rates 
+            </a>
+            </li>
+           <li >
+            <a href='#'>
+              Accounts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="receipts.html">
+                
+                  Receipt
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="payments.html">
+                  
+                  Payment
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li  id="name1" >
+            <a >
+
+             {{usernamedetails}}
+               
+            </a>
+          
+          </li>
+          <li id="name1">
+            <a href="loginPage.html" >
+              Sign Out
+               
+            </a>
+          
+          </li>
+          
+        </ul>
+
+
+        
+      </div>
+    </body>
+    </html>

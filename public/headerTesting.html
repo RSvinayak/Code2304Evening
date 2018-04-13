@@ -305,180 +305,199 @@ form  { display: table;      }
 
 <body  ng-controller="ItemCntrl" style="background-color:FFE4B5;">
 
-<div ng-include="'headerTesting.html'"></div>
- <div  class="center" ng-cloak>
-  <h2 >Item</h2>
-  <br>
-    <!-- <a href="index1.html" class="btn btn-primary active">Main</a>
-    <a href="list.html" class="btn btn-primary">List</a> -->
-   
-  </div> <br>
-<div class="row">
-  <div class="col-sm-1">
+<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+        
+       <ul class='dark_menu' >
+<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+          
+<li  >
+            <a>
+              Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+            </a>
+            <ul>
+              <li>
+                <a href="Transaction.html">
+                  New
+                </a>
+              </li>
 
-  </div>
-  <div class="col-sm-6">
+                <li>
+                <a href="orders.html">
+                  Order Management
+                </a>
+              </li>
+  <!--              <li>
+                <a href="list.html">
+======= -->
+               <li>
+                <a href="List.html">
 
-  Filter by Item Type:
+                  List
+                </a>
+              </li>
+                <li>
+                <a href="Phistory.html">
+                  Party History
+                </a>
+              </li>
+            </ul>
+          
+          </li>
 
-    <select ng-model="item.filter"   ng-change ="filterchange()" ng-init="item.filter='All '">
-       <option ng-repeat="Type in itemtype1"  >{{Type.TypeName}}</option>
-       </select>
+       <li >
 
-  </div>
+            <a href='#'>
+              Inventory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+                 <li id='sub'>
+                    <a href='#'>
+                    Barcoding
+                    </a>
+                     <ul>
+                         <li>
+            <a href='Barcode Summary.html'>
+              Barcode Summary
+                             </a></li><li>
+            <a href='Barcode Generation.html'>
+              Barcode Generation
+                             </a></li>
+                             <li>
+            <a href='stockverification.html'>
+              Stock Verification
+                             </a></li>
+                     </ul>
+                         
+                </li>
 
-  <!-- <div class="col-sm-2">
-   <button type="button" class="btn btn-danger" ng-click = "resetcall()">Reset</button>
-  </div> -->
-</div><br>
+               <li>
+<!-- <<<<<<< HEAD:public/Transaction.html
+                <a href="item.html">
+======= -->
+                <a href="Item.html">
+<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+                  Item
+                </a>
+              </li>
+             
+             
+            </ul>
+          </li>
+          
+          
+          <li >
+            <a href='#'>
+              Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="ClosingStockBookByGroupItem.html">
+                
+                  Closing Stock Book By Group Item
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="DailyClosingStock.html">
+                  
+                  Daily Closing Stock
+                </a>
+              </li>
+              <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li>
+             
+              
+            </ul>
+          </li>
+          <li >
+
+            <a href="Tax Configuration.html">
+
+              Tax Configuration
+            </a>
+            <!-- <ul>
+                
+
+               <li>
+                <a href="indextaxation.html">
+                  Tax Structure
+                </a>
+              </li> -->
+              <!-- <li>
+                <a href="taxation.html">
+                  Tax Name
+                </a>
+              </li> -->
+             
+              
+            <!-- </ul> -->
+          </li>
+            
+        
+          </li>
+<!-- <<<<<< HEAD:public/Transaction.html
+          <li  id="name1">
+            <a>
+======= -->
+          <li >
+              <a href="dailyRates.html">
+              Daily Rates 
+            </a>
+            </li>
+           <li >
+            <a href='#'>
+              Accounts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <ul>
+               <li>
+                <a href="receipts.html">
+                
+                  Receipt
+                </a>
+              </li>
+                
+
+               <li>
+                <a href="payments.html">
+                  
+                  Payment
+                </a>
+              </li>
+              <!-- <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li> -->
+             
+              
+            </ul>
+          </li>
+          <li  id="name1" >
+            <a >
+
+             {{usernamedetails}}
+               
+            </a>
+          
+          </li>
+          <li id="name1">
+            <a href="loginPage.html" >
+              Sign Out
+               
+            </a>
+          
+          </li>
+          
+        </ul>
 
 
-<div class="row">
-<div class="col-sm-1">
-
-  </div>
-<div class="col-sm-6">
-
- <div class="panel panel-default">
-        <!-- <div class="panel-heading"> -->
-          <div id="table-wrapper">
-  <div id="tscroll">
-           <table class="table">
-
-    <thead>
-      <tr >
-             <th><span class="text">Item Name</span></th>
-             <th><span class="text">Group</span></th>
-             <th><span class="text">Sale Category</span></th>
-             <th><span class="text">Type</span></th>
-           </tr>
-    </thead>
-    <tbody >
-
-     <tr ng-repeat ="itemdetails1 in itemdetails | orderBy :
-     'itemType'" ng-click="selectrow(itemdetails1)" id="selectrow1" ng-class="{selected : itemdetails1 === idSelectedVote}">
-
-
-             <td>{{itemdetails1.Name}}</td>
-             <td>{{itemdetails1.InvGroupName}}</td>
-             <td>{{itemdetails1.SaleCategory}}</td>
-             <td>{{itemdetails1.ItemType}}</td>
-
-
-
-
-           </tr>
-
-       </tbody>
-       </table>
-       </div>
-       </div>
-    <!--    </div> -->
-       </div>
-
-       <button type="button" class="btn btn-primary" ng-click=edititem()>Edit</button>
-       <button type="button" class="btn btn-warning" ng-click=deleteitem()>Delete</button>
-       <button type="button" class="btn btn-info" ng-click="new()" ng-if ="test=='display'" >New</button>
-      <!--  <button  type="button" class="btn btn-success" ng-click="generateBarcode()">Rate</button> -->
-
-
+        
       </div>
-
-
-       <div class="container">
-       <div class="col-sm-4">
-     <!--  <form >
-  Country code: <input type="text" name="country_code" pattern="[A-Za-z]{2,30}" title="Alphabets only" required>
-  <input type="submit">
-</form> -->
-
-
-       <form>
-        <p>
-    <label>Name:<span id="star"><font size="04">*</font></span></label>
-     <input type="text" ng-model="item1.Name"   ng-disabled="all" >
-    </p>
-
-
-
-    <br>
-    <p>
-     <label>Hsc:<span id="star"><font size="04">*</font></span></label>
-     <input type="text" ng-model="item1.Hsc"  ng-disabled="all" >
-     </p>
-    <br>
-
-    <p>
-     <label>Combo Item:</label><input type="checkbox" ng-model="item1.comboItem"  ng-disabled="all"></p>  <br>
-
-   <!--  <p> <label> Incl. in Margin Report: </label><input type="checkbox" ng-model="item1.marginReport"  ng-disabled="all"></p>  --><br>
-
-            <p>
-     <label> Desc:<span id="star"><font size="04">*</font></span></label>
-     <input type="text" ng-model="item1.Desc" ng-disabled="all">
-     </p>
-    <br>
-
-     <p>
-     <label>Inventory Group:<span id="star"><font size="04">*</font></span></label>
-      <!-- <select ng-model="item1.inventory" ng-options="Group.GroupName for Group in inventorygroupmaster1" ng-disabled="all"> -->
-      <!-- <select ng-model="item1.inventory" ng-options="Group.GroupName for Group in inventorygroupmaster1 track by G" ng-disabled="all"> -->
-       <td> <select ng-model="item1.InvGroupName" ng-disabled="all" ng-blur="findName()">
-       <option ng-repeat="pure in inventorygroupmaster1" >{{pure.InvGroupName}}</option>
-       </select>
-       </td>
-      </p>
-    <br>
-
-
-     <p>
-     <label> Item Type:<span id="star"><font size="04">*</font></span></label>
-
-      <!-- <option ng-repeat="TypeName in itemtype1">{{TypeName.TypeName}}</option>
-       </select>
-    </select></p> -->
-   <select ng-model="item1.ItemType" ng-disabled="all">
-      <option ng-repeat="TypeNam in itemtype1 | orderBy : 'TypeName'" ng-if="TypeNam.TypeName!='All '"> {{TypeNam.TypeName}}</option>
-    </select></p>
+    </body>
+    </html>
     
-    <br><br>
-     <p>
-     <label>  Sale category:<span id="star"><font size="04">*</font></span></label>
-
-    <select ng-model="item1.SaleCategory" ng-disabled="all" >
-      <option ng-repeat="TypeName in salescategorymaster1 | orderBy : 'SaleCategoryType'" > {{TypeName.SaleCategoryType}}</option>
-    </select></p>
-    <br>
-
-  
-
-
-
-    <div align="center">
-<!-- <button  class="btn btn-success" ng-click="saveitem()" ng-disabled="all">Save</button> -->
-<button  id="buttonwidth"  class="btn btn-info" ng-if ="test=='display'" class="btn btn-default"  ng-click="saveitem()" ng-disabled="all">Save</button>
-<button type="button" id="buttonwidth" class="btn btn-success" ng-if ="test=='update1'" class="btn btn-default" ng-click="saveitem()">Update</button>
-</form>
-       <button  class="btn btn-warning" ng-click=cancelitem() ng-disabled="all">Cancel</button><br><br>
-      <!--  <button type="button" class="btn btn-info" >Close</button>
-        -->
-       <!--    <a href='mainpage.html'><button type="button" id="buttonwidth" class="btn btn-danger"  >Close</button></a> -->
-        </div>
-
-       </div>
-
-
-       </div>
-
-       </div>
-
-
-</body>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-
-<script type="text/javascript" src="controller/itemcontroller.js"></script>
-</html>
-
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script type="text/javascript" src="controller/controller.js"></script>   -->
