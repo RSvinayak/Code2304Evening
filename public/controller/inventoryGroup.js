@@ -1,12 +1,14 @@
 var myApp=angular.module('myApp',[]); 
-myApp.controller('PurityCntrl',['$scope','$http','$rootScope','$window',
+myApp.controller('inventoryGroupCntrl',['$scope','$http','$rootScope','$window',
 function($scope,$http,$rootScope,$window){
-	 $scope.usernamedetails = window.sessionStorage.getItem("username")
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
          
           if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 $scope.all=true;
 $scope.all1=true;
 //$scope.InventoryGroups = '';

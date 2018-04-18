@@ -4,12 +4,14 @@ myApp.controller('mainCntrl',['$scope','$http','$window','$rootScope',
 function($scope,$http,$window,$rootScope){
 	console.log("well come to mainpage.html")
 
-	$scope.usernamedetails = window.sessionStorage.getItem("username")
-
-	 if ($scope.usernamedetails == null) {
+	 $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-   };
+          };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
 	//console.log($rootScope.name)
 	$scope.admin = true;

@@ -10,11 +10,7 @@
 <title>Tax Names</title>
 </head>
 
-  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
- <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script> -->
- <!-- i added here -->
-    <!-- i finished here -->
-<style>
+ <style>
 .center {
     margin:auto;
     width: 20%;
@@ -27,7 +23,7 @@
     
     
 }
-      ul.dark_menu {
+ ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -38,7 +34,8 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-/*width: 1018px;*/
+width: 2018px;
+left:-118px;
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -191,47 +188,7 @@ display: block;
   margin-top:5%;
 }
 
-/*thead, tbody, tr, td, th { display: block; }
 
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-
-        }*/
-        /*tr {
-          width: 100%;
-        }*/
-
-        /*thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            
-        }*/
-
-     /*   tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }*/
-
-/*.table {
-    /
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    height: 100%;
-}*/
 #tax > thead, tbody {
   
     text-align: left;
@@ -247,10 +204,10 @@ display: block;
   width: 10%;
 }
 li#name1 {
-    right: -100px;
+    right: -400px;
     font-size: 27px;
     font-style: italic;
-} 
+}       
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -337,11 +294,11 @@ body {
   padding-right: 100px;
 }*/
 </style>
-<body style="background-color:FFE4B5;" ng-controller="AppCtrl">
+<body style="background-color:FFE4B5;" ng-controller="AppCtrl" ng-cloak>
 <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -405,12 +362,37 @@ body {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -531,7 +513,7 @@ body {
 
         
       </div>
-<div>
+  
   <h2 class="center">Tax Name</h2></div><br>
  
   <div class="container" ng-controller="AppCtrl">
@@ -568,12 +550,10 @@ body {
           <td>{{user.aliasname}}</td>
          <!--  <td>{{user.taxlevel}}</td> -->
           <td>
-          <!-- <td><input type="checkbox" ng-model="user.isDelete"/></td>  -->
-      <!--    <td><button class="btn btn-info" ng-click="remove(user._id)">Remove</button> -->
+        
           <button class="material-icons" ng-click="edit(user._id)">mode_edit</button>
        <button class="material-icons" ng-click="remove(user._id)">close</button>
-       <!--   <button class="btn btn-info" ng-click="edit(user._id)">Edit</button</td>
- -->  </td>
+      </td>
           </tr>
 
     </tbody>
@@ -599,36 +579,21 @@ body {
   <input type= "text" class="form-control" ng-blur="findaliasName()" ng-model="user.aliasname" value="{{ user.aliasname }}" required>
   <br>
   <br>
-<!--   Display Order:<span id="star"><font size="04">*</font></span>
-<select  ng-model="user.taxlevel" value="{{ user.taxlevel }}" class="form-control">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select> -->
+
 </form>
 
   </div>
   <br>
   <br>
   <button  id="buttonwidth"  class="btn btn-info" ng-if ="test=='display'" class="btn btn-default"  ng-click="addnewitem()">Save</button>
- <!--  <button  id="buttonwidth"  class="btn btn-success" ng-click="update()">Update</button> -->
+ 
   <button type="button" id="buttonwidth" class="btn btn-success" ng-if ="test=='update1'" class="btn btn-default" ng-click="update()">Update</button>
   <button id="buttonwidth"  class="btn btn-warning" ng-click="deselect()">Cancel</button>
 
   
 </div>
 </div>
- <div class="bottom-footer">
-                        <div class="col-md-12"> 
-                            <ul class="footer-nav">
-                                <center>
-                                 <!--  <button type="button" class="btn btn-default">Close</button> -->
-                                <!--  <a href='mainpage.html'><button id="buttonwidth"  class="btn btn-danger"  >Close</button></a> -->
-                                </center>
-                            </ul>
-                        </div>
-                    </div>
+
 
 </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>

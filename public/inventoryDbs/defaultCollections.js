@@ -275,23 +275,27 @@
             db.configurations.find(function (err, configurationsValues) {
                 if (configurationsValues == 0) {
                     var configurationsObj = { 
-                                                "UpperLimit" : 5.0,
-                                                "LowerLimit" : 5.0,
                                                 "Urd_Weight" : "Gross Wt",
-                                                "LabourTax" : "No",
+                                                
                                                 "WeightTolerance" : 5,
                                                 "DecimalPoints" : 3,
                                                 "rupeesDecimalPoints" : 2,
-                                                "LabourTaxValue" : 20,
+                                                
                                                 "printconfiguration" : "withoutheader",
                                                 "printWastage" : "no",
                                                 "printLabour" : "no",
-                                                "invVoucher" : "Sale",
+                                               
                                                 "roundOffMethod" : "Lower",
                                                 "roundOffValue" : 10.0,
                                                 "itembarcodetolerence" : 5,
                                                 "printChgWt" : "Wt",
-                                                "inVoiceSeries" : "StartingTransactionClassNo" 
+                                                "inVoiceSeries" : "StartingTransactionClassNo",
+                                                "barcodeWastage" : "weight",
+                                                "barcodelab" : "weight",
+                                                "issueVoucherTax" : "issueGST",
+                                                "issueVoucherTax2" : "issueIGST",
+                                                "receiptVoucherTax2" : "receiptIGST",
+                                                "receiptVoucherTax" : "receiptGST",
                                             }
                     db.configurations.insert(configurationsObj)
 

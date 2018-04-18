@@ -18,7 +18,7 @@
     
     
 }
-      ul.dark_menu {
+  ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -177,84 +177,13 @@ display: block;
 #table-wrapper {
   position:relative;
 }
-/*#tscroll {
+#tscroll {
   height:90%;
   overflow:auto;  
   margin-top:5%;
-}*/
-thead, tbody, tr, td, th { display: block; }
+}
 
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
 
-        }
-   
-
-        thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            /*text-align: left;*/
-        }
-
-        tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }
-
-/*thead, tbody, tr, td, th { display: block; }
-
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-
-        }*/
-        /*tr {
-          width: 100%;
-        }*/
-
-        /*thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            
-        }*/
-
-     /*   tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }*/
-
-/*.table {
-    /
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    height: 100%;
-}*/
 #tax > thead, tbody {
   
     text-align: left;
@@ -270,10 +199,10 @@ thead, tbody, tr, td, th { display: block; }
   width: 10%;
 }
 li#name1 {
-    right: -100px;
+    right: -400px;
     font-size: 27px;
     font-style: italic;
-} 
+}    
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -349,7 +278,7 @@ li#name1 {
 
 <body ng-controller="ListCntrl" class="container" style="background-color:FFE4B5;">
   
- <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
 
@@ -416,12 +345,37 @@ li#name1 {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -542,11 +496,8 @@ li#name1 {
 
         
       </div>
-   <!-- <div class="btn-group btn-group-justified">
-   <a href="index.html" ><button type="button" class="btn btn-primary">Main</button></a>
-  <a href="list.html" > <button type="button" class="btn btn-primary">List</button></a>
   
-</div> --> 
+ <div class="container">
  <div  class="center" ng-cloak>
   <h2 >List</h2>
 
@@ -620,44 +571,19 @@ li#name1 {
        <div class="btn-group-vertical">
 
        <a href="#"> <button id="button1" type="button" class="btn" ng-click = "list()">List</button></a><br><br>
-  
- <!-- <a href="index.html"> <button id="button1" type="button" class="btn btn-primary" ng-click = "edit()" >Edit</button></a><br><br> -->
+
  <a ng-href="{{mylink}}">
 <button id="button1" type="button" class="btn btn-primary" ng-click = "listEdit()" >Edit</button></a><br><br>
    
- <!--  <button  type="button" class="btn btn-primary" ng-click = "edit()">Edit</button><br> -->
-<!-- 
- <a href="#"> <button id="button1" type="button" class="btn btn-info" ng-disabled=" transaction !='Estimate'">Summary</button></a><br><br> -->
+
   
   <a href="#"><button id="button1" type="button" class="btn btn-danger" ng-click = "listDelete()" >Delete</button></a></br></br>
-  <!-- <a href='mainpage.html'><button type="button" class="btn btn-danger"  >Close</button></a> -->
-
-   <!-- <a href='mainpage.html'><button id="button1" type="button" class="btn btn-danger"  >Close</button></a> -->
-  </div>
+   </div>
        </div>
        </div>
        
        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 <script type="text/javascript" src="controller/controller.js"></script>   

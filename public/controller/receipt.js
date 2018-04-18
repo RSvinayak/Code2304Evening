@@ -3,15 +3,13 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('billCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
 
-$scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-<<<<<<< HEAD
-  };
-=======
           };
->>>>>>> origin
+  $scope.desgination = window.sessionStorage.getItem("desgination")
  // $scope.name="shivu";
  $scope.rpamt=[];
  $scope.paymode='Cash';
@@ -82,37 +80,12 @@ $scope.usernamedetails = window.sessionStorage.getItem("username")
          });
         // $scope.storeVoucher();
         // document.getElementById("tag1").onclick()
-<<<<<<< HEAD
-      }
-    }
-    // $scope.details=response;
-          if(recentId1 == null){
-      // alert("recentID1 is null");
-        $scope.details=response;
-    }
-    else{
-      // alert("when recentId is not null");
-      $http.get('/getOnlyRecentData'+$scope.vno).success(function(response){
-        console.log(response);
-        $scope.details=response;
-      })
-    }
-
-
-
-  })
-=======
       }//if
     }//for
     // $scope.details=response;
           if(recentId1 == null){
       // alert("recentID1 is null");
               $scope.details=response;
-<<<<<<< HEAD
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
-=======
->>>>>>> origin
->>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
           }
           else{
             // alert("when recentId is not null");

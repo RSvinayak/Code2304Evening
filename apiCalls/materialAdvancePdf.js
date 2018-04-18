@@ -1300,7 +1300,7 @@ app.post('/api/receiptVoucherPdfCall/:orderNo',function(req,res){
                   console.log(orderData)
                   //"refOrder" : "OD122" console.log(" Receipt orderData[0].saleNames orderData[0].saleNames orderData[0].saleNames orderData[0].saleNames"+orderData[0].saleNames)
                     //console.log(orderData[0].partyNames)
-                    merchantDetailsCall(orderNo,orderData[0].partyname,'staff','receiptVoucherPdfCall');
+                   // merchantDetailsCall(orderNo,orderData[0].partyname,'staff','receiptVoucherPdfCall');
                })
         }, 100);
      setTimeout(function(){    

@@ -2,11 +2,13 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('billpdfCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
 
-    $scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
 
     $scope.pname=window.sessionStorage.getItem("pname");
  $scope.billtype=window.sessionStorage.getItem("Billtype");

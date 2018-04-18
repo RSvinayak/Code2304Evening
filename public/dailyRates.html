@@ -26,7 +26,7 @@
     
     
 }
-      ul.dark_menu {
+  ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -37,8 +37,7 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-width: 2018px;
-left:-118px;
+/*width: 1018px;*/
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -185,42 +184,11 @@ display: block;
 #table-wrapper {
   position:relative;
 }
-/*#tscroll {
+#tscroll {
   height:90%;
   overflow:auto;  
   margin-top:5%;
-}*/
-thead, tbody, tr, td, th { display: block; }
-
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-
-        }
-   
-
-        thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            /*text-align: left;*/
-        }
-
-        tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }
+}
 
 /*thead, tbody, tr, td, th { display: block; }
 
@@ -278,10 +246,10 @@ thead, tbody, tr, td, th { display: block; }
   width: 10%;
 }
 li#name1 {
-    right: -400px;
+    right: -100px;
     font-size: 27px;
     font-style: italic;
-} 
+}      
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -356,10 +324,10 @@ li#name1 {
 </head>
 
 <body ng-controller="mainCntrl" class="container" style="background-color:FFE4B5;">
-  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+ <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -423,12 +391,37 @@ li#name1 {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -549,6 +542,7 @@ li#name1 {
 
         
       </div>
+  
  <div class="modal fade" id="myModal1" >
     <div class="modal-dialog modal-lg">
         <div class="modal-content" >

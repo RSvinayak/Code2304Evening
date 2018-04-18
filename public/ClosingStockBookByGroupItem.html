@@ -340,10 +340,10 @@ li#name1 {
 
  <body  style="background-color:FFE4B5;" ng-controller="reportCntrl">
  
-   <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -407,12 +407,37 @@ li#name1 {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -533,6 +558,7 @@ li#name1 {
 
         
       </div>
+  
  <div  class="center" ng-cloak>
   <h3 >ClosingStockBookGroupItem</h3>
     <!-- <a href="index1.html" class="btn btn-primary active">Main</a>
@@ -608,9 +634,7 @@ li#name1 {
 
 
     <button ng-click="preview1()" class="btn btn-primary" id="save" >Preview</button>
-<!-- 
-    <button ng-click="preview1()" class="btn btn-primary" id="save" >Preview</button> -->
-    <!-- <a href='mainpage.html'><button type="button" class="btn btn-danger"   ng-cloak>Close</button></a> -->
+
 
     <button   class="btn btn-info" id="cmd" ng-disabled="review!='yes'" >P D F</button>
     <button  class="btn btn-danger" id="btnExport" ng-disabled="review!='yes'">Export</button>
@@ -654,13 +678,7 @@ li#name1 {
             
            <!-- <td >{{details._id.sort1}}{{trail(details._id.sort1)}}</td> -->
            <td  ng-style="myObj1">{{details._id.sort1}}</td>
-          <!--  <td ng-if = "details._id.sort1 != undefined ">{{details._id.sort1}}</td> -->
-
-          <!--  <td ng-if = "details._id.sort1 == 'Diamond'">{{}}</td>
-           <td ng-if = "details._id.sort1 == 'undefined'">{{123}}</td>
-           <td ng-if = "details._id.sort1 == 'null'">{{1234}}</td>
-            <td ng-if = "trail()">{{120}}</td> -->
-     <!--    ng-if = "transaction != 'Urd Purchase'" ng-style="myObj" -->
+       
         <td  ng-style="myObj2" >{{details._id.sort2}}</td>
          
         <td   ng-style="myObj3">{{details._id.sort3}}</td>
@@ -712,9 +730,7 @@ li#name1 {
     </table>
   
  </div>
- <!-- <div>
-  <a href='mainpage.html'><button class="col-md-2 col-md-offset-5" > close</button></a>
-</div> -->
+
 
  </body>
 <!-- for javascript date -->

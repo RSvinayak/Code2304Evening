@@ -4,12 +4,14 @@ function($scope,$http,$window,$rootScope,ControllerService){
 	//alert("lllllllll")
 	 $scope.results=[];
 
-$scope.usernamedetails = window.sessionStorage.getItem("username")
-
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-          }; 
+          };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
    $http.get("/orderName").success(function(response){
 
   console.log(response);

@@ -242,7 +242,7 @@ display: block;
   width: 10%;
 }
 li#name1 {
-    right: -100px;
+    right: -400px;
     font-size: 27px;
     font-style: italic;
 }
@@ -361,7 +361,7 @@ width: 8%;
   <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -425,10 +425,37 @@ width: 8%;
                 </li>
 
                <li>
-
+<li>
                 <a href="Item.html">
-
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -491,7 +518,10 @@ width: 8%;
             
         
           </li>
-
+<!-- <<<<<< HEAD:public/Transaction.html
+          <li  id="name1">
+            <a>
+======= -->
           <li >
               <a href="dailyRates.html">
               Daily Rates 
@@ -546,6 +576,7 @@ width: 8%;
 
         
       </div>
+  
             <div class="center" ng-cloak >
         <h2>Barcode Summary</h2>
       </div><br><br>
@@ -565,20 +596,7 @@ width: 8%;
         <th id="th1"><span class="text">Summary No</span></th>
         <th id="th1"><span class="text">Composite?</span></th>
         <th id="th1"><span class="text">Splitable?</span></th>
-        <!-- <th>Date</th>
-      <th>Item Name</th>
-        <th>Qty</th>
-        <th>Items</th>
-        <th>Tags</th>
-        <th>Remarks</th>
-        <th>Summary No</th>
-        <th>Composite?</th>
-        <th>Splitable?</th> -->
-        <!-- <th>Combo?</th> -->
-<!-- just for refernce later delete the count -->
-        <!-- <th>Count</th> -->
-<!-- font is missing        
- -->      </tr>
+          </tr>
     </thead>
     <tbody>
       <tr ng-repeat="item in bardata" ng-click="row3(item)" id="tag1" ng-class="{selected : item === idSelectedVote}">
@@ -608,9 +626,7 @@ width: 8%;
 
       <!--  <button>DELETE</button> -->
         <button id="buttonwidth" class="btn btn-danger" ng-click="delete()" ng-if="test == 'display'" >Delete</button>
-       <!--  <a href='mainpage.html'><button type="button" id="buttonwidth" class="btn btn-danger">Close</button></a> -->
-      <!--  <button>CLOSE</button> -->
-       <!--  <button type="button" class="btn btn-danger" ng-click="close()">CLOSE</button> -->
+       
        </div><br>
        <div class="row" ng-cloak>
        <div  >&nbsp;&nbsp;&nbsp;&nbsp;
@@ -618,33 +634,13 @@ width: 8%;
 
       
         <form>
-       <!-- <label>Summary No <input type="text" class="form-control"  ng-model = "count+1"  id="usr" readonly></label> -->
+    
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Summary No <input type="text" class="form-control"  ng-model = "count"  id="usr"  readonly></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <label >Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="star"><font size="04">*</font></span><input type="date" ng-model="bit.date"  ng-disabled="all" required></label>
-      <!--  <div align="center" ng-cloak> -->
-    
-      <!--   <button   id="buttonwidth" class="btn btn-success"  class="btn btn-default" ng-click="saveBarcode()" ng-disabled="all">Save</button>
-       
-         
-     
-        <button  id="buttonwidth" class="btn btn-warning" ng-click="cancel()" ng-disabled="all">Cancel</button>
-       </div> -->
-     <!--   </div> -->
+   
 
        </div><br>
-       <!-- <form>
-        
-        <label >Total weight <span id="star"><font size="04">*</font></span><input type="number"  ng-model="bitem.wt"   ng-disabled="all" required></label><br><br>
-         <button   id="buttonwidth" class="btn btn-success" ng-click="saveBarcode()">Save</button>
-       </form> -->
 
-
-      
-
-
-<!-- 
-<input name="myName" ng-model="myName" required>
-<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span> -->
 <div class="row" ng-cloak>
        <!-- <div class="col-sm-4" > -->
       <label class="w3-round-xxlarge" style="padding-left: 40px">Item Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="star"><font size="04">*</font></span><select  class="selectpicker" ng-model="bitem.ItemName" ng-change="checkForCombo(bitem.ItemName)" class="w3-round-xxlarge" ng-disabled="all" required >
@@ -682,7 +678,6 @@ width: 8%;
        
        &nbsp;&nbsp;&nbsp;&nbsp;<label>Total Tags &nbsp;&nbsp;<span id="star"><font size="04">*</font></span><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0-9]/g,'');"  name="" ng-model="bitem.titems" ng-change="fixedDecimalTags()" ng-disabled="all"  ></label>
 
-      <!--  <label>Total Pcs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="star"><font size="04">*</font></span><input type="number"   ng-disabled="all" required ></label><br><br> -->
 
        &nbsp;&nbsp;&nbsp;&nbsp;<label>Remarks &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="text" ng-model="bitem.remark"   ng-disabled="all"></label> 
       </div>

@@ -35,7 +35,7 @@ pdf.addHTML(document.body,function() {
 /*.row{
 
 }*/
-ul.dark_menu {
+ ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -46,7 +46,8 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-/*width: 1018px;*/
+width: 2018px;
+left:-118px;
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -168,7 +169,21 @@ margin-bottom: -1px;
 position: absolute;
 top: 0px;
 right:27px;}
-
+/*#main4, #main5, #main6 {
+width: 303px;
+list-style-type: none;
+float: left;
+margin: 10px;}
+.main3 {width:305px;
+list-style-type: none;
+padding-top: 10px;
+float: left;}
+::-webkit-scrollbar {
+height:12px;
+background: #474747;}
+::-webkit-scrollbar-thumb {
+background-color: #000;
+}*/
  li#sub ul {
     display:none;
   position: absolute; left: 100%; top:0;
@@ -176,6 +191,35 @@ right:27px;}
 li#sub:hover ul{
 display: block;
 }
+#table-wrapper {
+  position:relative;
+}
+#tscroll {
+  height:90%;
+  overflow:auto;  
+  margin-top:5%;
+}
+
+
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}
+li#name1 {
+    right: -400px;
+    font-size: 27px;
+    font-style: italic;
+} 
 #table-wrapper {
   position:relative;
   /*display: block; */
@@ -203,10 +247,10 @@ display: block;
     </style>
     </head>
     <body style="background-color:FFE4B5;" ng-controller="PdfCntrl" >
-      <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+    <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -270,10 +314,37 @@ display: block;
                 </li>
 
                <li>
-
+<li>
                 <a href="Item.html">
-
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -316,12 +387,30 @@ display: block;
 
               Tax Configuration
             </a>
-            
+            <!-- <ul>
+                
+
+               <li>
+                <a href="indextaxation.html">
+                  Tax Structure
+                </a>
+              </li> -->
+              <!-- <li>
+                <a href="taxation.html">
+                  Tax Name
+                </a>
+              </li> -->
+             
+              
+            <!-- </ul> -->
           </li>
             
         
           </li>
-
+<!-- <<<<<< HEAD:public/Transaction.html
+          <li  id="name1">
+            <a>
+======= -->
           <li >
               <a href="dailyRates.html">
               Daily Rates 
@@ -345,7 +434,14 @@ display: block;
                   
                   Payment
                 </a>
-              </li>              
+              </li>
+              <!-- <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li> -->
+             
+              
             </ul>
           </li>
           <li  id="name1" >
@@ -364,8 +460,12 @@ display: block;
           
           </li>
           
-        </ul>        
+        </ul>
+
+
+        
       </div>
+  
     <div class="center" ng-cloak >
         <h2></h2>
       </div>
@@ -427,6 +527,7 @@ City:{{city}}
   Date:{{FromDate | date }}<br>
  <h5 ng-if="trans=='RD Purchase' && printReceipt == true">Payment BillNo:{{bill}}</h5>
  <h5 ng-if="(trans=='Regular Sale'||trans=='Approval Sale') && (printReceipt == true)">Receipt BillNo:{{bill}}</h5>
+ <h5 ng-if="(Payyes==1 && trans=='Regular Sale')">payment BillN0:{{billnum}}</h5>
 </p>
 </div>
 </div>
@@ -608,17 +709,17 @@ City:{{city}}
       <td  id="right2">{{taxableval}}</td>
     </tr>  
     <tr>
-      <th ng-if="gst == 'cgst'">Cgst Total:</th>
+      <th ng-if="gst == 'cgst'">CGST Total:</th>
       <td  id="right2">{{cgsttax}}</td>
 
     </tr> 
     <tr>
-      <th ng-if="gst == 'cgst'">Sgst Total:</th>
+      <th ng-if="gst == 'cgst'">SGST Total:</th>
       <td  id="right2">{{sgsttax}}</td>
 
     </tr> 
     <tr>
-      <th ng-if="gst == 'igst'">Igst Total:</th>
+      <th ng-if="gst == 'igst'">IGST Total:</th>
       <td  id="right2" ng-if="gst == 'igst'">{{igsttax}}</td>
 
     </tr>
@@ -765,9 +866,6 @@ City:{{city}}
   </div>
 <br>
 <button onclick="exportPDF();id='ww'; style.display = 'none'" class="btn btn-primary" ng-click="bill()" ng-cloak>Bill</button>
-<!-- <button onclick="exportPDF()" class="btn btn-primary" ng-click="bill()">Bill</button> -->
-
-
 
 
 </body>

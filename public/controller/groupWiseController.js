@@ -3,12 +3,14 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('groupWiseController',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
   //for radio default//GrossWt //NettWt
-   $scope.usernamedetails = window.sessionStorage.getItem("username")
-
-    if ($scope.usernamedetails == null) {
+  $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-    };
+          };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
    $scope.color = {
         Wt:'NettWt'  

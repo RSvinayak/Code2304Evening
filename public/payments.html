@@ -27,7 +27,7 @@
     
     
 }
-      ul.dark_menu {
+  ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -36,14 +36,12 @@ font-size: 16px;
 letter-spacing: 0.01em;
 font-smooth: always;
 color: #000000;
-line-height: 10px;
+line-height: 15px;
 margin: auto;
-
-/*position: relative;*/
-
+width: 2018px;
+left:-118px;
+position: relative;
 background: #2B5797;
-
- 
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu:after {
 content: "";
@@ -52,12 +50,10 @@ display: block;
 overflow: hidden;
 visibility: hidden;
 width: 0;
-height: 0;
-position: sticky;}
+height: 0;}
 ul.dark_menu li {
 float: left;
 position: relative;
-/*position: sticky;*/
 margin: 1px;}
 /* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a, ul.dark_menu li a:link {
@@ -70,7 +66,6 @@ padding: 8px 26px;
 -o-transition: all 0.2s ease;
 -ms-transition: all 0.2s ease;
 transition: all 0.2s ease;
-/*position: sticky;*/
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a:hover {
 color: #fafafa;
@@ -164,7 +159,6 @@ border: 1px solid #fff;
 -moz-transition: all 0.5s ease-in-out;
 margin-bottom: -1px;
 position: absolute;
-
 top: 0px;
 right:27px;}
 /*#main4, #main5, #main6 {
@@ -190,15 +184,34 @@ li#sub:hover ul{
 display: block;
 }
 #table-wrapper {
- /* position:relative;*/
- position: sticky;
+  position:relative;
 }
 #tscroll {
   height:90%;
   overflow:auto;  
   margin-top:5%;
-
 }
+
+
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}
+li#name1 {
+    right: -400px;
+    font-size: 27px;
+    font-style: italic;
+}      
 .title1{
   text-align:center;
   width:1200px;
@@ -407,10 +420,10 @@ thead tr th {
 
 </head>
 <body ng-controller='paymentsCntrl' style="background-color: FFE4B5;">
-  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -474,12 +487,37 @@ thead tr th {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -600,7 +638,7 @@ thead tr th {
 
         
       </div>
-      </div> 
+  
   <div style="margin-top:0px;font-size:25px;text-align:center;"> PAYMENTS
       <div class="title2">
         <!-- {{name}} -->
@@ -792,19 +830,9 @@ thead tr th {
         <br>
         <div>
 
-<<<<<<< HEAD
-            <button class="btn btn-danger" style="margin-left:370px;" ng-click="clear()">Cancel</button>
-
-            <button class="btn btn-success" style="margin-left:50px;" ng-click="save()">Save</button>
-=======
             <button class="btn btn-danger" style="margin-left:385px;" ng-click="clear()">Cancel</button>
 
             <button class="btn btn-success" style="margin-left:50px;width:80px;" ng-click="save()">Save</button>
-<<<<<<< HEAD
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
-=======
->>>>>>> origin
->>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
         </div>
 
     </div>

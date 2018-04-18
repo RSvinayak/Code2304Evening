@@ -9,6 +9,8 @@ $scope.all1=true;
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 //$scope.Puritys = '';
 //$scope.updatePurity = true;
 $scope.updatePurity = false;

@@ -21,14 +21,14 @@ var bson = require('bson');
 var Promise = require('es6-promise').Promise;
 var Decimal128 = require('mongodb').Decimal128;
 app.use(express.static('public'));
-<<<<<<< HEAD
+
 //app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '50mb'})); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true,parameterLimit:50000}));// parse application/x-www-form-urlencoded
-=======
+
 app.use(bodyParser.json());
->>>>>>> origin
+
 
 // if (signUpSuccessful(request, response)) {
 //     response.statusCode = 302; 
@@ -55,8 +55,7 @@ app.get('/getstaffnames',function(req,res){
 });
 //end of staff
 
-<<<<<<< HEAD
-=======
+
 //for getting out of state tax
 app.get('/getoutofstateforissue:isstax',function(req,res){
   var tax=req.params.isstax;
@@ -97,11 +96,7 @@ app.get('/getPaidPayments:party',function(req,res){
   });
 });
 
-<<<<<<< HEAD
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
-=======
->>>>>>> origin
->>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
+
 app.get('/stonecalc',function(req,res){
   console.log("sssssssssssssssssssssssssssssssssssss");
   db.labcal.find({},function(err,doc){
@@ -2916,11 +2911,6 @@ app.delete('/deletePurityDetails',function(req,res){
 })
 //end Purity cntrl
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> origin
 // Transaction urd
 app.post('/Transaction',function(req,res)
 { 
@@ -9618,15 +9608,10 @@ mongoose.connect(db1.url, function(err, db) {
   console.log("Connected to Database");
 });
 
-<<<<<<< HEAD
-// app.use(bodyParser.json({limit: '50mb'})); // parse application/json
-// app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));// parse application/x-www-form-urlencoded
-=======
 app.use(bodyParser.json({limit: '20mb'})); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({limit: '20mb', extended: true}));// parse application/x-www-form-urlencoded
->>>>>>> origin
+
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
@@ -9637,23 +9622,8 @@ require('./app/routes')(app); // pass our application into our routes
 require('./public/inventoryDbs/defaultCollections')(app);
 require('./apiCalls/materialAdvancePdf')(app);
 //app.set('port', process.env.PORT || 8000); 
-<<<<<<< HEAD
-<<<<<<< HEAD
-app.listen(8100)
-console.log("server running on port 8100");
-=======
-app.listen(8200)
-console.log("server running on port 8200");
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
-=======
-// var a = 100;
-// console.log(" a "+a+ typeof(a))
-var port = 9200;
-app.listen(port)
-console.log("server running on port "+port);
-=======
-app.listen(8200)
-console.log("server running on port 8200");
->>>>>>> origin
->>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
+
+app.listen(8500)
+console.log("server running on port 8500");
+
 exports = module.exports = app;

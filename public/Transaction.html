@@ -22,7 +22,8 @@
    /* margin:auto;*/
     width: 230%;    
 }
-      ul.dark_menu {
+   
+ ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -31,14 +32,12 @@ font-size: 16px;
 letter-spacing: 0.01em;
 font-smooth: always;
 color: #000000;
-line-height: 10px;
+line-height: 15px;
 margin: auto;
-
-/*position: relative;*/
-
+width: 2018px;
+left:-118px;
+position: relative;
 background: #2B5797;
-
- 
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu:after {
 content: "";
@@ -47,12 +46,10 @@ display: block;
 overflow: hidden;
 visibility: hidden;
 width: 0;
-height: 0;
-position: sticky;}
+height: 0;}
 ul.dark_menu li {
 float: left;
 position: relative;
-/*position: sticky;*/
 margin: 1px;}
 /* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a, ul.dark_menu li a:link {
@@ -65,7 +62,6 @@ padding: 8px 26px;
 -o-transition: all 0.2s ease;
 -ms-transition: all 0.2s ease;
 transition: all 0.2s ease;
-/*position: sticky;*/
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a:hover {
 color: #fafafa;
@@ -159,7 +155,6 @@ border: 1px solid #fff;
 -moz-transition: all 0.5s ease-in-out;
 margin-bottom: -1px;
 position: absolute;
-
 top: 0px;
 right:27px;}
 /*#main4, #main5, #main6 {
@@ -185,15 +180,14 @@ li#sub:hover ul{
 display: block;
 }
 #table-wrapper {
- /* position:relative;*/
- position: sticky;
+  position:relative;
 }
 #tscroll {
   height:90%;
   overflow:auto;  
   margin-top:5%;
-
 }
+
 
 #tax > thead, tbody {
   
@@ -209,6 +203,26 @@ display: block;
 #widthadjust{
   width: 10%;
 }
+li#name1 {
+    right: -400px;
+    font-size: 27px;
+    font-style: italic;
+}  
+
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}*/
 li#name1 {
 
     right: -100px;
@@ -468,9 +482,12 @@ margin-top:-20px;
 </head>  
 <body style="background-color:FFE4B5;" ng-controller="FirstCntrl" >
 
-  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+  
+<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
-       <ul class='dark_menu' >          
+       <ul class='dark_menu' >
+
+          
 <li  >
             <a>
               Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -488,6 +505,9 @@ margin-top:-20px;
                   Order Management
                 </a>
               </li>
+  <!--              <li>
+                <a href="list.html">
+======= -->
                <li>
                 <a href="List.html">
 
@@ -499,9 +519,12 @@ margin-top:-20px;
                   Party History
                 </a>
               </li>
-            </ul>          
+            </ul>
+          
           </li>
+
        <li >
+
             <a href='#'>
               Inventory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
@@ -527,11 +550,11 @@ margin-top:-20px;
                 </li>
 
                <li>
+<li>
                 <a href="Item.html">
                   Item
                 </a>
               </li>
-<<<<<<< HEAD
                <li ng-if="desgination == 'Admin'">
 
                 <a href="staff.html">
@@ -560,10 +583,6 @@ margin-top:-20px;
                   InventoryGroup
                 </a>
               </li>
-
-             
-=======
->>>>>>> origin
              
              
             </ul>
@@ -624,6 +643,10 @@ margin-top:-20px;
             
         
           </li>
+<!-- <<<<<< HEAD:public/Transaction.html
+          <li  id="name1">
+            <a>
+======= -->
           <li >
               <a href="dailyRates.html">
               Daily Rates 
@@ -648,6 +671,13 @@ margin-top:-20px;
                   Payment
                 </a>
               </li>
+              <!-- <li>
+                <a href="GroupWise.html">
+                  Group Wise
+                </a>
+              </li> -->
+             
+              
             </ul>
           </li>
           <li  id="name1" >
@@ -671,6 +701,10 @@ margin-top:-20px;
 
         
       </div>
+  
+
+        
+      
     
  <div  class="center" ng-cloak>
   <h2 >Transaction</h2>
@@ -697,7 +731,7 @@ margin-top:-20px;
            </div>
            <div ng-show="transaction == 'RD Purchase'" >
 
-           RefId<span  id="star"><font size="04">*</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input  type="text" ng-model="refId"  placeholder="refId" id="da" min="1" name="" required style="background-color: white">
+           RefId<span  id="star"><font size="04">*</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input  type="text" ng-model="refId"  placeholder="refId" id="da"  name="" required style="background-color: white">
 
            </div ><br>
            <div >Date  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
@@ -761,7 +795,7 @@ margin-top:-20px;
             <div ng-cloak id="namnum">
       Name: <input  type="text" ng-model="partyname" name="name" placeholder="name" id="blockWIdth" style="background-color: white" readonly >
    
-      Number: <input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');"  ng-model="mobile" placeholder="9999999999" id="blockWIdth" style="background-color: white" readonly>
+      Number: <input type="number" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');"  ng-model="mobile" placeholder="9999999999" id="blockWIdth" style="background-color: white" readonly>
       Place: <input type="text" ng-model="place" name="place" placeholder="place" id="blockWIdth" style="background-color: white" readonly>
     
        </div>
@@ -862,16 +896,11 @@ margin-top:-20px;
       <tr ng-repeat="orders in orderRes" ng-hide="hiddenOrderNum=='hideTable'">
        <!--  <td>Amount</td> -->
         <td><input ng-model="orders._id.orderNO" ng-click="detailsOrder(orders._id.orderNO)" style="width: 80px;" ></td>
-        </tr>              
-<<<<<<< HEAD
-     
-   
+        </tr>                 
       <tr ng-hide="hiddenOrderNum!='hideTable'">
        <!--  <td>Amount</td> -->
         <td><input ng-model="showOrderNO"  style="width: 80px;" ></td>
         </tr>              
-=======
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
         </tbody>
        </table>
         </div>
@@ -891,7 +920,7 @@ margin-top:-20px;
     <tbody>
       <tr>       
         <td>Amount</td>
-        <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');"  ng-model="user.amt" style="width: 80px;" ng-value="{{bookamt}}"></td>
+        <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');"  ng-model="user.amt" style="width: 80px;" ng-value="{{bookamt}}"></td>
         </tr>
          <tr>
           <td></td>
@@ -915,11 +944,11 @@ margin-top:-20px;
     <tbody>
       <tr>
         <td>Amount</td>
-        <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="user.amt" style="width: 80px;" ng-value="{{schamt}}"></td>
+        <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="user.amt" style="width: 80px;" ng-value="{{schamt}}"></td>
         </tr>
         <tr>
         <td>Material</td>
-        <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="user.amt" style="width: 80px;" ng-value="{{schmat}}"></td>
+        <td><input type="number" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="user.amt" style="width: 80px;" ng-value="{{schmat}}"></td>
         </tr>
         </tbody>
        </table>
@@ -985,7 +1014,7 @@ margin-top:-20px;
        </td>
              
        <td>
-        <input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control"   ng-model="item.barcodeNumber" ng-change = "barcodeScan(item.barcodeNumber,$index)" ng-disabled=" transaction == 'RD Purchase' ||transaction == 'Urd Purchase'||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction=='Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="barcodeValidation(item.barcodeNumber,$index)">
+        <input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control"   ng-model="item.barcodeNumber" ng-change = "barcodeScan(item.barcodeNumber,$index)" ng-disabled=" transaction == 'RD Purchase' ||transaction == 'Urd Purchase'||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction=='Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="barcodeValidation(item.barcodeNumber,$index)">
        </td>
        <td>
        <input type="text" class="form-control" id="usr"   ng-model="item.desc"  maxlength="40" ng-disabled="transaction=='Purchase Return'||transaction=='Sale Return'"></td>
@@ -997,11 +1026,11 @@ margin-top:-20px;
        </select>
        </td>
 
-       <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr"   ng-model="item.gwt"  ng-change="newgwt($index)" ng-blur="findWeightTolerence($index);calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'"  ></td>
+       <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr"   ng-model="item.gwt"  ng-change="newgwt($index)" ng-blur="findWeightTolerence($index);calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'"  ></td>
 
-       <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.gpcs"  ng-change="gpcsDecimals($index)" ng-blur="gpcsLimit($index);calMrpValue($index)" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'"></td>
+       <td><input type="number" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.gpcs"  ng-change="gpcsDecimals($index)" ng-blur="gpcsLimit($index);calMrpValue($index)" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'"></td>
        
-       <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control"  id="usr"  ng-model="item.stwt" ng-change="newstwt($index)"  placeholder="0" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="stoneTolerence($index);calMrpValue($index)" ></td>
+       <td><input type="number" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control"  id="usr"  ng-model="item.stwt" ng-change="newstwt($index)"  placeholder="0" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="stoneTolerence($index);calMrpValue($index)" ></td>
 
        <td><select ng-model="item.uom" ng-change= "uomConversion($index,item.uom)" class="selectpicker" ng-blur="calMrpValue($index)"
         ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction=='Receipt Voucher'||transaction=='Issue Voucher'">
@@ -1014,14 +1043,14 @@ margin-top:-20px;
        <option ng-repeat="pct in pct" value="{{pct.name}}">{{pct.name}}</option>
        </select></td>
        
-       <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.wastage" ng-value="{{item.wastage}}" ng-change="newwas($index,item.pctcal)" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'"  ng-blur="calMrpValue($index)"></td>
+       <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.wastage" ng-value="{{item.wastage}}" ng-change="newwas($index,item.pctcal)" ng-disabled= "disableMrp1($index)||transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'"  ng-blur="calMrpValue($index)"></td>
 
-    <td ><input type="text" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.ordAdj"></td>
+    <td ><input type="text"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.ordAdj"></td>
    
        <td><input type="text" class="form-control" id="usr" ng-model="item.chgunt" ng-value="{{item.chgunt}}"  ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'"></td>
         
 
-       <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.mrp"  ng-change="mrpCal($index)" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ></td>
+       <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.mrp"  ng-change="mrpCal($index)" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ></td>
 
 
        <td ><input type="text" class="form-control" id="usr" ng-model="item.rate" ng-change="rateChange($index)" ng-blur="calMrpValue($index)" ng-disabled="transaction=='Sale Return' ||$index == indexValueDisable || disabledPurity=='yes'||transaction=='Receipt Voucher'||transaction=='Issue Voucher'"></td>
@@ -1031,7 +1060,7 @@ margin-top:-20px;
        </select></td>
 
 
-       <td ><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.labamt" ng-value="{{item.labamt}}" ng-change="newlab($index,item.labcal)" placeholder="0"ng-blur="calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'"></td>
+       <td ><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.labamt" ng-value="{{item.labamt}}" ng-change="newlab($index,item.labcal)" placeholder="0"ng-blur="calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'"></td>
 
 
 
@@ -1043,7 +1072,7 @@ margin-top:-20px;
        <option ng-repeat="lab in labcal" ng-blur="calMrpValue($index)" ng-value="{{lab.name}}">{{lab.name}}</option>
        </select></td>
        
-        <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.stchg" ng-value="{{item.stchg}}" ng-change="newstchg($index,item.stonecal)" placeholder="0" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="calMrpValue($index)"></td>
+        <td><input type="number" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.stchg" ng-value="{{item.stchg}}" ng-change="newstchg($index,item.stonecal)" placeholder="0" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'" ng-blur="calMrpValue($index)"></td>
 
         <td><input type="text" class="form-control"  id="usr"  ng-model="item.stval" ng-value="{{item.stval}}" placeholder="0" readonly></td>
 
@@ -1113,7 +1142,7 @@ margin-top:-20px;
       <tr>
         <td>Cash Discount</td>
         <td>Amount</td>
-        <td ><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="discount" style="width: 80px;background-color: white" ng-change="newCharges();fixDecimal();" placeholder="0" ng-disabled="voucherdetails" ></td>
+        <td ><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="discount" style="width: 80px;background-color: white" ng-change="newCharges();fixDecimal();" placeholder="0" ng-disabled="voucherdetails" ></td>
        <td >{{discount1}}</td>
 
     </tr>
@@ -1122,7 +1151,7 @@ margin-top:-20px;
         <td>Amount</td>
 
 
-        <td><input type="number" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="ccamt" style="width: 80px;background-color: white" ng-change="newCharges();fixDecimals();" placeholder="0" ng-disabled="voucherdetails"></td>
+        <td><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="ccamt" style="width: 80px;background-color: white" ng-change="newCharges();fixDecimals();" placeholder="0" ng-disabled="voucherdetails"></td>
 
         <!-- <td>.00</td> -->
         <td >{{ccamt}}</td>
@@ -1187,8 +1216,7 @@ margin-top:-20px;
         </div>
         </div>
       </div>
-      <!-- {{minusinvoice}} -->
-     <!--  </div> -->
+    
   <div class="col-md-2" ng-cloak>
 
   <button ng-if = " edituseritButton == true"  ng-click="updateEditTransaction()" class="btn btn-success" id="buttonwidth"  ng-disabled="reqColor()">Update</button>

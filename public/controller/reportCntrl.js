@@ -3,11 +3,14 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('reportCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
 
-$scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
 console.log("well come to report controller")
 

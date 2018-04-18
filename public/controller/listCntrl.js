@@ -2,12 +2,14 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('ListCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
     console.log("hi listCntrl ");
-      $scope.usernamedetails = window.sessionStorage.getItem("username")
-
-       if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
      // for transaction details collection in inventory
          $http.get('/transactiondetails').success(function(response){

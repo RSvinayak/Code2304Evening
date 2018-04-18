@@ -3,11 +3,14 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('billCntrl',['$scope','$http','$window',
   function($scope,$http,$window){
 
-$scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
  // $scope.name="shivu";
  $scope.rpamt=[];

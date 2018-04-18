@@ -10,7 +10,6 @@
 <title>Taxation</title>
 </head>
 
- <!-- <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script> -->
    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <!-- for -is -->
@@ -30,7 +29,7 @@
     
     
 }
-      ul.dark_menu {
+  ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -41,7 +40,8 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-/*width: 1018px;*/
+width: 2018px;
+left:-118px;
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -194,47 +194,7 @@ display: block;
   margin-top:5%;
 }
 
-/*thead, tbody, tr, td, th { display: block; }
 
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-
-        }*/
-        /*tr {
-          width: 100%;
-        }*/
-
-        /*thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            
-        }*/
-
-     /*   tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }*/
-
-/*.table {
-    /
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    height: 100%;
-}*/
 #tax > thead, tbody {
   
     text-align: left;
@@ -250,10 +210,10 @@ display: block;
   width: 10%;
 }
 li#name1 {
-    right: -100px;
+    right: -400px;
     font-size: 27px;
     font-style: italic;
-} 
+}     
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -353,11 +313,11 @@ margin-top: -12px;
 </style>
 
 
-<body style="background-color:FFE4B5;" ng-controller="AppCtrl">
-  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+<body style="background-color:FFE4B5;" ng-controller="AppCtrl" ng-cloak>
+<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -421,12 +381,37 @@ margin-top: -12px;
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -547,6 +532,7 @@ margin-top: -12px;
 
         
       </div>
+  
  <div  class="center" ng-cloak>
   <h3 >Tax Configuration</h3>
     <!-- <a href="index1.html" class="btn btn-primary active">Main</a>
@@ -600,8 +586,7 @@ margin-top: -12px;
 </div>
 <center>
 
-  <!-- <button type="button" class="btn btn-default" ng-click="disable()">NEW</button> -->
- <!--  <button type="button" class="btn btn-default" ng-click="updated()">update</button> -->
+
   
 </center>
     </div>
@@ -628,11 +613,7 @@ margin-top: -12px;
     
   <input type="radio"  ng-model="color.state" value="out of state">out of state<br>
   <input type="radio"  ng-model="color.state"  value="with in state"> with in state<br>
-     <!-- <div>color = {{color.state}}</div><br/> -->
-     <!-- <input type="radio"  ng-model="tax.state" value="out of state">out of state<br>
-  <input type="radio"  ng-model="tax.state"  value="with in state" checked> with in state<br>
-     <div>color = {{tax.state}}</div><br/> -->
- <!-- <input type="radio" ng-model="color.name" value="green"> -->
+   
      </div>
     
     </div>
@@ -676,40 +657,22 @@ margin-top: -12px;
       </select></td>   -->
 
       <td style="width: 20%;"><select class="form-control" ng-model="pur1.PurchaseAC" ng-change="ledgerAccontInt(pur1.PurchaseAC,$index,'PurchaseAC')" >
-      <!--   <option ng-repeat= "salesAC in salesAC">{{salesAC._id}}</option> -->
+    
         <option ng-repeat = "pur in purchase">
         {{pur.accountName}}</option>
       </select></td>
     <td style="width: 20%;"><select class="form-control" ng-model="pur1.SaleAc" ng-change="ledgerAccontInt(pur1.SaleAc,$index,'SaleAc')" >
 
         <option ng-repeat = "pur in salesAccount">
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> 9d241c3007bf5882b02d38effd1cc88aa8540f7e
-=======
->>>>>>> origin
->>>>>>> 2e82d197f6b2fc8f730539bfd0887d4129faa723
         {{pur.accountName}}</option>
-       <!--  <option ng-repeat = "purchase in purchase">
-        {{purchase._id}}</option> -->
+       
         
       </select></td>
 
-      <!--  <td id="thwidth1"> <input type="checkbox" value="" ng-model="checked" ng-click="num()" ng-disabled="true"></td> -->
-      
-<!-- <td> <select class="form-control" ng-model="pur.Rate">
-        <option ng-repeat= "pur in taxp">{{pur.Rate}}</option>
-        
-      </select></td> -->
-     <!-- <td id="thwidth"> <input type="text" class="form-control" ng-model="pur.Rate"></td> -->
          <td style="width: 14%;"> <input type="text" class="form-control" ng-model="pur1.Rate" ng-change='fixedRateDecimal($index)'></td>
       </td>
-<!-- <td style="width: 16%;"><select class="form-control" ng-model="pur1.CessOn" ng-disabled="true">
-<option ng-repeat= "pur in taxp" >{{pur.CessOn}}</option>
-        
-      </select></td> -->
+
 
      
 
@@ -731,91 +694,14 @@ margin-top: -12px;
        <button type="button" id="buttonwidth" class="btn btn-success" ng-if ="test=='update1'" class="btn btn-default" ng-click="updated()">Update</button>
        
        <button type="button" id="buttonwidth" class="btn btn-warning" ng-click="canceldata()" ng-disabled="button1">Cancel</button>
-      <!--  <a href='mainpage.html'><button type="button" class="btn btn-danger"   >Close</button></a> -->
-  <!-- <a href='mainpage.html'><button type="button" class="btn btn-danger"  >Close</button></a> -->
+      
  
 </center>
 
-<!-- table 3 SI.NO, From,Rate(%age) -->
- <!-- <div class="row content">
-    <div class="col-md-10 col-sm-6" background-color: #00ff00;>
-        <div class="panel panel-default" id="tax3">
-        <div class="panel-body fixed-panel">
-        <div class="panel-heading">
-         <div class="table-responsive">
-      <table class="table" id="tax5">
-  <thead>
-    <tr>
-      <th>SL.NO</th>
-      <th>From</th>
-      <th>To</th>
-      <th>Rate%</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-   
-       
-     
-    <div  >
-    <tr ng-repeat=" pur in add"   >
-    <td>{{pur.SLNO}}
-     </td> 
-      <td> <div class="form-group" name="myForm">
-            
-             <input type="text" class="form-control" ng-disabled="!checked"  ng-model="pur.From">
-            </div>
-           </div></td>
-      <td> <div class="form-group" name="myForm">
-            
-             <input type="text" class="form-control"  ng-disabled="!checked"  ng-model="pur.To">
-            </div>
-           </div></td>
-      <td> <div class="form-group" name="myForm">
-            
-             <input type="text" class="form-control"   ng-disabled="!checked" ng-model="pur.Rate1" >
-            </div>
-           </div></td>
-      <td> <button class="material-icons"   ng-disabled="!checked" ng-click="addrow()" >library_add</button> </td>
-    </tr>
-    </div>
-     <!-- adding of rows  wwwwwwwwwwwwwww -->
-     <!-- <tr ng-click="addrow()"> </tr> -->
-<!-- 
-  </tbody>
-</table>
-</div>
-
 </div>
 </div>
-
-</div>
-</div>  -->
-
-</div>
-</div>
- <!-- <div class="bottom-footer">
-                        <div class="col-md-12"> 
-                            <ul class="footer-nav">
-                                <center>
-                                  <button type="button" class="btn btn-default">Close</button>
-                                </center>
-                            </ul>
-                        </div>
-                    </div>  -->
-
-<!-- <div class="bottom-footer">
-                        <div class="col-md-12"> 
-                            <ul class="footer-nav">
-                                <center>
-                                  <button type="button" class="btn btn-default">Close</button>
-                                 <a href='mainpage.html'><button type="button" class="btn btn-danger"  >Close</button></a>
-                                </center>
-                            </ul>
-                        </div>
-                    </div>      -->               
-</body>
+ </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 <script type="text/javascript" src="controller/taxationcontroller.js"></script>
-<!-- <script type="text/javascript" src="controller/taxationcontroller1.js"></script> -->
+
 </html>

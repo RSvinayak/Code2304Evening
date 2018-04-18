@@ -3,11 +3,14 @@ myApp.controller('PdfCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
    // alert("pdf controller called");
 
-  $scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
    var sgsttotal = 0 ;
    var cgsttotal = 0 ;

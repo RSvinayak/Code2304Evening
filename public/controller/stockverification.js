@@ -3,11 +3,13 @@
 myApp.controller('stockDetailsCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
  $scope.usernamedetails = window.sessionStorage.getItem("username")
-
-  if ($scope.usernamedetails == null) {
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
-          };//for default values
+          };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
 //for group
  $http.get('/getinventorygroupmaster').success(function(response){

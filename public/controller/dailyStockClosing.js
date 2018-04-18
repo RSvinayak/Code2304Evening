@@ -3,11 +3,13 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('stockCntrl',['$scope','$http','$window','$q',
 function($scope,$http,$window,$q){
 
- $scope.usernamedetails = window.sessionStorage.getItem("username");
- if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
 
 $scope.bit1 = {
     date2: new Date()
@@ -33,13 +35,7 @@ $scope.bit1 = {
            //  previousDate =previousDate+"T00:00:00.000Z";
              previousDate =previousDate+"T23:59:59.999Z";
 
- //alert("fromdate "+fromdate+" todate "+todate+" previousDate "+previousDate)
-            // todate= todate.slice(0,10);
-             //todate = todate+"T23:59:59.999Z";
-            // date= fromdate+","+todate;
-           // alert(fromdate)
 
-  	//alert($scope.bit1.date2)
   	$http.get('/stockVerifyPreview', {params:{"todate":todate,"fromdate":fromdate,"previousDate":previousDate}}).success(function(response){
       //alert(response.length);
       console.log(response);

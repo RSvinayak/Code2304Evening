@@ -6,7 +6,14 @@ console.log("welcome barcode")
 console.log(this);
 
 //hotkey usage
- $scope.usernamedetails = window.sessionStorage.getItem("username")
+  $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
+             //alert( $scope.usernamedetails);
+              $window.location.href = "loginPage.html";
+          };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 $scope.hotkeyButton = false;
 hotkeys.bindTo($scope).add({
     combo: ['ctrl+b'],

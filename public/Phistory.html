@@ -76,7 +76,7 @@ $(document).ready(function() {
     
     
 }
-      ul.dark_menu {
+  ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -87,7 +87,8 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-/*width: 1018px;*/
+width: 2018px;
+left:-118px;
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -240,47 +241,7 @@ display: block;
   margin-top:5%;
 }
 
-/*thead, tbody, tr, td, th { display: block; }
 
-        tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-
-        }*/
-        /*tr {
-          width: 100%;
-        }*/
-
-        /*thead th {
-            height: 60px;
-              width: 33%;
-
-            float: left;
-
-            
-        }*/
-
-     /*   tbody {
-            height: 270px;
-            overflow-y: auto;
-        }
-
-        tbody td {
-
-            width: 33%;
-
-            float: left;
-        }*/
-
-.table {
-    /
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    height: 100%;
-}
 #tax > thead, tbody {
   
     text-align: left;
@@ -299,7 +260,7 @@ li#name1 {
     right: -400px;
     font-size: 27px;
     font-style: italic;
-} 
+}     
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -357,7 +318,7 @@ table {
 	<div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -421,12 +382,37 @@ table {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -547,6 +533,7 @@ table {
 
         
       </div>
+  
 
 	<div id='main'>
 		<div  id='title'><h2>Party Transaction History</h2></div>

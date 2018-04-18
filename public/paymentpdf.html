@@ -23,12 +23,7 @@ pdf.addHTML(document.body,function() {
 }
 // </script>
 <style>
-#d1{
-  margin-left:20px;
-  width:40px;
-}
-
-    ul.dark_menu {
+ ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -37,14 +32,12 @@ font-size: 16px;
 letter-spacing: 0.01em;
 font-smooth: always;
 color: #000000;
-line-height: 10px;
+line-height: 15px;
 margin: auto;
-
-/*position: relative;*/
-
+width: 2018px;
+left:-118px;
+position: relative;
 background: #2B5797;
-
- 
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu:after {
 content: "";
@@ -53,12 +46,10 @@ display: block;
 overflow: hidden;
 visibility: hidden;
 width: 0;
-height: 0;
-position: sticky;}
+height: 0;}
 ul.dark_menu li {
 float: left;
 position: relative;
-/*position: sticky;*/
 margin: 1px;}
 /* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a, ul.dark_menu li a:link {
@@ -71,7 +62,6 @@ padding: 8px 26px;
 -o-transition: all 0.2s ease;
 -ms-transition: all 0.2s ease;
 transition: all 0.2s ease;
-/*position: sticky;*/
 }/* Blog johanes djogzs.blogspot.com */
 ul.dark_menu li a:hover {
 color: #fafafa;
@@ -165,7 +155,6 @@ border: 1px solid #fff;
 -moz-transition: all 0.5s ease-in-out;
 margin-bottom: -1px;
 position: absolute;
-
 top: 0px;
 right:27px;}
 /*#main4, #main5, #main6 {
@@ -191,6 +180,46 @@ li#sub:hover ul{
 display: block;
 }
 #table-wrapper {
+  position:relative;
+}
+#tscroll {
+  height:90%;
+  overflow:auto;  
+  margin-top:5%;
+}
+
+
+#tax > thead, tbody {
+  
+    text-align: left;
+    padding: 0px;
+  }
+  #tax > tbody {
+  height: 80%;
+}
+#buttonwidth{
+  width:80px;
+}
+#widthadjust{
+  width: 10%;
+}
+li#name1 {
+    right: -400px;
+    font-size: 27px;
+    font-style: italic;
+} 
+#d1{
+  margin-left:20px;
+  width:40px;
+}
+ li#sub ul {
+    display:none;
+  position: absolute; left: 100%; top:0;
+}
+li#sub:hover ul{
+display: block;
+}
+#table-wrapper {
  /* position:relative;*/
  position: sticky;
 }
@@ -203,8 +232,10 @@ display: block;
 </style>
 </head>
 <body ng-controller="billpdfCntrl" >
-   <div class='menujohanes'  style="position:sticky;top:0;z-index:1;">
-        <ul class='dark_menu' >
+  <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
+        
+       <ul class='dark_menu' >
+
           
 <li  >
             <a>
@@ -217,8 +248,18 @@ display: block;
                   New
                 </a>
               </li>
+
+                <li>
+                <a href="orders.html">
+                  Order Management
+                </a>
+              </li>
+  <!--              <li>
+                <a href="list.html">
+======= -->
                <li>
                 <a href="List.html">
+
                   List
                 </a>
               </li>
@@ -258,8 +299,37 @@ display: block;
                 </li>
 
                <li>
+<li>
                 <a href="Item.html">
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -297,7 +367,9 @@ display: block;
             </ul>
           </li>
           <li >
+
             <a href="Tax Configuration.html">
+
               Tax Configuration
             </a>
             <!-- <ul>
@@ -320,6 +392,10 @@ display: block;
             
         
           </li>
+<!-- <<<<<< HEAD:public/Transaction.html
+          <li  id="name1">
+            <a>
+======= -->
           <li >
               <a href="dailyRates.html">
               Daily Rates 
@@ -353,8 +429,9 @@ display: block;
               
             </ul>
           </li>
-          <li  id="name1">
-            <a>
+          <li  id="name1" >
+            <a >
+
              {{usernamedetails}}
                
             </a>
@@ -370,11 +447,10 @@ display: block;
           
         </ul>
 
-        <!-- <form action='/search' id='search' method='get'>
-          <input name='q' placeholder='Search Somethings..' size='40' type='text'/>
-        </form> -->
+
         
       </div>
+  
   <div class=row id="thrid">
   <article>
   <div id="myDIV" style="margin-left:150px;margin-top:35px;" >

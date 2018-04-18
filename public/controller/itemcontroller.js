@@ -4,12 +4,14 @@ var myApp=angular.module('myApp',[]);
 myApp.controller('ItemCntrl',['$scope','$http','$window',
 function($scope,$http,$window){
   //alert("well come to ItemCntrl")
-   $scope.usernamedetails = window.sessionStorage.getItem("username")
-
-    if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 
    $scope.itemdetails = []
     var duplicat = [];

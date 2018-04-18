@@ -6,11 +6,14 @@ $scope.date=new Date()
 $scope.ordersReceipt=0;
 $scope.ordersReceipt1=0;
 
-$scope.usernamedetails = window.sessionStorage.getItem("username")
-  if ($scope.usernamedetails == null) {
+ $scope.usernamedetails = window.sessionStorage.getItem("username")
+         
+          if ($scope.usernamedetails == null) {
              //alert( $scope.usernamedetails);
               $window.location.href = "loginPage.html";
           };
+  $scope.desgination = window.sessionStorage.getItem("desgination")
+
 $scope.date=new Date()
 
 $http.get('/Orderprefixs').success(function(response){
@@ -1230,21 +1233,16 @@ $scope.newgwt=function($index,pctcal)
     
 }*/
 }
+
 $scope.threeDecimals=function(ind){
-   //var num = ($scope.userit[ind].gwt).toString(); // Convert to string
-//alert(( (num.split('.')[1] || []).length))
-//  if ((num.split('.')[1] || []).length >=1) {
-   //$scope.userit[ind].gwt=$scope.userit[ind].gwt
-// //alert($scope.userit[ind].gwt)
-
-
-$scope.userit[ind].gwt  =parseFloat($scope.userit[ind].gwt).toFixed(fixdec)
-//alert(typeof($scope.userit[ind].gwt )+$scope.userit[ind].gwt)
-// }
-// else{
-//    //$scope.userit[ind].gwt=parseFloat($scope.userit[ind].gwt)Math.round(3)
-// alert($scope.userit[ind].gwt)
-// }
+  //alert("kk")
+//   var num = $scope.userit[ind].gwt.toFixed(fixdec); // Convert to string
+$scope.gwt1=126.123444
+// //alert(typeof(num)+num)
+// var beforeDecimal=num.split('.')[0]
+//     var afterDecimal=num.split('.')[1] 
+    //var ghj=parseFloat(afterDecimal)
+ //alert(typeof( ghj)+ ghj)
 }
 $scope.newstwt=function($index)
 {

@@ -32,7 +32,7 @@
     
     
 }*/
-      ul.dark_menu {
+ ul.dark_menu {
 list-style: none;
 padding: 5px 1px;
 font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -43,7 +43,8 @@ font-smooth: always;
 color: #000000;
 line-height: 15px;
 margin: auto;
-/*width: 1018px;*/
+width: 2018px;
+left:-118px;
 position: relative;
 background: #2B5797;
 }/* Blog johanes djogzs.blogspot.com */
@@ -165,7 +166,21 @@ margin-bottom: -1px;
 position: absolute;
 top: 0px;
 right:27px;}
-
+/*#main4, #main5, #main6 {
+width: 303px;
+list-style-type: none;
+float: left;
+margin: 10px;}
+.main3 {width:305px;
+list-style-type: none;
+padding-top: 10px;
+float: left;}
+::-webkit-scrollbar {
+height:12px;
+background: #474747;}
+::-webkit-scrollbar-thumb {
+background-color: #000;
+}*/
  li#sub ul {
     display:none;
   position: absolute; left: 100%; top:0;
@@ -198,10 +213,10 @@ display: block;
   width: 10%;
 }
 li#name1 {
-    right: -100px;
+    right: -400px;
     font-size: 27px;
     font-style: italic;
-} 
+}      
 #his{
  margin-left:1150px;
   margin-top:-90px;
@@ -230,7 +245,7 @@ li#name1 {
   <div class='menujohanes'  style="position:sticky;top:0;z-index:1;" >
         
        <ul class='dark_menu' >
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
+
           
 <li  >
             <a>
@@ -294,12 +309,37 @@ li#name1 {
                 </li>
 
                <li>
-<!-- <<<<<<< HEAD:public/Transaction.html
-                <a href="item.html">
-======= -->
+<li>
                 <a href="Item.html">
-<!-- >>>>>>> c48bfd0e80c9b43602e5680e3278aa853ad3d82f:public/Transaction.html -->
                   Item
+                </a>
+              </li>
+               <li ng-if="desgination == 'Admin'">
+
+                <a href="staff.html">
+
+                  Staff
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="purity.html">
+
+                  Purity
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="salesCategory.html">
+
+                 SalesCategory
+                </a>
+              </li>
+              <li ng-if="desgination == 'Admin'">
+
+                <a href="inventoryGroup.html">
+
+                  InventoryGroup
                 </a>
               </li>
              
@@ -420,6 +460,7 @@ li#name1 {
 
         
       </div>
+  
 
  <div  class="center" ng-cloak>
   <h3 >Order Status</h3>
@@ -499,8 +540,6 @@ To  <input type="date" ng-model="dateto" id="dates" ng-change="clearDataOrd()" /
     </div>
         <div class="col-sm-1" >
         <a> <button id="spac" id="spac"  class="btn btn-warning" ng-click="gotoorders(data)" ng-disabled="typeorder=='Delivered' || makeDisabled=='Delivered' || typeorder=='Completed' || makeDisabled=='Completed'">Edit</button></a></div>
-      <!--   <div class="col-sm-3" >  <button id="spac" ng-click="valuationPrint()"  class="btn btn-success">Print</button></div> -->
-        <!--   <div  > <button id="spac">Close</button>
-           </div> -->
+     
 </body>
 </html>
