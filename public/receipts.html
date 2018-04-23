@@ -740,7 +740,7 @@ thead tr th {
               <th style="margin-left:0px;width:20px;">check</th>
                   <th style="width:75px;margin-left:45px">Mode</th>
                   <th style="width:60px;text-align:right;margin-left:25px">Amount</th>
-                  <th style="width:60px;text-align: right;margin-left:10px">Bank</th>
+                  <th style="width:50px;text-align: right;margin-left:25px">Bank</th>
                   <th style="width:150px;text-align:center;margin-left:25px">
                     ChequeNo</th>
                   <th style="width:150px;text-align:center;margin-left:15px">Date</th>
@@ -763,7 +763,7 @@ thead tr th {
             </td>
 <!-- change="totalAmount($index)" -->
             <td >
-              <select  class="selectpicker" ng-model="item.bank" style="width:60px;text-align: right;margin-left:10px" ng-disabled="item.paymode=='Cash'">
+              <select  class="selectpicker" ng-model="item.bank" style="width:50px;text-align: right;margin-left:25px" ng-disabled="item.paymode=='Cash'">
             <option ng-repeat="bank in banks">{{bank.name}}</option>
             </select>
            </td>

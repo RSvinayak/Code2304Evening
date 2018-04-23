@@ -606,10 +606,11 @@ Staff<span id="star"><font size="02">*</font></span>&nbsp;
        <option ng-repeat="pure in item.irate" >{{pure.ValueNotation}}</option>
        </select></td>
 <td  >
- <input type="number" ng-model="item.gwt "   id="box"  ng-change="newgwt($index)"  ng-blur="threeDecimals($index)"   > </td>
+ <input type="number" ng-model="item.gwt "   id="box"  ng-change="newgwt($index)"   oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');"  > 
+</td>
 <td ><input type="number" id="box"  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="item.gpcs"  ng-change="gpcsDecimals($index)"></td>
 
-     <td style="padding-right: 5px"><input type="number" id="box"  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="item.stwt" ng-change="newstwt($index)"   ></td>
+     <td style="padding-right: 5px"><input type="number" id="box"  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-model="item.stwt"  ng-change="newstwt($index)"   ></td>
        
        
       

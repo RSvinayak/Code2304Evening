@@ -407,6 +407,8 @@ console.log($scope.use)
   $window.location="Transaction.html"
 
   $scope.ordersReceipt1=1;
+  $scope.orderCharge=1;
+  window.sessionStorage.setItem("ordChg",$scope.orderCharge);
   window.sessionStorage.setItem("oreceipt2",$scope.ordersReceipt1);
   window.sessionStorage.setItem("goToReceipt",$scope.transaction)
 
@@ -1234,16 +1236,11 @@ $scope.newgwt=function($index,pctcal)
 }*/
 }
 
-$scope.threeDecimals=function(ind){
-  //alert("kk")
-//   var num = $scope.userit[ind].gwt.toFixed(fixdec); // Convert to string
-$scope.gwt1=126.123444
-// //alert(typeof(num)+num)
-// var beforeDecimal=num.split('.')[0]
-//     var afterDecimal=num.split('.')[1] 
-    //var ghj=parseFloat(afterDecimal)
- //alert(typeof( ghj)+ ghj)
-}
+// $scope.threeDecimals=function(ind){
+//     $scope.userit[ind].gwt= $scope.userit[ind].gwt.toFixed(fixdec);
+//     $scope.userit[ind].stwt= $scope.userit[ind].stwt.toFixed(fixdec); // Convert to string
+
+// }
 $scope.newstwt=function($index)
 {
    //alert(($scope.userit[$index].stwt))
@@ -1845,7 +1842,8 @@ return;
 
   var r = confirm("Amount Advance")
             if (r==true) {
-
+            $scope.amountCharge=1;
+  window.sessionStorage.setItem("amtchg",$scope.amountCharge);
                $scope.mylink = "receipts.html";
 //alert()
  twice=$scope.party+","+$scope.orderNO
