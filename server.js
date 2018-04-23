@@ -1066,46 +1066,43 @@ var str=req.params.thh;
     var ntwt=str_array[8]
      ntwt = parseFloat(ntwt)
     var purity=str_array[9]
-    var taxval=str_array[10]
-   taxval = parseInt(taxval);
-    var taxamt=str_array[11]
+   
+   
     // var size=str_array[11]
-    var stwt=str_array[12]
+    var stwt=str_array[10]
     
-    var wastage=str_array[13]
-    var stval=str_array[14]
+    var wastage=str_array[11]
+    var stval=str_array[12]
 
       
-    var uom=str_array[15] //
+    var uom=str_array[13] //
      
     
-    var pctcal=str_array[16] //
+    var pctcal=str_array[14] //
      
     
-    var chgunt=str_array[17] //
-    var outofstateigst=str_array[18]
+    var chgunt=str_array[15] //
+   
   
 
-     var mrp =str_array[19]
+     var mrp =str_array[16]
   
-      var stchg=str_array[20]
+      var stchg=str_array[17]
     
-         var  stonecal=str_array[21]
-          var  labamt=str_array[22]     
-           var  taxSelection=str_array[23] 
-            var withinstatecgst=str_array[24] 
-             var  withinstatesgst =str_array[25] 
-              var  final=str_array[26] 
-               var  rate=str_array[27] 
-                var  labval=str_array[28] 
+         var  stonecal=str_array[18]
+          var  labamt=str_array[19]     
+        
+              var  final=str_array[20] 
+               var  rate=str_array[21] 
+                var  labval=str_array[22] 
                  
       
    
      db.orders.update({_id:mongojs.ObjectId(id)},{$set:{"orderNo":showOrderNO, "chgunt":chgunt,"desc":desc,"gpcs":gpcs,"gwt":gwt,
-    "itemName":itemName,"ntwt":ntwt,"partyNames":partyNames,"size":size,"taxval":taxval,"taxamt":taxamt,"stwt":stwt,"wastage":wastage,"stval":stval,
+    "itemName":itemName,"ntwt":ntwt,"partyNames":partyNames,"size":size,"stwt":stwt,"wastage":wastage,"stval":stval,
 
-      "outofstateigst":outofstateigst,"mrp":mrp,"stchg":stchg,"stonecal":stonecal,"labamt ":labamt , "purity":purity,"uom":uom,"pctcal":pctcal,
-      "taxSelection":taxSelection,"withinstatecgst":withinstatecgst,"withinstatesgst":withinstatesgst,"final":final,"rate":rate,"labval":labval
+     "mrp":mrp,"stchg":stchg,"stonecal":stonecal,"labamt ":labamt , "purity":purity,"uom":uom,"pctcal":pctcal,
+   "rate":rate,"labval":labval
        }},function(err,doc){
                 res.json(doc);
 
