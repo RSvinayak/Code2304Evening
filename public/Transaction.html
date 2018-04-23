@@ -1060,12 +1060,12 @@ margin-top:-20px;
        </select></td>
 
 
-       <td ><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.labamt" ng-value="{{item.labamt}}" ng-change="newlab($index,item.labcal)" placeholder="0"ng-blur="calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'"></td>
+       <td ><input type="number"  name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" class="form-control" id="usr" ng-model="item.labamt" ng-value="{{item.labamt}}" ng-change="newlab($index,item.labcal)" placeholder="0"ng-blur="calMrpValue($index)" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'||receiptOrder == 1"></td>
 
 
 
 <!-- <<<<<<< HEAD -->
-       <td><input type="text" class="form-control"  id="usr"  ng-model="item.labval" ng-value="{{item.labval}}" placeholder="0" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'" readonly></td>
+       <td><input type="text" class="form-control"  id="usr"  ng-model="item.labval" ng-value="{{item.labval}}" placeholder="0" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'||receiptOrder == 1" readonly></td>
 
        <td ng-if = " LabourTax =='Yes'"><input type="text" class="form-control" ng-model="item.labourTaxValue" placeholder="0" ng-disabled="transaction=='Sale Return'||transaction=='Purchase Return'||transaction=='Approval Sale'||transaction=='Approval Return'||transaction == 'Issue Voucher'" ></td>
        <td> <select ng-model="item.stonecal" ng-change="newstchg($index,item.stonecal)" class="selectpicker" ng-disabled= "disableMrp1($index)||transaction=='Purchase Return'||transaction=='Sale Return'||transaction=='Approval Return'||transaction=='Approval Sale'||transaction == 'Issue Voucher'||transaction=='Receipt Voucher'">

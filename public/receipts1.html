@@ -663,8 +663,7 @@ thead tr th {
                     <div class="col-md-3" id="party11">
                     <span style="font-size:15px;margin-left:-200px;margin-top:10px">Date:</span>
                     <input type="date" style="height:25px;width:150px;font-size:15px" ng-model="billDate" readonly>
-                  </div>     
-
+                  </div>          
                   <div class="col-md-5" id="party33" >
                     <span style="font-size:15px">Receipt No:</span>
                     <input type="text" style="height:25px;width:100px;font-size:15px;" ng-model="billNo" readonly></input>
@@ -738,80 +737,57 @@ thead tr th {
   <table class="table" style="background-color: white;height: 185px;" id="maintable" ng-cloak>
           <thead >
           <tr>
-             <!--  <th style="margin-left:0px;width:20px;">check</th>
+              <th style="margin-left:0px;width:10px;">check</th>
                   <th style="width:75px;margin-left:45px">Mode</th>
-                  <th style="width:60px;text-align:right;margin-left:25px">Amount</th>
-                  <th style="width:50px;text-align: right;margin-left:25px">Bank</th>
+                  <th style="width:40px;text-align:right;margin-left:25px">Amount</th>
+                  <th style="width:74px;text-align: right;margin-left:30px">Bank</th>
                   <th style="width:150px;text-align:center;margin-left:25px">
                     ChequeNo</th>
                   <th style="width:150px;text-align:center;margin-left:15px">Date</th>
                   <th style="width:70px;text-align: center;margin-left:30px">CardNo</th>
-                  <th style="width:70px;text-align: center;margin-left:40px">Cardtype</th>
-                  <th style="width:70px;text-align: center;margin-right:10px;margin-left:35px">ApprovalNo</th> -->
-
-
-                     <th style="width:0px; margin-left:-20px">Check</th>
-                  <th style="width:120px;  margin-left:10px">Mode</th>
-                  <th style="width:90px; margin-left: -10px">Amount</th>
-                  <th style="width:90px; margin-left: 10px">Bank</th>
-                  <th style="width:100px;margin-left: 20px;">ChequeNo</th>
-                  <th style="width:120px;margin-left: 30px;">Date</th>
-                  <th style="width:100px;margin-left: 30px;">CardNo</th>
-                  <th style="width:120px;margin-left:0px">Cardtype</th>
-                  <th style="width:60px;margin-left:20px">ApprovalNo</th>
-
-
-
-
-
-
-
-
-
-
+                  <th style="width:70px;text-align: center;margin-left:30px">Cardtype</th>
+                  <th style="width:70px;text-align: center;margin-right:10px;margin-left:25px">ApprovalNo</th>
                   </tr>
-
-
                   </thead>
           <tbody ng-cloak ng-repeat="item in rpamt" id="hi1">
             <tr>
-            <td  style="width: 50px"><input type="checkbox" style="margin-left:-5"  ng-model="check" ng-true-value="1" ng-false-value="0" ng-click="removeChecked($index,check);indexFunctionCall($index,check)"/></td>
+            <td><input type="checkbox" style="margin-left:0px;width:10px;" ng-model="check" ng-true-value="1" ng-false-value="0" ng-click="removeChecked($index,check);indexFunctionCall($index,check)"/></td>
             <!-- ng-init="item.paymode='Cash'" -->
-           <td style="width:100px;">
-             <select ng-model="item.paymode" style="width:80px; margin-left:-20"  ng-init="item.paymode='Cash'">
+            <td style="width:65px;margin-left:15px">
+             <select ng-model="item.paymode"  ng-init="item.paymode='Cash'">
              <option ng-repeat="mode in modes" >{{mode.name}}</option> 
             </td>
 
             <td >
-              <input type="number" ng-model="item.amount"  min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-change="totalAmount(item.amount);"   style="width: 90px; margin-left:-30px">
+              <input type="number" ng-model="item.amount" style="width:40px;text-align:right;margin-left:55px" min="1" name=""  oninput="this.value=this.value.replace(/[^0.0-9.0]/g,'');" ng-change="totalAmount(item.amount);" / >
             </td>
 <!-- change="totalAmount($index)" -->
             <td >
-              <select  class="selectpicker" ng-model="item.bank"  ng-disabled="item.paymode=='Cash'" style="width: 80px;">
+              <select  class="selectpicker" ng-model="item.bank" style="width:80px;text-align: right;margin-left:25px" ng-disabled="item.paymode=='Cash'">
             <option ng-repeat="bank in banks">{{bank.name}}</option>
             </select>
            </td>
 
            <td>
-            <input type="number" ng-model="item.chequeno" style="width: 100px;"  ng-disabled="item.paymode!='Cheque'"/>
-          </td>
-
-          <td >
-            <input type="date" ng-model="item.date" style="width: 140px;  margin-left:10"  ng-disabled="item.paymode!='Cheque'"/>
+            <input type="number" ng-model="item.chequeno" style="width:120px;margin-left:0px" ng-disabled="item.paymode!='Cheque'"/>
           </td>
 
           <td>
-            <input type="number"  style="width: 80px;margin-left:20" ng-model="item.cardnos"  ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
+            <input type="date" ng-model="item.date" style="width:150px;text-align:center;margin-left:10px" ng-disabled="item.paymode!='Cheque'"/>
+          </td>
+
+          <td>
+            <input type="number" ng-model="item.cardnos" style="width:80px;text-align: center;margin-left:10px" ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
           </td>
             
              <td>
-              <select class="selectpicker"  style="width: 80px; margin-left:10" ng-model="item.ctype"  ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
+              <select class="selectpicker" ng-model="item.ctype" style="width:70px;text-align: left;margin-left:10px" ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
             <option ng-repeat="card in cards" >{{card.name}}</option>
             </select>
           </td>
 
           <td>
-            <input type="number" style="width: 120px; margin-left:20px" ng-model="item.appno" ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
+            <input type="number" ng-model="item.appno" style="width:70px;text-align: center;margin-right:-5px;margin-left:25px" ng-disabled="item.paymode=='Cash'||item.paymode=='Cheque'"/>
           </td>
 
         </tr>
@@ -822,7 +798,6 @@ thead tr th {
 <!-- <br> -->
 <!-- <div class="col-md-2"> -->
 </div>
-
 <!-- <br> -->
   <button class="btn btn-info" style="margin-left:400px;" ng-model="delete" ng-click="removeSelectedRows($index)"
   >Delete</button>
@@ -850,7 +825,7 @@ thead tr th {
           <br>
         <button class="btn btn-danger" style="margin-left:385px;" ng-click="clear()">Cancel</button>
         <!-- <a href={{materialAdvance}}> -->
-        <button class="btn btn-success" style="margin-left:50px;width:50px;" ng-click="save()">Save</button>
+        <button class="btn btn-success" style="margin-left:50px;width:80px;" ng-click="save()">Save</button>
       <!-- </a> -->
           </div>
     </div>

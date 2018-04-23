@@ -25,7 +25,7 @@ myApp.controller('billCntrl',['$scope','$http','$window',
  $scope.printreceipt=window.sessionStorage.getItem("rprint");
  var recentId=JSON.parse(window.sessionStorage.getItem("siid"));
  var recentId1=recentId;
- 
+ $scope.newAdd= JSON.parse(window.sessionStorage.getItem("addAmt"));
    //alert(recentId1+"  bbbbbbbbbbbbbb");
     //alert("selected party"+$scope.printreceipt);
  $scope.partyname=$scope.customer;
@@ -258,7 +258,7 @@ $scope.totalAmount=function(data){
 }
 
 $scope.newRow=function(){
-  if($scope.partyname != null && editrow3 != null){
+  if(($scope.partyname != null)|| $scope.newAdd == 1){
         $scope.rpamt.push({
           'paymode':"",
           'amount':"",
