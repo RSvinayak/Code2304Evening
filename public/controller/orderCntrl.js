@@ -1234,16 +1234,11 @@ $scope.newgwt=function($index,pctcal)
 }*/
 }
 
-$scope.threeDecimals=function(ind){
-  //alert("kk")
-//   var num = $scope.userit[ind].gwt.toFixed(fixdec); // Convert to string
-$scope.gwt1=126.123444
-// //alert(typeof(num)+num)
-// var beforeDecimal=num.split('.')[0]
-//     var afterDecimal=num.split('.')[1] 
-    //var ghj=parseFloat(afterDecimal)
- //alert(typeof( ghj)+ ghj)
-}
+// $scope.threeDecimals=function(ind){
+//     $scope.userit[ind].gwt= $scope.userit[ind].gwt.toFixed(fixdec);
+//     $scope.userit[ind].stwt= $scope.userit[ind].stwt.toFixed(fixdec); // Convert to string
+
+// }
 $scope.newstwt=function($index)
 {
    //alert(($scope.userit[$index].stwt))

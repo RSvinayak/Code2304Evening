@@ -20,6 +20,7 @@ var methodOverride = require('method-override');
 var bson = require('bson');
 var Promise = require('es6-promise').Promise;
 var Decimal128 = require('mongodb').Decimal128;
+
 app.use(express.static('public'));
 
 //app.use(bodyParser.json());
@@ -1065,46 +1066,43 @@ var str=req.params.thh;
     var ntwt=str_array[8]
      ntwt = parseFloat(ntwt)
     var purity=str_array[9]
-    var taxval=str_array[10]
-   taxval = parseInt(taxval);
-    var taxamt=str_array[11]
+   
+   
     // var size=str_array[11]
-    var stwt=str_array[12]
+    var stwt=str_array[10]
     
-    var wastage=str_array[13]
-    var stval=str_array[14]
+    var wastage=str_array[11]
+    var stval=str_array[12]
 
       
-    var uom=str_array[15] //
+    var uom=str_array[13] //
      
     
-    var pctcal=str_array[16] //
+    var pctcal=str_array[14] //
      
     
-    var chgunt=str_array[17] //
-    var outofstateigst=str_array[18]
+    var chgunt=str_array[15] //
+   
   
 
-     var mrp =str_array[19]
+     var mrp =str_array[16]
   
-      var stchg=str_array[20]
+      var stchg=str_array[17]
     
-         var  stonecal=str_array[21]
-          var  labamt=str_array[22]     
-           var  taxSelection=str_array[23] 
-            var withinstatecgst=str_array[24] 
-             var  withinstatesgst =str_array[25] 
-              var  final=str_array[26] 
-               var  rate=str_array[27] 
-                var  labval=str_array[28] 
+         var  stonecal=str_array[18]
+          var  labamt=str_array[19]     
+        
+              var  final=str_array[20] 
+               var  rate=str_array[21] 
+                var  labval=str_array[22] 
                  
       
    
      db.orders.update({_id:mongojs.ObjectId(id)},{$set:{"orderNo":showOrderNO, "chgunt":chgunt,"desc":desc,"gpcs":gpcs,"gwt":gwt,
-    "itemName":itemName,"ntwt":ntwt,"partyNames":partyNames,"size":size,"taxval":taxval,"taxamt":taxamt,"stwt":stwt,"wastage":wastage,"stval":stval,
+    "itemName":itemName,"ntwt":ntwt,"partyNames":partyNames,"size":size,"stwt":stwt,"wastage":wastage,"stval":stval,
 
-      "outofstateigst":outofstateigst,"mrp":mrp,"stchg":stchg,"stonecal":stonecal,"labamt ":labamt , "purity":purity,"uom":uom,"pctcal":pctcal,
-      "taxSelection":taxSelection,"withinstatecgst":withinstatecgst,"withinstatesgst":withinstatesgst,"final":final,"rate":rate,"labval":labval
+     "mrp":mrp,"stchg":stchg,"stonecal":stonecal,"labamt ":labamt , "purity":purity,"uom":uom,"pctcal":pctcal,
+   "rate":rate,"labval":labval
        }},function(err,doc){
                 res.json(doc);
 
@@ -2569,6 +2567,7 @@ app.post('/transactionstock',function(req,res){
     delete(req.body.color)
      delete( req.body.irate)
      delete(req.body.accNumbers);
+     req.body.stockInward = "yes";
        delete( req.body.stockPoint1 );
 
  db.transactionDetail.insert(req.body,function(err,doc){
@@ -9389,9 +9388,22 @@ app.get('/printCompositeItems',function(req,res){
    
     console.log("i received a get request from user");
    
-    db.transactionDetail.findOne({"compositeRef":Number(req.query.compositeRef),"compositenum":Number(req.query.compositenum)},function(err,doc1){
+    db.transactionDetail.findOne({"compositeRef":Number(req.query.compositeRef),"compositenum":Number(req.query.compositenum),"stockInward":"yes"},function(err,doc1){
        // console.log(doc1.compositenum);
         res.json(doc1);
+        var compositeNewItems = doc1 ;
+        compositeNewItems.date = new Date(((new Date(new Date()).toISOString().slice(0, 23))+"-05:30")).toISOString();
+        //console.log(" compositeNewItems[0]._id "+compositeNewItems._id) ;
+         db.transactionDetail.insert({"Transaction":compositeNewItems.Transaction,"chgunt":compositeNewItems.chgunt,"date":compositeNewItems.date,"desc":compositeNewItems.desc,
+         "gpcs":compositeNewItems.gpcs,"gwt":compositeNewItems.gwt,"itemName":compositeNewItems.itemName,"ntwt":compositeNewItems.ntwt,"rate":compositeNewItems.rate,"mrp":compositeNewItems.mrp,"size":compositeNewItems.size,"taxval":compositeNewItems.taxval,"stwt":compositeNewItems.stwt,"withinstatecgst":Number(compositeNewItems.withinstatecgst),
+         "withinstatesgst":Number(compositeNewItems.withinstatesgst),"outofstateigst":Number(compositeNewItems.outofstateigst),"partyname":compositeNewItems.partyname, "orderStatus":compositeNewItems.orderStatus,"StockInward":"no","taxamt":compositeNewItems.taxamt,
+        "wastage":compositeNewItems.wastage,"stval":compositeNewItems.stval,"labval":compositeNewItems.labval,"final":compositeNewItems.final,"invGroupAccNO":compositeNewItems.invGroupAccNO,"invGroupName":compositeNewItems.invGroupName,
+       "transactionTypeId":compositeNewItems.transactionTypeId,"voucherClass":compositeNewItems.voucherClass,"voucherClassId":compositeNewItems.voucherClassId,"voucherDate":compositeNewItems.voucherDate,"voucherTime":compositeNewItems.voucherTime,
+       "salesPerson":compositeNewItems.salesPerson,"AccNo":compositeNewItems.AccNo,"labourTaxValue":compositeNewItems.labourTaxValue,'labamt':compositeNewItems.labamt,'stchg':compositeNewItems.stchg,'comboItem':compositeNewItems.comboItem,"billType":compositeNewItems.billType,"taxSelection":compositeNewItems.taxSelection,
+      "stonecal":compositeNewItems.stonecal,"pctcal":compositeNewItems.pctcal,"labcal":compositeNewItems.labcal,
+     "withinstatecgst":Number(compositeNewItems.withinstatecgst),
+         "withinstatesgst":Number(compositeNewItems.withinstatesgst),"outofstateigst":Number(compositeNewItems.outofstateigst),"purity":compositeNewItems.purity,
+               "InvGroupName":compositeNewItems.InvGroupName ,"SaleCategory":compositeNewItems.SaleCategory,"stockPoint":compositeNewItems.stockPoint,"stockInward":"no"})
     })
 })
 
